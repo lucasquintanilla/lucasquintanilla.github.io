@@ -5,124 +5,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Material Design 3 Chat Interface</title>
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .chat-container {
-            width: 100%;
-            max-width: 600px;
-            background-color: #ffffff;
-            border-radius: 28px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 80%;
-            background-image: url('https://avatars.mds.yandex.net/i?id=315e31471c75aa119c3b9601c3c75b36-5401700-images-thumbs&ref=rim&n=33&w=172&h=250');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-        }
-        .messages {
-            flex-grow: 1;
-            overflow-y: auto;
-            margin-bottom: 16px;
-            padding-right: 8px;
-            display: flex;
-            flex-direction: column;
-        }
-        .message {
-            padding: 12px 16px;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            max-width: 80%;
-            word-wrap: break-word;
-        }
-        .message.user {
-            background-color: #e3f2fd;
-            align-self: flex-end;
-            text-align: right;
-        }
-        .message.bot {
-            background-color: #fce4ec;
-            align-self: flex-start;
-            text-align: left;
-        }
-        .message img {
-            max-width: 150px;
-            border-radius: 16px;
-            margin-top: 5px;
-            display: block;
-        }
-        .options-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-        .option-button {
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid #6200ee;
-            background-color: #e3f2fd;
-            color: #6200ee;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .option-button:hover {
-            background-color: #6200ee;
-            color: white;
-        }
-        .input-container {
-            display: flex;
-            gap: 12px;
-        }
-        input[type="text"] {
-            flex: 1;
-            padding: 12px 16px;
-            border-radius: 28px;
-            border: 1px solid #ccc;
-            box-shadow: none;
-            outline: none;
-            font-size: 16px;
-            transition: border 0.3s;
-        }
-        input[type="text"]:focus {
-            border-color: #6200ee;
-        }
-        .send-button, .voice-button, .file-button {
-            padding: 12px;
-            border-radius: 50%;
-            border: none;
-            background-color: #6200ee;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-        .send-button:hover, .voice-button:hover, .file-button:hover {
-            background-color: #3700b3;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .file-button {
-            background-color: #03dac6;
-        }
-        .file-button:hover {
-            background-color: #018786;
-        }
+:root {
+    --primary-color: #25D366; /* WhatsApp green */
+    --primary-dark-color: #128C7E; /* Darker green for hover */
+    --secondary-color: #34B7F1; /* WhatsApp light blue */
+    --secondary-dark-color: #075E54; /* Darker blue-green for buttons */
+    --background-color: #E5DDD5; /* WhatsApp background color */
+    --white-color: #ffffff;
+    --light-blue-color: #DCF8C6; /* WhatsApp chat bubble color */
+    --light-pink-color: #ffffff; /* For bot message, keep it white */
+    --border-color: #ccc;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-dark-color: rgba(0, 0, 0, 0.2);
+
+    --base-padding: 1.5rem; /* Base padding for scaling */
+    --base-margin: 1rem; /* Base margin for scaling */
+    --border-radius: 1.75rem; /* Base border radius for scaling */
+    --base-font-size: 1rem; /* Base font size for scaling */
+    --button-size: 3rem; /* Size for buttons (3rem = 48px equivalent) */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: var(--base-font-size);
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 37.5rem; /* 600px equivalent */
+    background-color: var(--white-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 0.25rem 0.375rem var(--shadow-color);
+    padding: var(--base-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+    /* background-image: url('https://avatars.mds.yandex.net/i?id=315e31471c75aa119c3b9601c3c75b36-5401700-images-thumbs&ref=rim&n=33&w=172&h=250'); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: var(--base-margin);
+    padding-right: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--base-margin);
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.message.user {
+    background-color: var(--light-blue-color);
+    align-self: flex-end;
+    text-align: right;
+}
+
+.message.bot {
+    background-color: var(--light-pink-color);
+    align-self: flex-start;
+    text-align: left;
+}
+
+.message img {
+    max-width: 9.375rem; /* 150px equivalent */
+    border-radius: 1rem;
+    margin-top: 0.3125rem; /* 5px equivalent */
+    display: block;
+}
+
+.options-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.625rem; /* 10px equivalent */
+}
+
+.option-button {
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-color);
+    background-color: var(--light-blue-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.option-button:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.input-container {
+    display: flex;
+    gap: 0.75rem; /* 12px equivalent */
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+    outline: none;
+    font-size: 1rem;
+    transition: border 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: var(--primary-color);
+}
+
+.send-button, .voice-button, .file-button {
+    padding: 0.75rem;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--button-size);
+    height: var(--button-size);
+    box-shadow: 0 0.125rem 0.25rem var(--shadow-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.voice-button, .file-button {
+    display: none;
+}
+
+.send-button:hover, .voice-button:hover, .file-button:hover {
+    background-color: var(--primary-dark-color);
+    box-shadow: 0 0.25rem 0.5rem var(--shadow-dark-color);
+}
+
+.file-button {
+    background-color: var(--secondary-color);
+}
+
+.file-button:hover {
+    background-color: var(--secondary-dark-color);
+}
+
+
     </style>
 </head>
 <body>
@@ -216,7 +259,7 @@
     async function handleUserSelection(selection) {
         // Simulate user input
         const botResponse = await getBotResponse(selection);
-        addMessage('Miau (the weather-knowing cat 🐱): ' + botResponse, 'bot');
+        addMessage('Miau: ' + botResponse, 'bot');
 
         // Optionally, you can add response options based on the bot's reply
         // Example:
@@ -233,7 +276,7 @@
 
             // Get bot response from GPT
             const botResponse = await getBotResponse(text);
-            addMessage('Miau (the weather-knowing cat 🐱): ' + botResponse, 'bot');
+            addMessage(botResponse, 'bot');
 
             // Example: Add options after the bot's response
             if (text.toLowerCase().includes('weather')) {
@@ -250,7 +293,7 @@
             const transcript = event.results[0][0].transcript;
             addMessage(transcript, 'user');
             getBotResponse(transcript).then(botResponse => {
-                addMessage('Miau (the weather-knowing cat 🐱): ' + botResponse, 'bot');
+                addMessage(botResponse, 'bot');
             });
         };
         recognition.onerror = (event) => {
