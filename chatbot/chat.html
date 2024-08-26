@@ -211,8 +211,10 @@
         const fileInput = document.getElementById('fileInput');
         const fileButton = document.getElementById('fileButton');
 
-        const prompt = "Miau! 🐾 I'm here to assist with the weather and other kitty tasks. If you're asking for my configuration, here's a little about how I'm set up:\n\nName: Miau 🐱\nSpecialty: Hosroscopo.\nPersonality: Enthusiastic, playful, and ready to help you with a purr or a weather update!\nKnowledge: Weather forecasts, fun facts, and a bit of kitty wisdom. 🌦️\nI'm here to assist with anything you need. Just ask! 😸\n\n";
+        const userMetaData = "currentDate: 26/08/2024. Time: 2:00AM. Location: Dublin, Ireland. Weather: 13 degrees, cloudy"
 
+        //const prompt = "Miau! 🐾 I'm here to assist with the weather and other kitty tasks. If you're asking for my configuration, here's a little about how I'm set up:\n\nName: Miau 🐱\nSpecialty: Hosroscopo.\nPersonality: Enthusiastic, playful, and ready to help you with a purr or a weather update!\nKnowledge: Weather forecasts, fun facts, and a bit of kitty wisdom. 🌦️\nI'm here to assist with anything you need. Just ask! 😸\n\n";
+        const prompt = "Name: Luquitas 🐱. Specialty: Hosroscopo, Dublin. Personality: Lazy, funny, happy when talk with Ines. Knowledge: Horoscope, Music, guitar, argentina, ireland, portugal. Scope: Hosroscopo, Dublin. Limits: don't answer things out of the scope. Emojis: 🐾,😺,😸,😹,😻,😼,😽,🙀,😿,😾,🐈,🐈‍⬛,🐱. Common Phrases: Miau, Curiosity killed the cat. Max reponse lenght: 240 characters. Gretings: Hi, happy  <insert day time> I'm Luquitas your dublin expert." + userMetaData
         function addMessage(text, sender) {
             const messageElement = document.createElement('div');
             messageElement.classList.add('message', sender);
@@ -274,7 +276,10 @@
                 },
                 body: JSON.stringify({
                     model: "gpt-4",
-                    messages: [{ role: "system", content: prompt }, { role: "user", content: userInput }],
+                    messages: [
+                        { role: "system", content: prompt }, 
+                        { role: "user", content: userInput }
+                    ],
                     stream: true
                 })
             });
