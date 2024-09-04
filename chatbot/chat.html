@@ -354,7 +354,7 @@
             return response;
         }
 
-        // Handle the streamed response from the bot
+        // Handle the streamed response from the bot and provide suggestions
         async function handleStreamedResponse(response) {
             const reader = response.body.getReader();
             const decoder = new TextDecoder();
@@ -371,12 +371,10 @@
                 const parts = partialMessage.split('\n\n');
 
                 parts.slice(0, -1).forEach(part => {
-                    // Check if the message is '[DONE]', which signifies the end of the stream
                     if (part === 'data: [DONE]') {
                         return;
                     }
 
-                    // Try to parse the JSON part
                     try {
                         const jsonPart = JSON.parse(part.replace(/^data: /, ''));
                         const content = jsonPart.choices[0]?.delta?.content || '';
@@ -391,28 +389,59 @@
 
                 partialMessage = parts[parts.length - 1];
             }
+
+            // Suggest options based on the accumulated response content
+            suggestOptionsBasedOnResponse(accumulatedMessage);
         }
 
-        // Suggest options based on the category of input
-        function suggestOptionsBasedOnCategory(category) {
-            let options = [];
-            switch (category.toLowerCase()) {
-                case 'weather':
-                    options = ['Weather in Dublin', 'Weather forecast for the week', 'Weather updates for other cities'];
-                    break;
-                case 'restaurants':
-                    options = ['Top-rated restaurants', 'Nearby dining options', 'Restaurant recommendations for dinner'];
-                    break;
-                case 'events':
-                    options = ['Upcoming events in Dublin', 'Music festivals nearby', 'Nightlife options'];
-                    break;
-                case 'coffee':
-                    options = ['Best coffee shops', 'Coffee places with outdoor seating', 'Cozy coffee shops for work'];
-                    break;
-                default:
-                    options = ['General advice', 'Horoscope predictions', 'Music recommendations'];
+        // Define a mapping for suggestions based on the response type
+        const suggestionMap = {
+            weather: ['Local weather updates', 'Weekly forecast', 'Weather in another city'],
+            restaurants: ['Top restaurants nearby', 'Restaurant recommendations for dinner', 'Restaurants with outdoor seating'],
+            events: ['Upcoming events', 'Music festivals', 'Nightlife options'],
+            coffee: ['Best coffee shops nearby', 'Coffee places with Wi-Fi', 'Cozy places to work'],
+            horoscope: ['Daily horoscope', 'Horoscope for the week', 'Compatibility readings'],
+            general: ['General advice', 'Music recommendations', 'Fun facts about Dublin']
+        };
+
+        // Function to suggest options based on multiple response categories
+        function suggestOptionsBasedOnResponse(responseText) {
+            const detectedCategories = [];
+
+            // Check for keywords in the response and add corresponding categories
+            if (responseText.toLowerCase().includes('weather')) {
+                detectedCategories.push('weather');
             }
-            addOptions(options);
+            if (responseText.toLowerCase().includes('restaurant')) {
+                detectedCategories.push('restaurants');
+            }
+            if (responseText.toLowerCase().includes('event')) {
+                detectedCategories.push('events');
+            }
+            if (responseText.toLowerCase().includes('coffee')) {
+                detectedCategories.push('coffee');
+            }
+            if (responseText.toLowerCase().includes('horoscope')) {
+                detectedCategories.push('horoscope');
+            }
+
+            // If no specific category is detected, default to 'general'
+            if (detectedCategories.length === 0) {
+                detectedCategories.push('general');
+            }
+
+            // Collect suggestions from all detected categories
+            const suggestions = [];
+            detectedCategories.forEach(category => {
+                suggestions.push(...suggestionMap[category]);
+            });
+
+            // Optional: Limit the number of suggestions to prevent overload
+            const maxSuggestions = 5;
+            const uniqueSuggestions = [...new Set(suggestions)].slice(0, maxSuggestions);
+
+            // Display the suggestions to the user
+            addOptions(uniqueSuggestions);
         }
 
         // Main function to orchestrate the bot response flow
@@ -424,27 +453,14 @@
 
             const response = await generateBotResponse(userInput, apiToken, prompt);
             await handleStreamedResponse(response);
-
-            // Suggest options based on user input
-            if (userInput.toLowerCase().includes('weather')) {
-                suggestOptionsBasedOnCategory('weather');
-            } else if (userInput.toLowerCase().includes('restaurant')) {
-                suggestOptionsBasedOnCategory('restaurants');
-            } else if (userInput.toLowerCase().includes('event')) {
-                suggestOptionsBasedOnCategory('events');
-            } else if (userInput.toLowerCase().includes('coffee')) {
-                suggestOptionsBasedOnCategory('coffee');
-            } else {
-                suggestOptionsBasedOnCategory('general');
-            }
         }
 
         async function handleUserSelection(selection) {
             await getBotResponse(selection);
 
-            if (selection.toLowerCase().includes('weather')) {
-                addOptions(['Dublin', 'London', 'New York']);
-            }
+            // if (selection.toLowerCase().includes('weather')) {
+            //     addOptions(['Dublin', 'London', 'New York']);
+            // }
         }
 
         sendButton.addEventListener('click', async () => {
