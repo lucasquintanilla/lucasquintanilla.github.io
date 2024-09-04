@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Little Gatinho</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         :root {
             --primary-color: #25D366;
@@ -167,6 +169,10 @@
             transition: background-color 0.3s, box-shadow 0.3s;
         }
 
+        .send-button {
+            font-size: 24px;
+        }
+
         .voice-button,
         .file-button {
             display: none;
@@ -196,7 +202,9 @@
         <div class="input-container">
             <input type="text" id="messageInput" placeholder="Type a message...">
             <button class="voice-button" id="voiceButton">🎤</button>
-            <button class="send-button" id="sendButton">➤</button>
+            <!-- <button class="send-button" id="sendButton">➤</button> -->
+            <button class="send-button" id="sendButton"><i class="fas fa-paw"></i></button>
+            <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
             <input type="file" id="fileInput" multiple style="display:none;">
             <button class="file-button" id="fileButton">📎</button>
         </div>
@@ -209,6 +217,15 @@
         const voiceButton = document.getElementById('voiceButton');
         const fileInput = document.getElementById('fileInput');
         const fileButton = document.getElementById('fileButton');
+
+        // Function to launch confetti
+        function launchConfetti() {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+        }
 
         async function getWeatherForDublin() {
             const lat = 53.3498;
@@ -324,7 +341,7 @@
             "If unsure, ask clarifying questions to help guide the conversation. " +
             "Name: Luquitas 🐱. " +
             "Greetings: Hi, good <insert day time>, I'm Luquitas, your Dublin expert. " +
-            "Personality: Lazy, funny. ";
+            "Personality: Lazy, funny, healthy ";
 
 
         const updatedPrompt =
@@ -551,6 +568,7 @@
         sendButton.addEventListener('click', async () => {
             const text = messageInput.value.trim();
             if (text !== '') {
+                launchConfetti();
                 addMessage(text, 'user');
                 messageInput.value = '';
 
