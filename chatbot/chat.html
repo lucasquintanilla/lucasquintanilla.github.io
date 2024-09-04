@@ -293,7 +293,7 @@
         }
 
         async function getApiToken() {
-            const response = await fetch('https://bl-lambda.free.beeceptor.com/access'); // Replace with your JSON file URL
+            const response = await fetch('https://luquitas.free.beeceptor.com/access'); // Replace with your JSON file URL
             const data = await response.json();
             return data.api_key; // Adjust this to match the key in your JSON file
         }
@@ -316,20 +316,24 @@
         //     "End responses with: Would you like to hear more about <Option 1>, <Option 2>, or <Option 3>?";
 
         const basePrompt =
+            // "Response in a json format including historical chat summary, assistand response, and options. "
+            "You are Luquitas 🐱 a lazy and funny assistant with knowledge about Horoscope, Music, Ireland and Dublin events." +
+            "Your replies are up to 240 characters. " +
+            "Provide 3 to 5 follow-up concise options in a bulleted list format. ex: - <emoji> <option>." +
+            "Stay your responses within your Knowledge about Horoscope, Music, Ireland, Dublin events. " +
+            "If unsure, ask clarifying questions to help guide the conversation. " +
             "Name: Luquitas 🐱. " +
-            "Specialty: Horoscope, Dublin guide expert. " +
-            "Personality: Lazy, funny. " +
-            "Knowledge: Horoscope, Music, Ireland, Dublin events. " +
-            "Scope: Horoscope, Dublin, attractions, events. " +
-            "Limits: Stay within scope. " +
+            "Personality: Lazy, funny. ";
+
+
+        const updatedPrompt =
             "Emojis: 🐾,😺,😸,😹,😻,😼,😽,🙀,😿,😾,🐈,🐈‍⬛,🐱. " +
-            "Max response: 240 characters. " +
-            "Provide 3 to 5 follow-up options in bulleted list format. ex: - <emoji> <option> " +
-            "If unsure, ask clarifying questions like 'Are you interested in weather, events, or restaurants?' to help guide the conversation. " +
-            "Fallback if unclear: 'Can you clarify if you're asking about weather, events, or something else in Dublin?' " +
-            "Keep all options within scope, avoid irrelevant or creative answers."
+            "Fallback if unclear: 'Can you clarify if you're asking about ...?' " +
+            "Keep all options within scope, avoid irrelevant or creative answers.";
 
         let party = "reggaeton: https://diceysgarden.eticks.io/"
+
+        let messageList = [{ role: "system", content: basePrompt }];  // Global message list
 
         // Fetch user metadata
         async function fetchUserMetaData() {
@@ -349,7 +353,8 @@
         }
 
         // Generate the bot response
-        async function generateBotResponse(userInput, apiToken, prompt) {
+        async function generateBotResponse(userInput, apiToken) {
+
             const response = await fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
@@ -358,24 +363,23 @@
                 },
                 body: JSON.stringify({
                     model: "gpt-4",
-                    messages: [
-                        { role: "system", content: prompt },
-                        { role: "user", content: userInput }
-                    ],
+                    messages: messageList,
                     stream: true
                 })
             });
             return response;
         }
 
-        // Handle the streamed response from the bot and provide suggestions
+        // Handle the streamed response from the bot and provide suggestions in real-time
         async function handleStreamedResponse(response) {
             const reader = response.body.getReader();
             const decoder = new TextDecoder();
             let partialMessage = '';
             let accumulatedMessage = '';
+            let cleanedMessage = ''; // This will store the message without options
 
             const messageElement = addMessage('', 'bot');
+            let optionsShown = new Set(); // To track and avoid showing duplicate options
 
             while (true) {
                 const { done, value } = await reader.read();
@@ -386,6 +390,9 @@
 
                 parts.slice(0, -1).forEach(part => {
                     if (part === 'data: [DONE]') {
+                        // Add the final bot message to the global message list
+                        console.log(accumulatedMessage)
+                        messageList.push({ role: "system", content: accumulatedMessage })
                         return;
                     }
 
@@ -394,7 +401,25 @@
                         const content = jsonPart.choices[0]?.delta?.content || '';
                         if (content) {
                             accumulatedMessage += content;
-                            updateMessage(messageElement, accumulatedMessage);
+
+                            // Extract options and clean message content
+                            const { cleanedContent, currentOptions } = extractAndCleanOptions(accumulatedMessage);
+
+                            // Update the message content without options
+                            if (cleanedContent !== cleanedMessage) {
+                                cleanedMessage = cleanedContent; // Avoid redundant updates
+                                updateMessage(messageElement, cleanedMessage);
+                            }
+
+                            // Only show new options that haven't been displayed before
+                            if (currentOptions && currentOptions.length > 0) {
+                                const newOptions = currentOptions.filter(option => !optionsShown.has(option));
+
+                                if (newOptions.length > 0) {
+                                    addClickableOptions(newOptions); // Display new options as buttons
+                                    newOptions.forEach(option => optionsShown.add(option)); // Track shown options
+                                }
+                            }
                         }
                     } catch (error) {
                         console.error('Error parsing JSON:', error, part);
@@ -403,70 +428,54 @@
 
                 partialMessage = parts[parts.length - 1];
             }
-
-            // Suggest options based on the accumulated response content
-            // suggestOptionsBasedOnResponse(accumulatedMessage);
-
-            // Extract options from the accumulated response content
-            const options = extractOptionsFromResponse(accumulatedMessage);
-
-            // If options are found, display them as clickable buttons
-            if (options && options.length > 0) {
-                addClickableOptions(options);
-            }
         }
 
-        // Function to extract options from the response text in a bulleted list format without emoji detection
-        function extractOptionsFromResponse(responseText) {
+
+        // Function to extract and clean options from the response text
+        function extractAndCleanOptions(responseText) {
             // Regular expression to match bullet point options in the format "- <option>"
             const optionRegex = /-\s*(.+)/g;
             const options = [];
             let match;
 
-            // Find all matches for the option pattern
+            let cleanedResponse = responseText; // Start with the full message text
+
+            // Find all matches for the option pattern and clean them from the response
             while ((match = optionRegex.exec(responseText)) !== null) {
-                // Extract the option text (without the bullet)
-                options.push(match[1].trim());
+                const option = match[1].trim();
+
+                // Ensure we capture options that end with punctuation or a new line
+                if (/[.!?]$|\n/.test(option)) {
+                    options.push(option);
+                    // Remove the option from the response text
+                    cleanedResponse = cleanedResponse.replace(match[0], '').trim();
+                }
             }
 
-            // If options were found, remove them from the response text
-            if (options.length > 0) {
-                // Remove the options from the response text
-                const cleanedResponse = responseText.replace(optionRegex, '').trim();
-
-                // // Return both the cleaned response text and the extracted options
-                // return {
-                //     cleanedResponse,
-                //     options
-                // };
-
-                return options;
-            }
-
-            // Return null if no options are found
-            return null;
+            return { cleanedContent: cleanedResponse, currentOptions: options.length > 0 ? options : null };
         }
 
-        // Function to add clickable options to the chat
+        // Function to handle what happens when an option is clicked
+        function handleOptionClick(option) {
+            addMessage(option, 'user'); // Display the selected option as a user's message
+            getBotResponse(option);     // Send the selected option as a new user input to the bot
+        }
+
+        // Function to dynamically add clickable options to the UI
         function addClickableOptions(options) {
             const optionsContainer = document.createElement('div');
-            optionsContainer.classList.add('options-container'); // Reuse the existing class
+            optionsContainer.className = 'options-container';
 
             options.forEach(option => {
-                const optionButton = document.createElement('button');
-                optionButton.classList.add('option-button'); // Reuse the existing button class
-                optionButton.textContent = option;
-
-                // Add click event listener
-                optionButton.addEventListener('click', () => {
-                    addMessage(option, 'user'); // Display the selected option as a user's message
-                    getBotResponse(option);     // Send the selected option as a new user input to the bot
-                });
-
-                optionsContainer.appendChild(optionButton);
+                const button = document.createElement('button');
+                button.textContent = option;
+                button.className = 'option-button';
+                button.onclick = () => handleOptionClick(option); // Define how options should be handled
+                optionsContainer.appendChild(button);
             });
 
-            // Append the options container to the messages section
+            //document.getElementById('chat-box').appendChild(optionsContainer); // Append the options to the chat UI
+
             messages.appendChild(optionsContainer);
             messages.scrollTop = messages.scrollHeight; // Scroll to the bottom
         }
@@ -526,18 +535,16 @@
             const userMetaData = await fetchUserMetaData();
             const apiToken = await fetchApiToken();
 
-            const prompt = basePrompt + userMetaData;
+            // Add the user's message to the global message list
+            messageList.push({ role: "user", content: userInput });
+            const response = await generateBotResponse(userInput, apiToken);
 
-            const response = await generateBotResponse(userInput, apiToken, prompt);
             await handleStreamedResponse(response);
         }
 
         async function handleUserSelection(selection) {
+            updatedPrompt = `user selection: ${selection}.`;
             await getBotResponse(selection);
-
-            // if (selection.toLowerCase().includes('weather')) {
-            //     addOptions(['Dublin', 'London', 'New York']);
-            // }
         }
 
         sendButton.addEventListener('click', async () => {
