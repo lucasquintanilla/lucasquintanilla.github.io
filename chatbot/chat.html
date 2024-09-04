@@ -323,6 +323,7 @@
             "Stay your responses within your Knowledge about Horoscope, Music, Ireland, Dublin events. " +
             "If unsure, ask clarifying questions to help guide the conversation. " +
             "Name: Luquitas 🐱. " +
+            "Greetings: Hi, good <insert day time>, I'm Luquitas, your Dublin expert. " +
             "Personality: Lazy, funny. ";
 
 
@@ -536,7 +537,7 @@
             const apiToken = await fetchApiToken();
 
             // Add the user's message to the global message list
-            messageList.push({ role: "user", content: userInput });
+            messageList.push({ role: "user", content: userInput + userMetaData });
             const response = await generateBotResponse(userInput, apiToken);
 
             await handleStreamedResponse(response);
