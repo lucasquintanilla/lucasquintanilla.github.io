@@ -50,6 +50,8 @@
             align-items: center;
             height: 100vh;
             font-size: var(--base-font-size);
+            overflow: hidden;
+            /* Prevent scrolling */
         }
 
         .chat-container {
@@ -59,15 +61,12 @@
             background-color: var(--white-color);
             border-radius: var(--border-radius);
             box-shadow: 0 0.25rem 0.375rem var(--shadow-color);
-            padding: var(--base-padding);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 80vh;
-            /* background-image: url('https://avatars.mds.yandex.net/i?id=315e31471c75aa119c3b9601c3c75b36-5401700-images-thumbs&ref=rim&n=33&w=172&h=250'); */
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
+            height: 100vh;
+            /* Take full viewport height */
+            position: relative;
         }
 
         .messages {
@@ -134,6 +133,15 @@
             display: flex;
             gap: 0.75rem;
             /* 12px equivalent */
+            /* position: fixed; */
+            bottom: 0;
+            /* left: 0; */
+            /* width: 100%; */
+            /* max-width: 37.5rem; */
+            /* Same as chat container */
+            /* background-color: var(--white-color); */
+            padding: var(--base-padding);
+            /* box-shadow: 0 -0.25rem 0.375rem var(--shadow-color); */
         }
 
         input[type="text"] {
@@ -226,6 +234,24 @@
                 origin: { y: 0.6 }
             });
         }
+
+        // Adjust chat height on mobile when keyboard is opened
+        window.addEventListener('resize', function () {
+            const chatContainer = document.querySelector('.chat-container');
+            const inputContainer = document.querySelector('.input-container');
+            const windowHeight = window.innerHeight;
+
+            // Adjust height of chat container to fit available space
+            chatContainer.style.height = windowHeight + 'px';
+            inputContainer.style.bottom = '0'; // Stick input to the bottom
+        });
+
+        // Initialize chat container height on load
+        window.addEventListener('load', function () {
+            const chatContainer = document.querySelector('.chat-container');
+            const windowHeight = window.innerHeight;
+            chatContainer.style.height = windowHeight + 'px';
+        });
 
         async function getWeatherForDublin() {
             const lat = 53.3498;
@@ -336,7 +362,7 @@
             // "Response in a json format including historical chat summary, assistand response, and options. "
             "You are Luquitas 🐱 a lazy and funny assistant with knowledge about Horoscope, Music, Ireland and Dublin events." +
             "Your replies are up to 240 characters. " +
-            "Provide 3 to 5 follow-up concise options in a bulleted list format. ex: - <emoji> <option>." +
+            "Provide 3 to 5 follow-up concise options (max lenght 20 characters)in a bulleted list format. ex: - <emoji> <option>." +
             "Stay your responses within your Knowledge about Horoscope, Music, Ireland, Dublin events. " +
             "If unsure, ask clarifying questions to help guide the conversation. " +
             "Name: Luquitas 🐱. " +
