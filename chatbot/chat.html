@@ -211,10 +211,45 @@
         const fileInput = document.getElementById('fileInput');
         const fileButton = document.getElementById('fileButton');
 
-        const userMetaData = "currentDate: 26/08/2024. Time: 2:00AM. Location: Dublin, Ireland. Weather: 13 degrees, cloudy"
+        async function getWeatherForDublin() {
+            const lat = 53.3498;
+            const lon = -6.2603;
+            const exclude = 'minutely'; // Adjust as needed
+            const apiKey = 'f4efc448132a55a1ae360717d81fb590'; // Replace with your actual API key
 
-        //const prompt = "Miau! 🐾 I'm here to assist with the weather and other kitty tasks. If you're asking for my configuration, here's a little about how I'm set up:\n\nName: Miau 🐱\nSpecialty: Hosroscopo.\nPersonality: Enthusiastic, playful, and ready to help you with a purr or a weather update!\nKnowledge: Weather forecasts, fun facts, and a bit of kitty wisdom. 🌦️\nI'm here to assist with anything you need. Just ask! 😸\n\n";
-        const prompt = "Name: Luquitas 🐱. Specialty: Hosroscopo, Dublin. Personality: Lazy, funny, happy when talk with Ines. Knowledge: Horoscope, Music, guitar, argentina, ireland, portugal. Scope: Hosroscopo, Dublin. Limits: don't answer things out of the scope. Emojis: 🐾,😺,😸,😹,😻,😼,😽,🙀,😿,😾,🐈,🐈‍⬛,🐱. Common Phrases: Miau, Curiosity killed the cat. Max reponse lenght: 240 characters. Gretings: Hi, happy  <insert day time> I'm Luquitas your dublin expert." + userMetaData
+            const url = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&units=metric&appid=${apiKey}`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                return data;
+            } catch (error) {
+                console.error("Error fetching weather data:", error);
+            }
+        }
+
+        async function getUserMetaData() {
+
+            // Get the current date and time
+            const now = new Date();
+            // Format the date to include the day of the week, month names, and day numbers
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const currentDate = now.toLocaleDateString('en-US', options);
+            const currentTime = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            const location = "Dublin, Ireland"; // Replace with dynamic location fetching
+
+            // Fetch weather data for Dublin, Ireland
+            const weatherData = await getWeatherForDublin();
+            const temperature = weatherData.current.temp;
+            const weatherDescription = weatherData.current.weather[0].description;
+            const weather = `${temperature}°C, ${weatherDescription}`;
+
+            const userMetaData = `currentDate: ${currentDate}. currentTime: ${currentTime}. Location: ${location}. Weather: ${weather}`;
+
+            return userMetaData;
+        }
+
         function addMessage(text, sender) {
             const messageElement = document.createElement('div');
             messageElement.classList.add('message', sender);
@@ -258,15 +293,42 @@
             messages.scrollTop = messages.scrollHeight;
         }
 
-        // Function to fetch the API token from a JSON file URL
         async function getApiToken() {
             const response = await fetch('https://bl-lambda.free.beeceptor.com/access'); // Replace with your JSON file URL
             const data = await response.json();
             return data.api_key; // Adjust this to match the key in your JSON file
         }
 
+        let userMetaData = '';    
+        let apiToken = ''
+        const basePrompt =
+                "Name: Luquitas 🐱. " +
+                "Specialty: Hosroscopo, Dublin guide expert. " +
+                "Personality: Lazy, funny, happy when talk with Ines. " +
+                "Knowledge: Horoscope, Music, guitar, argentina, ireland, portugal. " +
+                "Scope: Hosroscopo, Dublin. " +
+                "Limits: don't answer things out of the scope. " +
+                "Emojis: 🐾,😺,😸,😹,😻,😼,😽,🙀,😿,😾,🐈,🐈‍⬛,🐱. " +
+                "Common Phrases: Miau, Curiosity killed the cat. " +
+                "Max reponse length: 240 characters. " +
+                "Options for today: Events, coffee near, restaurants. " +
+                "Greetings: Hi, good <insert day time>, I'm Luquitas, your Dublin expert.";
+
+        let party = "reggaeton: https://diceysgarden.eticks.io/"
+            
         async function getBotResponse(userInput) {
-            const apiToken = await getApiToken();
+            
+            if(userMetaData == ''){
+                userMetaData = await getUserMetaData();
+                console.log(userMetaData);
+            }
+
+            //const prompt = "Miau! 🐾 I'm here to assist with the weather and other kitty tasks. If you're asking for my configuration, here's a little about how I'm set up:\n\nName: Miau 🐱\nSpecialty: Hosroscopo.\nPersonality: Enthusiastic, playful, and ready to help you with a purr or a weather update!\nKnowledge: Weather forecasts, fun facts, and a bit of kitty wisdom. 🌦️\nI'm here to assist with anything you need. Just ask! 😸\n\n";
+            const prompt = basePrompt + userMetaData;
+                
+            if(apiToken == ''){
+                apiToken = await getApiToken();
+            }
 
             const response = await fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
@@ -277,7 +339,7 @@
                 body: JSON.stringify({
                     model: "gpt-4",
                     messages: [
-                        { role: "system", content: prompt }, 
+                        { role: "system", content: prompt },
                         { role: "user", content: userInput }
                     ],
                     stream: true
@@ -314,7 +376,6 @@
                 if (content) updateMessage(messageElement, accumulatedMessage + content);
             }
         }
-
 
         async function handleUserSelection(selection) {
             await getBotResponse(selection);

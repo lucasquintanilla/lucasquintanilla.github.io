@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Note App</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div class="app-container">
+        <!-- App Bar -->
+        <header class="app-bar">
+            <h1>My Notes</h1>
+            <input type="text" placeholder="Search notes..." class="search-bar">
+        </header>
+
+        <!-- Main Content -->
+        <main class="note-list">
+            <!-- Pinned Notes Section -->
+            <section class="pinned-notes">
+                <h2>Pinned</h2>
+                <div class="note-card pinned">
+                    <p>Pin your important notes here.</p>
+                    <span class="material-icons pin-icon">push_pin</span>
+                </div>
+            </section>
+
+            <!-- Regular Notes Section -->
+            <section class="notes">
+                <h2>All Notes</h2>
+                <div class="note-card">
+                    <p>This is a sample note...</p>
+                    <span class="material-icons pin-icon">push_pin</span>
+                </div>
+            </section>
+        </main>
+
+        <!-- Floating Action Button (FAB) -->
+        <button class="fab">
+            <span class="material-icons">add</span>
+        </button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

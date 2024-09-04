@@ -1,0 +1,111 @@
+/* Root Variables for Material 3 theme colors */
+:root {
+    --primary-color: #6200EE;
+    --background-color-light: #FFFFFF;
+    --background-color-dark: #121212;
+    --text-color: #000000;
+    --text-color-light: #FFFFFF;
+    --surface-color: #F5F5F5;
+    --primary-color-light: #BB86FC;
+    --primary-color-dark: #3700B3;
+}
+
+/* Global App Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background-color: var(--background-color-light);
+    color: var(--text-color);
+}
+
+/* App Container */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* App Bar (Top Bar) */
+.app-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+}
+
+.app-bar h1 {
+    margin: 0;
+}
+
+.search-bar {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    width: 50%;
+    max-width: 300px;
+    outline: none;
+}
+
+/* Main Content Area */
+.note-list {
+    padding: 16px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin: 16px 0;
+}
+
+.note-card {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pinned {
+    border-left: 4px solid var(--primary-color);
+}
+
+/* Pin Icon */
+.pin-icon {
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* Floating Action Button (FAB) */
+.fab {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    border: none;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.fab .material-icons {
+    font-size: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .search-bar {
+        width: 70%;
+    }
+}
