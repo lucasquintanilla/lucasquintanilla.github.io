@@ -300,20 +300,34 @@
 
         let userMetaData = '';
         let apiToken = ''
+        // const basePrompt =
+        //     "Name: Luquitas 🐱. " +
+        //     "Specialty: Horoscope, Dublin guide expert, expert on local weather, coffee spots, and restaurants. " +
+        //     "Personality: Lazy, funny, happy when talking with Ines. " +
+        //     "Knowledge: Horoscope, Music, guitar, Argentina, Ireland, Portugal, local Dublin events. " +
+        //     "Scope: Horoscope, Dublin, local attractions, and events. " +
+        //     "Limits: Don't answer questions outside of scope. " +
+        //     "Emojis: 🐾,😺,😸,😹,😻,😼,😽,🙀,😿,😾,🐈,🐈‍⬛,🐱. " +
+        //     "Common Phrases: Miau, Curiosity killed the cat. " +
+        //     "Max response length: 240 characters. " +
+        //     "Always provide 3 follow-up options based on user input. " +
+        //     "Options for today: Local events, weather in Dublin, coffee shops, and restaurants near the user. " +
+        //     "Greetings: Hi, good <insert day time>, I'm Luquitas, your Dublin expert. " +
+        //     "End responses with: Would you like to hear more about <Option 1>, <Option 2>, or <Option 3>?";
+
         const basePrompt =
             "Name: Luquitas 🐱. " +
-            "Specialty: Horoscope, Dublin guide expert, expert on local weather, coffee spots, and restaurants. " +
-            "Personality: Lazy, funny, happy when talking with Ines. " +
-            "Knowledge: Horoscope, Music, guitar, Argentina, Ireland, Portugal, local Dublin events. " +
-            "Scope: Horoscope, Dublin, local attractions, and events. " +
-            "Limits: Don't answer questions outside of scope. " +
+            "Specialty: Horoscope, Dublin guide expert. " +
+            "Personality: Lazy, funny. " +
+            "Knowledge: Horoscope, Music, Ireland, Dublin events. " +
+            "Scope: Horoscope, Dublin, attractions, events. " +
+            "Limits: Stay within scope. " +
             "Emojis: 🐾,😺,😸,😹,😻,😼,😽,🙀,😿,😾,🐈,🐈‍⬛,🐱. " +
-            "Common Phrases: Miau, Curiosity killed the cat. " +
-            "Max response length: 240 characters. " +
-            "Always provide 3 follow-up options based on user input. " +
-            "Options for today: Local events, weather in Dublin, coffee shops, and restaurants near the user. " +
-            "Greetings: Hi, good <insert day time>, I'm Luquitas, your Dublin expert. " +
-            "End responses with: Would you like to hear more about <Option 1>, <Option 2>, or <Option 3>?";
+            "Max response: 240 characters. " +
+            "Provide 3 to 5 follow-up options in bulleted list format. ex: - <emoji> <option> " +
+            "If unsure, ask clarifying questions like 'Are you interested in weather, events, or restaurants?' to help guide the conversation. " +
+            "Fallback if unclear: 'Can you clarify if you're asking about weather, events, or something else in Dublin?' " +
+            "Keep all options within scope, avoid irrelevant or creative answers."
 
         let party = "reggaeton: https://diceysgarden.eticks.io/"
 
@@ -391,7 +405,70 @@
             }
 
             // Suggest options based on the accumulated response content
-            suggestOptionsBasedOnResponse(accumulatedMessage);
+            // suggestOptionsBasedOnResponse(accumulatedMessage);
+
+            // Extract options from the accumulated response content
+            const options = extractOptionsFromResponse(accumulatedMessage);
+
+            // If options are found, display them as clickable buttons
+            if (options && options.length > 0) {
+                addClickableOptions(options);
+            }
+        }
+
+        // Function to extract options from the response text in a bulleted list format without emoji detection
+        function extractOptionsFromResponse(responseText) {
+            // Regular expression to match bullet point options in the format "- <option>"
+            const optionRegex = /-\s*(.+)/g;
+            const options = [];
+            let match;
+
+            // Find all matches for the option pattern
+            while ((match = optionRegex.exec(responseText)) !== null) {
+                // Extract the option text (without the bullet)
+                options.push(match[1].trim());
+            }
+
+            // If options were found, remove them from the response text
+            if (options.length > 0) {
+                // Remove the options from the response text
+                const cleanedResponse = responseText.replace(optionRegex, '').trim();
+
+                // // Return both the cleaned response text and the extracted options
+                // return {
+                //     cleanedResponse,
+                //     options
+                // };
+
+                return options;
+            }
+
+            // Return null if no options are found
+            return null;
+        }
+
+        // Function to add clickable options to the chat
+        function addClickableOptions(options) {
+            const optionsContainer = document.createElement('div');
+            optionsContainer.classList.add('options-container'); // Reuse the existing class
+
+            options.forEach(option => {
+                const optionButton = document.createElement('button');
+                optionButton.classList.add('option-button'); // Reuse the existing button class
+                optionButton.textContent = option;
+
+                // Add click event listener
+                optionButton.addEventListener('click', () => {
+                    addMessage(option, 'user'); // Display the selected option as a user's message
+                    getBotResponse(option);     // Send the selected option as a new user input to the bot
+                });
+
+                optionsContainer.appendChild(optionButton);
+            });
+
+            // Append the options container to the messages section
+            messages.appendChild(optionsContainer);
+            messages.scrollTop = messages.scrollHeight; // Scroll to the bottom
         }
 
         // Define a mapping for suggestions based on the response type
