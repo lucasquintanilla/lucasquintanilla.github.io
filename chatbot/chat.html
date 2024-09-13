@@ -13,12 +13,12 @@
 
     <div class="chat-container">
         <!-- Horizontal scrollable nav bar with circular profile pictures -->
-        <nav class="profile-bar">
+        <!-- <nav class="profile-bar">
             <div class="profiles" id="profileNav">
                 <div class="profile" data-conversation="1">
                     <img src="assets/dc-logo.jpg" alt="Profile 1">
                 </div>
-                <!-- <div class="profile" data-conversation="2">
+                <div class="profile" data-conversation="2">
                     <img src="assets/code-logo.jpg" alt="Profile 2">
                 </div>
                 <div class="profile" data-conversation="3">
@@ -26,11 +26,9 @@
                 </div>
                 <div class="profile" data-conversation="3">
                     <img src="assets/plus-logo.svg" alt="Profile 4">
-                </div> -->
-
-                <!-- Add more profile bubbles as needed -->
+                </div>
             </div>
-        </nav>
+        </nav> -->
 
         <div class="messages" id="messages"></div>
         <div class="input-container">
@@ -293,6 +291,8 @@
                                 if (newOptions.length > 0) {
                                     addClickableOptions(newOptions); // Display new options as buttons
                                     newOptions.forEach(option => optionsShown.add(option)); // Track shown options
+
+                                    
                                 }
                             }
                         }
@@ -303,6 +303,9 @@
 
                 partialMessage = parts[parts.length - 1];
             }
+
+            // Call DALL·E API to generate an image based on the first suggestion
+            generateImageWithDalle(cleanedMessage);
         }
         function extractAndCleanOptions(responseText) {
             let cleanedContent = '';
@@ -358,6 +361,36 @@
             };
         }
 
+        // Function to generate an image using DALL·E API
+        async function generateImageWithDalle(prompt) {
+            const dalleApiUrl = 'https://api.openai.com/v1/images/generations';
+            const dalleRequestBody = {
+                model: "dall-e-3",
+                prompt: "fantasy Comic story panels showing the suggestions on each panel: " + prompt, // The suggestion text from competition responses
+                n: 1,
+                size: "1024x1024" // Adjust size as needed
+            };
+
+            const dalleResponse = await fetch(dalleApiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${apiToken}`
+                },
+                body: JSON.stringify(dalleRequestBody)
+            });
+
+            const dalleData = await dalleResponse.json();
+            if (dalleData && dalleData.data && dalleData.data.length > 0) {
+                const imageUrl = dalleData.data[0].url;
+                console.log('Generated Image URL:', imageUrl);
+                // You can now display the image URL in the UI
+                // showImage(imageUrl); // Function to display image in UI
+                addImageMessage(imageUrl, "bot")
+            } else {
+                console.error('Failed to generate image');
+            }
+        }
 
 
         // Function to handle what happens when an option is clicked
@@ -531,12 +564,31 @@
         const basePrompt =
             // "Response in a json format including historical chat summary, assistand response, and options. "
             "Introduction: Hi, good <datetime> I'm <name>" +
-            "Provide a friendly answer and 3 to 5 follow-up concise options (max lenght 20 characters)c"
-        // "Assistant menu: 1. Make an appoinment. 2. Store. 3. Services.  " +
-        // "Use triples of emojis" +
-        // "booking"
-        // "Hours - Weekdays: 9 AM - 5 PM - Saturdays: 10 AM - 5 PM - Sundays: Closed - Public holidays: Vary - Late night Thursdays: Until 9 PM "
-        "";
+            "Provide a friendly answer message 3 to 5 follow-up concise suggestions (max lenght 20 characters) " +
+            // "Assistant menu: 1. Make an appoinment. 2. Store. 3. Services.  " +
+            "Use emojis in suggestions" +
+            // "booking"
+            // "Hours - Weekdays: 9 AM - 5 PM - Saturdays: 10 AM - 5 PM - Sundays: Closed - Public holidays: Vary - Late night Thursdays: Until 9 PM "
+            "";
+        //ontaining theme, plot, characters, setting, conflict, point-of-view, tone and style
+
+        //age, genre, difficulty, languaje, images, real, music, sounds, movie, 
+        const kidsStoryTeller = "You are a choose your own adventure story teller. keep it short. always include emojis. At the end of the story show options to share story to a friend, save, like";
+
+        const luquitasPrompt =
+            "Name: Luquitas 🐱. " +
+            "Specialty: Horoscope, Dublin guide expert, expert on local weather, coffee spots, and restaurants. " +
+            "Personality: Lazy, funny, happy when talking with Ines. " +
+            "Knowledge: Horoscope, Music, guitar, Argentina, Ireland, Portugal, local Dublin events. " +
+            "Scope: Horoscope, Dublin, local attractions, and events. " +
+            "Limits: Don't answer questions outside of scope. " +
+            "Emojis: 🐾,😺,😸,😹,😻,😼,😽,🙀,😿,😾,🐈,🐈‍⬛,🐱. " +
+            "Common Phrases: Miau, Curiosity killed the cat. " +
+            "Max response length: 240 characters. " +
+            "Always provide 3 follow-up options based on user input. " +
+            "Options for today: Local events, weather in Dublin, coffee shops, and restaurants near the user. " +
+            "Greetings: Hi, good <insert day time>, I'm Luquitas, your Dublin expert. " +
+            "End responses with: Would you like to hear more about <Option 1>, <Option 2>, or <Option 3>?";
 
         const nextPrompt =
             "Categorize question and any of the following categories"
@@ -577,7 +629,8 @@
         }
 
         window.onload = function () {
-            messageList = [{ role: "system", content: basePrompt + doctorPrompt }];  // Global message list
+            messageList = [{ role: "system", content: basePrompt + kidsStoryTeller }];  // Global message list
+            getBotResponse("start");
         };
     </script>
 

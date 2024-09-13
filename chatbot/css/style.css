@@ -127,7 +127,9 @@ body {
 }
 
 .message img {
-    max-width: 9.375rem;
+    /* max-width: 9.375rem; */
+    
+    max-width: 19.375rem;
     /* 150px equivalent */
     border-radius: 1rem;
     margin-top: 0.3125rem;
