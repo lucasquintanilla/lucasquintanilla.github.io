@@ -7,6 +7,9 @@
     <title>Little Gatinho</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -292,7 +295,7 @@
                                     addClickableOptions(newOptions); // Display new options as buttons
                                     newOptions.forEach(option => optionsShown.add(option)); // Track shown options
 
-                                    
+
                                 }
                             }
                         }
@@ -366,7 +369,7 @@
             const dalleApiUrl = 'https://api.openai.com/v1/images/generations';
             const dalleRequestBody = {
                 model: "dall-e-3",
-                prompt: "fantasy Comic story panels showing the suggestions on each panel: " + prompt, // The suggestion text from competition responses
+                prompt: "Create an enchanting in dark theme almost like pencil drawing depicting: " + prompt, // The suggestion text from competition responses
                 n: 1,
                 size: "1024x1024" // Adjust size as needed
             };
