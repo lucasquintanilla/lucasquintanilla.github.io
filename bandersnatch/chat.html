@@ -163,15 +163,13 @@
         }
 
         async function getApiToken() {
-            const response = await fetch('https://luquitas.free.beeceptor.com/access'); // Replace with your JSON file URL
+            const response = await fetch('https://bl-lambda.free.beeceptor.com/access'); // Replace with your JSON file URL
             const data = await response.json();
             return data.api_key; // Adjust this to match the key in your JSON file
         }
 
         let userMetaData = '';
-        let apiToken = ''
         let messageList = [];
-
 
         // Fetch user metadata
         async function fetchUserMetaData() {
@@ -182,6 +180,8 @@
             return userMetaData;
         }
 
+        let apiToken = '';
+
         // Fetch API token
         async function fetchApiToken() {
             if (apiToken === '') {
@@ -190,13 +190,39 @@
             return apiToken;
         }
 
-        async function generateBotResponse(userInput, apiToken) {
+        async function generateBotResponse(userInput, apiToken, modelType) {
+            // Define endpoints and models for each service
+            const apiConfig = {
+                gpt: {
+                    url: 'https://api.openai.com/v1/chat/completions',
+                    model: 'gpt-4o-2024-08-06'
+                },
+                claude: {
+                    url: 'https://api.anthropic.com/v1/messages',
+                    model: 'claude-3-5-sonnet-20240620'
+                },
+                gemini: {
+                    url: 'https://api.google.com/v1/gemini/completions',
+                    model: 'gemini-1'
+                },
+                llama: {
+                    url: 'https://api.llama.com/v1/llama/completions',
+                    model: 'llama-2'
+                }
+            };
 
-            const apiUrl = 'https://api.openai.com/v1/chat/completions';
-            const model = 'gpt-4o-2024-08-06';
+            // Ensure modelType is supported
+            if (!apiConfig[modelType]) {
+                throw new Error(`Unsupported model type: ${modelType}`);
+            }
+
+            const { url, model } = apiConfig[modelType];
+
             const requestHeaders = {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiToken}`
+                'Authorization': `Bearer ${apiToken}`,
+                // 'anthropic-version': `2023-06-01`,
+                // 'x-api-key': `` 
             };
 
             // Extracted JSON Schema object
@@ -231,17 +257,22 @@
                 model: model,
                 messages: messageList,
                 stream: true,
+                max_tokens: 1024,
                 response_format: {
                     type: "json_schema",
                     json_schema: jsonSchema
                 }
             };
 
-            const response = await fetch(apiUrl, {
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: requestHeaders,
                 body: JSON.stringify(requestBody)
             });
+
+            if (!response.ok) {
+                throw new Error(`API Error: ${response.status} ${response.statusText}`);
+            }
 
             return response;
         }
@@ -364,12 +395,13 @@
             };
         }
 
+        //Create an enchanting in dark theme almost like pencil drawing depicting: 
         // Function to generate an image using DALL·E API
         async function generateImageWithDalle(prompt) {
             const dalleApiUrl = 'https://api.openai.com/v1/images/generations';
             const dalleRequestBody = {
                 model: "dall-e-3",
-                prompt: "Create an enchanting in dark theme almost like pencil drawing depicting: " + prompt, // The suggestion text from competition responses
+                prompt: "Create an enchanting illustration in oleo depicting: " + prompt, // The suggestion text from competition responses
                 n: 1,
                 size: "1024x1024" // Adjust size as needed
             };
@@ -478,7 +510,7 @@
 
             // Add the user's message to the global message list
             messageList.push({ role: "user", content: userInput });
-            const response = await generateBotResponse(userInput, apiToken);
+            const response = await generateBotResponse(userInput, apiToken, 'gpt');
 
             await handleStreamedResponse(response);
         }
@@ -575,8 +607,18 @@
             "";
         //ontaining theme, plot, characters, setting, conflict, point-of-view, tone and style
 
+        //use references of famous real places, things, context from living in La Plata, Buenos Aires
+        //You are a choose your own adventure story teller. use references of famous real places, things, context from fifa players from europe in summer 2024, Buenos Aires. keep it short. always include emojis. , share story to a friend, save, like";
+
+
         //age, genre, difficulty, languaje, images, real, music, sounds, movie, 
-        const kidsStoryTeller = "You are a choose your own adventure story teller. keep it short. always include emojis. At the end of the story show options to share story to a friend, save, like";
+        const kidsStoryTeller = "You are questions and awnswers game asking " +
+            "for capitals of countries. Ask the questions in a funny humour like nintendo and add suggestions with possible anwsers ." +
+            " use references of famous real places, things, context from fifa players from europe in summer 2024, Buenos Aires. " +
+            "keep it short. always include emojis";
+
+        // const kidsStoryTeller = "You are a story teller for teenagers about romance, love of Lucas(Argentinian) and Inês(Portuguese) in Dublin in 2024" +
+        // "keep it short. always include emojis";
 
         const luquitasPrompt =
             "Name: Luquitas 🐱. " +
