@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Creative Club</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
 </head>
 <body>
     <!-- ============================================ -->
@@ -14,15 +15,16 @@
 <section id="blog-1347">
     <div class="cs-container">
         <div class="cs-content">
-            <span class="cs-topper">Our Blog</span>
-            <h2 class="cs-title">Creative Club</h2>
+            <span class="cs-topper">Blog</span>
+            <!-- <h2 class="cs-title">Creative Club</h2> -->
+            <h1 class="ml3">Creative Club</h1>
             <p class="cs-text">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lobortis quam eu elit lobortis ultrices. Nulla ut accumsan lorem, sed molestie justo. Praesent vehicula eleifend.
             </p>
         </div>
         <ul class="cs-card-group">
             <li class="cs-item">
-                <a class="cs-link" href="/">
+                <a class="cs-link" href="bandersnatch/index.html">
                     <picture class="cs-picture">
                         <source media="(max-width: 600px)"
                             srcset="assets/posts/4.png">
@@ -189,7 +191,27 @@
         </ul>
     </div>
 </footer>
-                                
+                
+<script>
+    // Wrap every letter in a span
+var textWrapper = document.querySelector('.ml3');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml3 .letter',
+    opacity: [0,1],
+    easing: "easeInOutQuad",
+    duration: 2250,
+    delay: (el, i) => 150 * (i+1)
+  }).add({
+    targets: '.ml3',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 1000
+  });
+</script>
                                 
 </body>
 </html>
