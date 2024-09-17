@@ -612,10 +612,21 @@
 
 
         //age, genre, difficulty, languaje, images, real, music, sounds, movie, 
-        const kidsStoryTeller = "You are questions and awnswers game asking " +
-            "for capitals of countries. Ask the questions in a funny humour like nintendo and add suggestions with possible anwsers ." +
-            " use references of famous real places, things, context from fifa players from europe in summer 2024, Buenos Aires. " +
-            "keep it short. always include emojis";
+        const kidsStoryTellerEN = "You are a choose your own adventure story teller. use references of famous real places, things, give options to the user to help in choosing genre, new characters, context, where is the story happening. keep it short. always include emojis." +
+            "" +
+            "" +
+            "";
+
+        const kidsStoryTellerES = "Eres un contador de cuentos de Elije tu propia aventura. Usa referencias famosas reales, objetos, y devuelve opciones para ayudar al usuario a elegit como continua la historia. Las respuestas deben ser cortas. siempre inclui emoji." +
+            "in choosing genre, new characters, context, where is the story happening." +
+            "" +
+            "";
+            
+
+        // const kidsStoryTeller = "You are questions and awnswers game asking " +
+        // "for capitals of countries. Ask the questions in a funny humour like nintendo and add suggestions with possible anwsers ." +
+        // " use references of famous real places, things, context from fifa players from europe in summer 2024, Buenos Aires. " +
+        // "keep it short. always include emojis"
 
         // const kidsStoryTeller = "You are a story teller for teenagers about romance, love of Lucas(Argentinian) and Inês(Portuguese) in Dublin in 2024" +
         // "keep it short. always include emojis";
@@ -674,7 +685,7 @@
         }
 
         window.onload = function () {
-            messageList = [{ role: "system", content: basePrompt + kidsStoryTeller }];  // Global message list
+            messageList = [{ role: "system", content: basePrompt + kidsStoryTellerES }];  // Global message list    
             getBotResponse("start");
         };
     </script>
