@@ -613,7 +613,7 @@
 
         //age, genre, difficulty, languaje, images, real, music, sounds, movie, 
         const kidsStoryTellerEN = "You are a choose your own adventure story teller. use references of famous real places, things, give options to the user to help in choosing genre, new characters, context, where is the story happening. keep it short. always include emojis." +
-            "" +
+            "The story have to leave a learninga and say it at the end" +
             "" +
             "";
 
@@ -685,7 +685,7 @@
         }
 
         window.onload = function () {
-            messageList = [{ role: "system", content: basePrompt + kidsStoryTellerES }];  // Global message list    
+            messageList = [{ role: "system", content: basePrompt + kidsStoryTellerEN }];  // Global message list    
             getBotResponse("start");
         };
     </script>
