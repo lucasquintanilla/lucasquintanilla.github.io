@@ -33,7 +33,11 @@
             </div>
         </nav> -->
 
-        <div class="messages" id="messages"></div>
+        <div class="messages" id="messages">
+            <!-- <div id="loading-container">
+                <canvas id="loadingCanvas"></canvas>
+            </div> -->
+        </div>
         <div class="input-container">
             <input type="text" id="messageInput" placeholder="Type a message...">
             <button class="voice-button" id="voiceButton">🎤</button>
@@ -44,6 +48,8 @@
             <button class="file-button" id="fileButton">📎</button>
         </div>
     </div>
+
+
 
     <script>
         const messages = document.getElementById('messages');
@@ -61,6 +67,34 @@
                 origin: { y: 0.6 }
             });
         }
+
+        // function showLoading() {
+        //     const loadingCanvas = document.getElementById('loadingCanvas');
+        //     const ctx = loadingCanvas.getContext('2d');
+
+        //     // Set up noise
+        //     const width = loadingCanvas.width;
+        //     const height = loadingCanvas.height;
+
+        //     function generateNoise() {
+        //         const imageData = ctx.createImageData(width, height);
+        //         for (let i = 0; i < imageData.data.length; i += 4) {
+        //             const randomValue = Math.random() * 255;
+        //             imageData.data[i] = randomValue;     // R
+        //             imageData.data[i + 1] = randomValue; // G
+        //             imageData.data[i + 2] = randomValue; // B
+        //             imageData.data[i + 3] = 255;         // A
+        //         }
+        //         ctx.putImageData(imageData, 0, 0);
+        //     }
+
+        //     // Continuously generate noise until image is loaded
+        //     let noiseInterval = setInterval(generateNoise, 50);
+
+        //     // Stop noise and hide loading container once image is ready
+        //     return () => clearInterval(noiseInterval);
+        // }
+
 
         // Adjust chat height on mobile when keyboard is opened
         window.addEventListener('resize', function () {
@@ -395,9 +429,37 @@
             };
         }
 
+        const loadingMessage = 'Loading...'
+
+        function showLoading() {
+
+            addMessage(loadingMessage, 'bot')
+            addImageMessage('assets/loading.gif', 'bot')
+        }
+
+        function hideLoading() {
+            // Locate all elements with the class 'messages'
+            var elements = document.querySelector('message');
+
+            // Select the last one
+            var lastElement = elements[elements.length - 1];
+
+            // Hide the image inside the last element if it exists
+            if (lastElement) {
+                var img = lastElement.querySelector('img');
+                if (img) {
+                    img.style.display = 'none'; // Hides the image
+                }
+            }
+        }
+
         //Create an enchanting in dark theme almost like pencil drawing depicting: 
         // Function to generate an image using DALL·E API
         async function generateImageWithDalle(prompt) {
+
+
+            showLoading();
+
             const dalleApiUrl = 'https://api.openai.com/v1/images/generations';
             const dalleRequestBody = {
                 model: "dall-e-3",
@@ -425,6 +487,8 @@
             } else {
                 console.error('Failed to generate image');
             }
+
+            hideLoading();
         }
 
 
@@ -621,7 +685,7 @@
             // "in choosing genre, new characters, context, where is the story happening." +
             "La historia debe Dejar una enseñanza y explicarla al final" +
             "";
-            
+
 
         // const kidsStoryTeller = "You are questions and awnswers game asking " +
         // "for capitals of countries. Ask the questions in a funny humour like nintendo and add suggestions with possible anwsers ." +

@@ -306,3 +306,30 @@ input[type="text"]:focus {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+#loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1024px;
+    height: 1024px;
+    background-color: #1e1e1e; /* Dark background */
+    position: relative;
+}
+
+#loadingCanvas {
+    width: 100%;
+    height: 100%;
+    background: url('noise-static.gif'); /* You can use a gif or generate noise dynamically */
+    background-size: cover;
+    animation: fade-in 5s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
