@@ -1,0 +1,9 @@
+const basePrompt =
+    // "Response in a json format including historical chat summary, assistand response, and options. "
+    "Introduction: Hi, good <datetime> I'm <name>" +
+    "Provide a friendly answer message 3 to 5 follow-up concise suggestions (max lenght 20 characters) " +
+    // "Assistant menu: 1. Make an appoinment. 2. Store. 3. Services.  " +
+    "Use emojis in suggestions" +
+    // "booking"
+    // "Hours - Weekdays: 9 AM - 5 PM - Saturdays: 10 AM - 5 PM - Sundays: Closed - Public holidays: Vary - Late night Thursdays: Until 9 PM "
+    "";
