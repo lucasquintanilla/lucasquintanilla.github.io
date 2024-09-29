@@ -758,7 +758,7 @@
         // }
 
         async function loadPrompt() {
-            const response = await fetch("/prompts/prompt1.txt");
+            const response = await fetch("/prompts/default.txt");
             prompt = await response.text();
 
             if (prompt) {
@@ -771,13 +771,13 @@
             } else {
                 // If the prompt doesn't exist, display a default message
                 const messages = document.getElementById('messages');
-                messages.innerHTML = `<div class="message bot">Conversation not found!</div>`;
+                messages.innerHTML = `<div class="message bot">prompt not found!</div>`;
             }
         }
 
         window.onload = async function () {
 
-            // await loadPrompt();
+            await loadPrompt();
             messageList = [{ role: "system", content: basePrompt + kidsStoryTellerEN }];  // Global message list    
             getBotResponse("start");
         };
