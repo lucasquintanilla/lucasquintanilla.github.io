@@ -448,7 +448,7 @@
             return null;
         }
 
-        function hideLoading() {            
+        function hideLoading() {
 
             const loadingImage = getImageBySrc('assets/loading.gif');
             if (loadingImage) {
@@ -757,17 +757,28 @@
         //     }
         // }
 
+        const dev = true;
+
+
         async function loadPrompt() {
-            const response = await fetch("/prompts/default.txt");
+
+
+            var url;
+            if (dev) {
+
+                url = "https://creativeclub.ie/bandersnatch/prompts/default.txt";
+            }
+            else {
+
+                url = "prompts/default.txt" ;
+            }
+
+            const response = await fetch(url);
             prompt = await response.text();
 
             if (prompt) {
                 console.log(prompt);
-                // // If the prompt exists, load it into the chat view
-                // const messages = document.getElementById('messages');
-                // messages.innerHTML = `<div class="message bot">${prompt}</div>`;
-
-                // messageList = [{ role: "system", content: basePrompt + prompt }];  // Global message list
+                messageList = [{ role: "system", content: prompt }]; 
             } else {
                 // If the prompt doesn't exist, display a default message
                 const messages = document.getElementById('messages');
@@ -778,7 +789,7 @@
         window.onload = async function () {
 
             await loadPrompt();
-            messageList = [{ role: "system", content: basePrompt + kidsStoryTellerEN }];  // Global message list    
+            // messageList = [{ role: "system", content: basePrompt + kidsStoryTellerEN }];  // Global message list    
             getBotResponse("start");
         };
     </script>
