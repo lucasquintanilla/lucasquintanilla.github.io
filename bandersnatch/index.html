@@ -4,12 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Little Gatinho</title>
+    <title>Create Your Own Adventure</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets\cc.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -433,24 +434,29 @@
 
         function showLoading() {
 
-            addMessage(loadingMessage, 'bot')
+            // addMessage(loadingMessage, 'bot')
             addImageMessage('assets/loading.gif', 'bot')
         }
 
-        function hideLoading() {
-            // Locate all elements with the class 'messages'
-            var elements = document.querySelector('message');
-
-            // Select the last one
-            var lastElement = elements[elements.length - 1];
-
-            // Hide the image inside the last element if it exists
-            if (lastElement) {
-                var img = lastElement.querySelector('img');
-                if (img) {
-                    img.style.display = 'none'; // Hides the image
+        function getImageBySrc(srcPath) {
+            const images = document.querySelectorAll('img');
+            for (let img of images) {
+                if (img.src.includes(srcPath)) {
+                    return img;
                 }
             }
+            return null;
+        }
+
+        function hideLoading() {            
+
+            const loadingImage = getImageBySrc('assets/loading.gif');
+            if (loadingImage) {
+                loadingImage.remove();
+            } else {
+                console.log("Loading Image not found!");
+            }
+
         }
 
         //Create an enchanting in dark theme almost like pencil drawing depicting: 
@@ -732,10 +738,31 @@
         };
 
         // Function to load the prompt based on the conversationId
-        function loadPrompt(conversationId) {
-            prompt = conversations[conversationId];
+        // async function loadPrompt(conversationId) {
+        //     // prompt = conversations[conversationId];
+
+        //     const response = await fetch("prompts/prompt1.txt");
+        //     prompt = await response.text();
+
+        //     if (prompt) {
+        //         // // If the prompt exists, load it into the chat view
+        //         // const messages = document.getElementById('messages');
+        //         // messages.innerHTML = `<div class="message bot">${prompt}</div>`;
+
+        //         // messageList = [{ role: "system", content: basePrompt + prompt }];  // Global message list
+        //     } else {
+        //         // If the prompt doesn't exist, display a default message
+        //         const messages = document.getElementById('messages');
+        //         messages.innerHTML = `<div class="message bot">Conversation not found!</div>`;
+        //     }
+        // }
+
+        async function loadPrompt() {
+            const response = await fetch("/prompts/prompt1.txt");
+            prompt = await response.text();
 
             if (prompt) {
+                console.log(prompt);
                 // // If the prompt exists, load it into the chat view
                 // const messages = document.getElementById('messages');
                 // messages.innerHTML = `<div class="message bot">${prompt}</div>`;
@@ -748,7 +775,9 @@
             }
         }
 
-        window.onload = function () {
+        window.onload = async function () {
+
+            // await loadPrompt();
             messageList = [{ role: "system", content: basePrompt + kidsStoryTellerEN }];  // Global message list    
             getBotResponse("start");
         };
