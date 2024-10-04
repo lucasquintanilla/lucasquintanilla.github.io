@@ -537,14 +537,20 @@ function suggestOptionsBasedOnResponse(responseText) {
 
 // Main function to orchestrate the bot response flow
 async function getBotResponse(userInput) {
-    // const userMetaData = await fetchUserMetaData();
-    const apiToken = await fetchApiToken();
 
-    // Add the user's message to the global message list
-    messageList.push({ role: "user", content: userInput });
-    const response = await generateBotResponse(userInput, apiToken, 'gpt');
+    if (dev) {
+        const messageElement = addMessage('', 'bot');
+        updateMessageWithMarkdown(messageElement, 'dev test response');
+    } else {
+        // const userMetaData = await fetchUserMetaData();
+        const apiToken = await fetchApiToken();
 
-    await handleStreamedResponse(response);
+        // Add the user's message to the global message list
+        messageList.push({ role: "user", content: userInput });
+        const response = await generateBotResponse(userInput, apiToken, 'gpt');
+
+        await handleStreamedResponse(response);
+    }
 }
 
 async function handleUserSelection(selection) {
@@ -655,7 +661,7 @@ const conversations = {
 //     }
 // }
 
-const dev = true;
+
 
 
 async function loadPrompt() {
@@ -664,11 +670,14 @@ async function loadPrompt() {
     var url;
     if (dev) {
 
-        url = "https://creativeclub.ie/bandersnatch/prompts/default.txt";
+        // url = "https://creativeclub.ie/bandersnatch/prompts/default.txt";
+        url = "https://creativeclub.ie/bandersnatch/prompts/doctor.txt";
     }
     else {
 
-        url = "prompts/default.txt";
+        // url = "prompts/default.txt";
+        url = "https://creativeclub.ie/bandersnatch/prompts/doctor.txt";
+
     }
 
     const response = await fetch(url);
@@ -686,6 +695,12 @@ async function loadPrompt() {
 
 window.onload = async function () {
 
-    await loadPrompt();
+    if (dev){
+
+    }else
+    {
+        await loadPrompt();
+    }
+    
     getBotResponse("start");
 };
