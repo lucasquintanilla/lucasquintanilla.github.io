@@ -1,6 +1,8 @@
 // import { marked } from 'marked';
 // import { marked } from "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js";
 
+const name = "default";
+
 const messages = document.getElementById('messages');
 const messageInput = document.getElementById('messageInput');
 const sendButton = document.getElementById('sendButton');
@@ -666,17 +668,17 @@ const conversations = {
 
 async function loadPrompt() {
 
-
+    
     var url;
     if (dev) {
 
-        // url = "https://creativeclub.ie/bandersnatch/prompts/default.txt";
-        url = "https://creativeclub.ie/bandersnatch/prompts/doctor.txt";
+        url = `https://creativeclub.ie/bandersnatch/prompts/${name}.txt`;
+        // url = "https://creativeclub.ie/bandersnatch/prompts/doctor.txt";
     }
     else {
 
-        // url = "prompts/default.txt";
-        url = "https://creativeclub.ie/bandersnatch/prompts/doctor.txt";
+        url = `prompts/${name}.txt`;
+        // url = "https://creativeclub.ie/bandersnatch/prompts/doctor.txt";
 
     }
 

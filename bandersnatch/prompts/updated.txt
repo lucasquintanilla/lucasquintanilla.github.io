@@ -1,3 +1,0 @@
-    "Emojis: 🐾,😺,😸,😹,😻,😼,😽,🙀,😿,😾,🐈,🐈‍⬛,🐱. " +
-    "Fallback if unclear: 'Can you clarify if you're asking about ...?' " +
-    "Keep all options within scope, avoid irrelevant or creative answers.";
