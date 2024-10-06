@@ -1,0 +1,1 @@
+make a full screen view of a customizable diagram of processes like a customizable message and a customizable image view,

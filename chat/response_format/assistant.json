@@ -1,0 +1,36 @@
+{
+    "name": "assistant_response",
+    "schema": {
+        "type": "object",
+        "properties": {
+            "message": {
+                "type": "string"
+            },
+            "options": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "suggestion": {
+                            "type": "string"
+                        },
+                        "link": {
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "suggestion",
+                        "link"
+                    ],
+                    "additionalProperties": false
+                }
+            }
+        },
+        "required": [
+            "message",
+            "options"
+        ],
+        "additionalProperties": false
+    },
+    "strict": true
+}

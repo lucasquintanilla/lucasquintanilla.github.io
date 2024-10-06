@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Own Adventure</title>
+    <meta name="description"
+        content="Create Your Own Adventure is a storytelling app for kids aged 7-14, allowing them to write unique stories with AI-generated illustrations. A fun and educational experience fostering creativity, critical thinking, and problem-solving.">
+    <meta name="keywords"
+        content="create your own adventure, storytelling app, kids creativity, AI illustrations, educational app, 7-14 years, game book adaptation, interactive platform">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/cc.ico" sizes="32x32" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/cc.ico" sizes="64x64" type="image/x-icon">
+    <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Create Your Own Adventure",
+      "description": "An interactive storytelling app for kids aged 7-14, featuring AI-generated illustrations.",
+      "operatingSystem": "Android, iOS",
+      "applicationCategory": "GameApplication",
+      "creator": {
+        "@type": "Organization",
+        "name": "Creative Club Labs"
+      },
+      "datePublished": "2024-01-01",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+</script>
+</head>
+
+<body>
+    <!-- Choose Your Own Adventure was released in 2024 created by Creative Club Labs Team. It is an adaptation of the popular game book series Choose Your Own Adventure by Edward Packard.
+It enables It is app for kids that ables to explore creativity 
+by writing their own story and revealing an AI generated Illestration on each new chapter.
+ 7- to 14-year-olds
+
+Choose Your Own Adventure empowers kids to unleash their creativity like never before. 
+With every decision they make, they write their own unique story, bringing their imagination to life. 
+But that’s not all! As each chapter unfolds, the app reveals stunning, A
+I-generated illustrations tailored to their personal journey, making every adventure a visual masterpiece.
+
+This interactive platform not only fosters creativity but also develops critical thinking, 
+problem-solving skills, and a love for storytelling—all while keeping kids engaged in a fun, educational experience.
+
+Investors and partners, join us in revolutionizing how kids learn and create. 
+Together, we can inspire the next generation of storytellers, innovators, and dreamers. -->
+
+    <div class="chat-container">
+        <!-- Horizontal scrollable nav bar with circular profile pictures -->
+        <!-- <nav class="profile-bar">
+            <div class="profiles" id="profileNav">
+                <div class="profile" data-conversation="1">
+                    <img src="assets/dc-logo.jpg" alt="Profile 1">
+                </div>
+                <div class="profile" data-conversation="2">
+                    <img src="assets/code-logo.jpg" alt="Profile 2">
+                </div>
+                <div class="profile" data-conversation="3">
+                    <img src="assets/cat-logo.jpg" alt="Profile 3">
+                </div>
+                <div class="profile" data-conversation="3">
+                    <img src="assets/plus-logo.svg" alt="Profile 4">
+                </div>
+            </div>
+        </nav> -->
+
+        <div class="messages" id="messages">
+        </div>
+        <div class="input-container">
+            <input type="text" id="messageInput" placeholder="Type a message...">
+            <button class="voice-button" id="voiceButton">🎤</button>
+            <button class="send-button" id="sendButton"><i class="fas fa-paw"></i></button>
+            <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+            <input type="file" id="fileInput" multiple style="display:none;">
+            <button class="file-button" id="fileButton">📎</button>
+        </div>
+    </div>
+    <script src="js/constants.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/14.1.2/marked.min.js"></script>
+</body>
+
+</html>
