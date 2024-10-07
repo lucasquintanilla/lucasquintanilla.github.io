@@ -433,7 +433,8 @@ async function generateImageWithDalle(prompt) {
     const dalleApiUrl = 'https://api.openai.com/v1/images/generations';
     const dalleRequestBody = {
         model: "dall-e-3",
-        prompt: "Create a well detailed epic games illustration poster of : " + prompt, // The suggestion text from competition responses
+        prompt: "Generate a pixel art 64x64 pixels only using black and white pixels of: ",
+        //+ prompt, // The suggestion text from competition responses
         n: 1,
         size: "1024x1024" // Adjust size as needed
     };

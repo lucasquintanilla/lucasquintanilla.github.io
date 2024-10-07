@@ -665,20 +665,20 @@ const conversations = {
 
 
 
-
+var local = true; 
 async function loadPrompt() {
 
     
     var url;
-    if (dev) {
+    if (local) {
 
-        url = `https://creativeclub.ie/bandersnatch/prompts/${name}.txt`;
+        url = `https://creativeclub.ie/chat/prompts/${name}.txt`;
         // url = "https://creativeclub.ie/bandersnatch/prompts/doctor.txt";
     }
     else {
 
         url = `prompts/${name}.txt`;
-        // url = "https://creativeclub.ie/bandersnatch/prompts/doctor.txt";
+        
 
     }
 
