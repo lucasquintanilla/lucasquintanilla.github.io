@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#FF0000"> <!-- Red theme for PWA -->
-    <title>Food Delivery App</title>
+    <title>Food Order App</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #ffffff; /* White background */
+            background-color: #ffffff;
+            /* White background */
             color: #333;
         }
 
         /* Container for the app */
         .container {
-            max-width: 600px; /* Restrict the width for larger screens */
-            margin: 0 auto; /* Center the content */
-            padding: 20px; /* Add padding */
+            max-width: 600px;
+            /* Restrict the width for larger screens */
+            margin: 0 auto;
+            /* Center the content */
+            padding: 20px;
+            /* Add padding */
         }
 
         .header {
-            background-color: #FF0000; /* Red header */
+            background-color: #000000;
+            /* Black header */
             padding: 15px;
             text-align: center;
             color: #fff;
@@ -44,10 +50,14 @@
         }
 
         .carousel-item img {
-            width: 120px; /* Fixed width */
-            height: 120px; /* Fixed height */
-            border-radius: 50%; /* Rounded images */
-            object-fit: cover; /* Ensure images fit within the circle */
+            width: 120px;
+            /* Fixed width */
+            height: 120px;
+            /* Fixed height */
+            border-radius: 50%;
+            /* Rounded images */
+            object-fit: cover;
+            /* Ensure images fit within the circle */
         }
 
         .item-name {
@@ -58,7 +68,8 @@
         .price {
             font-size: 16px;
             font-weight: bold;
-            color: #FF0000;
+            color: #000000;
+            /* Black color for price */
             margin-top: 5px;
         }
 
@@ -69,7 +80,8 @@
         }
 
         .quantity-controls button {
-            background-color: #FF0000;
+            background-color: #000000;
+            /* Black buttons */
             color: #FFFFFF;
             border: none;
             padding: 5px 10px;
@@ -97,12 +109,14 @@
             text-align: center;
             font-size: 20px;
             margin: 20px 0;
-            color: #FF0000;
+            color: #000000;
+            /* Black color for total price */
             font-weight: bold;
         }
 
         .order-btn {
-            background-color: #FF0000;
+            background-color: #000000;
+            /* Black order button */
             color: #FFFFFF;
             width: 100%;
             padding: 15px;
@@ -114,7 +128,8 @@
         }
 
         .error-message {
-            color: red;
+            color: #000000;
+            /* Black error message */
             text-align: center;
             margin-top: 10px;
         }
@@ -122,11 +137,31 @@
         /* Adjustments for larger screens */
         @media (min-width: 601px) {
             .container {
-                padding: 40px; /* Add extra padding on desktop */
+                padding: 40px;
+                /* Add extra padding on desktop */
             }
         }
+
+        /* Centered Footer Styling */
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #000000;
+            /* Black link color */
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
     </style>
+
 </head>
+
 <body>
     <div class="container">
         <div class="header">
@@ -174,13 +209,19 @@
         <!-- Address Input -->
         <div class="form-group">
             <label for="address">Delivery Address</label>
-            <input type="text" id="address" placeholder="Enter your address">
+            <input type="text" id="address" placeholder="Ex: 90 Baggot Street Lower, Apartment 2">
         </div>
 
         <!-- Phone Number Input -->
         <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="Enter your phone number">
+            <input type="tel" id="phone" placeholder="Ex: 0830297520">
+        </div>
+
+        <!-- Notes Input -->
+        <div class="form-group">
+            <label for="notes">Notes</label>
+            <input type="text" id="notes" placeholder="Add any additional notes (optional)">
         </div>
 
         <!-- Total Price -->
@@ -192,10 +233,18 @@
         <div class="error-message" id="error-message"></div>
 
         <!-- Order Button -->
-        <button class="order-btn" onclick="submitOrder()">Order</button>
+        <button class="order-btn" onclick="submitOrder()">Place Order</button>
     </div>
 
+    <!-- Footer -->
+    <div class="footer">
+        <a href="https://creativeclub.ie/" target="_blank">Made by Creative Club ❤</a>
+    </div>
+
+
     <script>
+        const phoneNumber = '353830297520';
+
         // Prices for items
         const prices = {
             burger: 5.00,
@@ -236,6 +285,7 @@
         function submitOrder() {
             const address = document.getElementById('address').value;
             const phone = document.getElementById('phone').value;
+            const notes = document.getElementById('notes').value; // Retrieve notes value
             const total = (quantities.burger * prices.burger) + (quantities.pizza * prices.pizza) + (quantities.fries * prices.fries);
 
             const errorMessage = document.getElementById('error-message');
@@ -257,9 +307,10 @@
                 return;
             }
 
-            const orderMessage = `**Order**\n\nBurger: ${quantities.burger}\nPizza: ${quantities.pizza}\nFries: ${quantities.fries}\n\n**Total: $${total.toFixed(2)}**\n\nDelivery Address: ${address}\nPhone: ${phone}`;
+            // Construct the order message
+            const orderMessage = `**Order #001**\n\nBurger: ${quantities.burger}\nPizza: ${quantities.pizza}\nFries: ${quantities.fries}\n\n**Total: $${total.toFixed(2)}**\n\nDelivery Address: ${address}\nPhone: ${phone}\n\nNotes: ${notes || "N/A"}`;
 
-            const WhatsAppLink = encodeURI(`https://wa.me/351965747922?text=${orderMessage}`);
+            const WhatsAppLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(orderMessage)}`;
             window.open(WhatsAppLink, '_blank');
         }
 
@@ -270,4 +321,5 @@
         }
     </script>
 </body>
+
 </html>
