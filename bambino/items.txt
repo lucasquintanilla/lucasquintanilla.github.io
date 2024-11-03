@@ -1,0 +1,229 @@
+const foodItems = [
+  // Slice
+  { 
+    id: 'cheese-slice', 
+    name: 'Cheese Slice', 
+    price: 4.50, 
+    image: 'https://example.com/cheese-slice.jpg', 
+    category: 'Slice',
+    description: 'Tomato Sauce, Irish Mozzarella, Fior di Latte, Grana Padano.',
+    allergens: ['Wheat', 'Dairy'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'pepperoni-slice', 
+    name: 'Pepperoni Slice', 
+    price: 5.25, 
+    image: 'https://example.com/pepperoni-slice.jpg', 
+    category: 'Slice',
+    description: 'Pepperoni, Irish Mozzarella, Fior di Latte, Tomato Sauce, Grana Padano.',
+    allergens: ['Wheat', 'Dairy'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'hot-pep-slice', 
+    name: 'Hot Pep Slice', 
+    price: 6.25, 
+    image: 'https://example.com/hot-pep-slice.jpg', 
+    category: 'Slice',
+    description: 'Pepperoni, Pickled Jalapeños, Irish Mozzarella, Fior di Latte, Tomato Sauce, Grana Padano, Hot Honey.',
+    allergens: ['Wheat', 'Dairy'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'mushroom-slice', 
+    name: 'Mushroom Slice', 
+    price: 5.25, 
+    image: 'https://example.com/mushroom-slice.jpg', 
+    category: 'Slice',
+    description: 'Braised Portobello Mushroom, Irish Mozzarella, Fior di Latte, Mushroom Cream, Grana Padano.',
+    allergens: ['Wheat', 'Dairy'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'sausage-peppers-slice', 
+    name: 'Sausage and Peppers Slice', 
+    price: 6.25, 
+    image: 'https://example.com/sausage-peppers-slice.jpg', 
+    category: 'Slice',
+    description: 'Andarl Farm Pork Sausage, Tomato Sauce, Guindillas, Irish Mozzarella, Fior di Latte, Red Onion, Grana Padano.',
+    allergens: ['Wheat', 'Dairy'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'marinara-slice', 
+    name: 'Marinara Slice', 
+    price: 4.25, 
+    image: 'https://example.com/marinara-slice.jpg', 
+    category: 'Slice',
+    description: 'Crushed Tomato, Garlic, Pangrattato, Sicilian Oregano, Maldon Sea Salt, Extra Virgin Olive Oil.',
+    allergens: ['Wheat'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'vegan-sausage-slice', 
+    name: 'Vegan Sausage Slice', 
+    price: 6.50, 
+    image: 'https://example.com/vegan-sausage-slice.jpg', 
+    category: 'Slice',
+    description: 'Vegan Sausage, Vegan Cheese, Tomato Sauce, Romesco, Fresh Basil, Extra Virgin Olive Oil.',
+    allergens: ['Wheat', 'Almonds'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'vodka-slice', 
+    name: 'Vodka Slice', 
+    price: 6.50, 
+    image: 'https://example.com/vodka-slice.jpg', 
+    category: 'Slice',
+    description: 'Tomato, Fresh Basil, Grana Padano, Irish Mozzarella, Toons Bridge Fior di Latte, Spicy Pepperoni, Vodka Sauce, Parmigiano Reggiano.',
+    allergens: ['Wheat', 'Dairy'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+
+  // Whole 20” Pie
+  { 
+    id: 'cheese-pie', 
+    name: 'Cheese Pie', 
+    price: 31.00, 
+    image: 'https://example.com/cheese-pie.jpg', 
+    category: 'Whole 20” Pie',
+    description: 'Tomato Sauce, Irish Mozzarella, Fior di Latte, Grana Padano.',
+    allergens: ['Wheat', 'Dairy'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'pepperoni-pie', 
+    name: 'Pepperoni Pie', 
+    price: 33.00, 
+    image: 'https://example.com/pepperoni-pie.jpg', 
+    category: 'Whole 20” Pie',
+    description: 'Pepperoni, Irish Mozzarella, Fior di Latte, Tomato Sauce, Grana Padano.',
+    allergens: ['Wheat', 'Dairy'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'hot-pep-pie', 
+    name: 'Hot Pep Pie', 
+    price: 35.00, 
+    image: 'https://example.com/hot-pep-pie.jpg', 
+    category: 'Whole 20” Pie',
+    description: 'Pepperoni, Pickled Jalapeños, Irish Mozzarella, Fior di Latte, Tomato Sauce, Grana Padano, Hot Honey.',
+    allergens: ['Wheat', 'Dairy'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'mushroom-pie', 
+    name: 'Mushroom Pie', 
+    price: 33.00, 
+    image: 'https://example.com/mushroom-pie.jpg', 
+    category: 'Whole 20” Pie',
+    description: 'Braised Portobello Mushroom, Irish Mozzarella, Fior di Latte, Mushroom Cream, Grana Padano.',
+    allergens: ['Wheat', 'Dairy'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'sausage-peppers-pie', 
+    name: 'Sausage and Peppers Pie', 
+    price: 35.00, 
+    image: 'https://example.com/sausage-peppers-pie.jpg', 
+    category: 'Whole 20” Pie',
+    description: 'Andarl Farm Pork Sausage, Tomato Sauce, Guindillas, Irish Mozzarella, Fior di Latte, Red Onion, Grana Padano.',
+    allergens: ['Wheat', 'Dairy'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'marinara-pie', 
+    name: 'Marinara Pie', 
+    price: 29.00, 
+    image: 'https://example.com/marinara-pie.jpg', 
+    category: 'Whole 20” Pie',
+    description: 'Crushed Tomato, Garlic, Pangrattato, Sicilian Oregano, Maldon Sea Salt, Extra Virgin Olive Oil.',
+    allergens: ['Wheat'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'vegan-sausage-pie', 
+    name: 'Vegan Sausage Pie', 
+    price: 35.00, 
+    image: 'https://example.com/vegan-sausage-pie.jpg', 
+    category: 'Whole 20” Pie',
+    description: 'Vegan Sausage, Vegan Cheese, Tomato Sauce, Romesco, Fresh Basil, Extra Virgin Olive Oil.',
+    allergens: ['Wheat', 'Almonds'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+  { 
+    id: 'the-vito', 
+    name: 'The Vito', 
+    price: 35.00, 
+    image: 'https://example.com/the-vito.jpg', 
+    category: 'Whole 20” Pie',
+    description: 'Pepperoni, Irish Mozzarella, Fior di Latte, Tomato Sauce, Grana Padano, Burrata, Extra Virgin Olive Oil, Fresh Basil, Hot Honey.',
+    allergens: ['Wheat', 'Dairy'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+
+  // Square
+  { 
+    id: 'burrata-square', 
+    name: 'Burrata Square', 
+    price: 6.50, 
+    image: 'https://example.com/burrata-square.jpg', 
+    category: 'Square',
+    description: 'Burrata, Tomato Sauce, Fresh Basil, Extra Virgin Olive Oil, Maldon Sea Salt.',
+    allergens: ['Wheat', 'Dairy'],
+    calories: null,
+    preparationTime: '10-15 minutes'
+  },
+
+  // Extra
+  { 
+    id: 'hot-honey', 
+    name: 'Hot Honey', 
+    price: 0.50, 
+    image: 'https://example.com/hot-honey.jpg', 
+    category: 'Extra',
+    description: 'Extra drizzle of hot honey.',
+    allergens: [],
+    calories: null,
+    preparationTime: 'Instant'
+  },
+  { 
+    id: 'fresh-basil', 
+    name: 'Fresh Basil', 
+    price: 0.50, 
+    image: 'https://example.com/fresh-basil.jpg', 
+    category: 'Extra',
+    description: 'Fresh basil topping.',
+    allergens: [],
+    calories: null,
+    preparationTime: 'Instant'
+  },
+  { 
+    id: 'pickled-chillies', 
+    name: 'Pickled Chillies', 
+    price: 0.50, 
+    image: 'https://example.com/pickled-chillies.jpg', 
+    category: 'Extra',
+    description: 'Add pickled chillies for extra spice.',
+    allergens: [],
+    calories: null,
+    preparationTime: 'Instant'
+  }
+];
