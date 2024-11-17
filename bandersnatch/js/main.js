@@ -429,12 +429,14 @@ async function generateImageWithDalle(prompt) {
 
 
     showLoading();
+    
+    //Generate a pixel art 64x64 pixels only using black and white pixels of: 
+    const imagePrompt = "Generate a pixel art 64x64 pixels only using black and white pixels of: ";
 
     const dalleApiUrl = 'https://api.openai.com/v1/images/generations';
     const dalleRequestBody = {
         model: "dall-e-3",
-        prompt: "Generate a pixel art 64x64 pixels only using black and white pixels of: ",
-        //+ prompt, // The suggestion text from competition responses
+        prompt: "Generate a hyperrealistic dark fantasy of: " + prompt, // The suggestion text from competition responses
         n: 1,
         size: "1024x1024" // Adjust size as needed
     };
