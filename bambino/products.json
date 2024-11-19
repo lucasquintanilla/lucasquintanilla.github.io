@@ -7,7 +7,7 @@
     "category": "Slice",
     "description": "Tomato Sauce, Irish Mozzarella, Fior di Latte, Grana Padano.",
     "allergens": ["Wheat", "Dairy"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -18,7 +18,7 @@
     "category": "Slice",
     "description": "Pepperoni, Irish Mozzarella, Fior di Latte, Tomato Sauce, Grana Padano.",
     "allergens": ["Wheat", "Dairy"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -29,7 +29,7 @@
     "category": "Slice",
     "description": "Pepperoni, Pickled Jalapeños, Irish Mozzarella, Fior di Latte, Tomato Sauce, Grana Padano, Hot Honey.",
     "allergens": ["Wheat", "Dairy"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -40,7 +40,7 @@
     "category": "Slice",
     "description": "Braised Portobello Mushroom, Irish Mozzarella, Fior di Latte, Mushroom Cream, Grana Padano.",
     "allergens": ["Wheat", "Dairy"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -51,7 +51,7 @@
     "category": "Slice",
     "description": "Andarl Farm Pork Sausage, Tomato Sauce, Guindillas, Irish Mozzarella, Fior di Latte, Red Onion, Grana Padano.",
     "allergens": ["Wheat", "Dairy"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -62,7 +62,7 @@
     "category": "Slice",
     "description": "Crushed Tomato, Garlic, Pangrattato, Sicilian Oregano, Maldon Sea Salt, Extra Virgin Olive Oil.",
     "allergens": ["Wheat"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -73,7 +73,7 @@
     "category": "Slice",
     "description": "Vegan Sausage, Vegan Cheese, Tomato Sauce, Romesco, Fresh Basil, Extra Virgin Olive Oil.",
     "allergens": ["Wheat", "Almonds"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -84,7 +84,7 @@
     "category": "Slice",
     "description": "Tomato, Fresh Basil, Grana Padano, Irish Mozzarella, Toons Bridge Fior di Latte, Spicy Pepperoni, Vodka Sauce, Parmigiano Reggiano.",
     "allergens": ["Wheat", "Dairy"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -95,7 +95,7 @@
     "category": "Whole 20\" Pie",
     "description": "Tomato Sauce, Irish Mozzarella, Fior di Latte, Grana Padano.",
     "allergens": ["Wheat", "Dairy"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -106,7 +106,7 @@
     "category": "Whole 20\" Pie",
     "description": "Pepperoni, Irish Mozzarella, Fior di Latte, Tomato Sauce, Grana Padano.",
     "allergens": ["Wheat", "Dairy"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -117,7 +117,7 @@
     "category": "Whole 20\" Pie",
     "description": "Pepperoni, Pickled Jalapeños, Irish Mozzarella, Fior di Latte, Tomato Sauce, Grana Padano, Hot Honey.",
     "allergens": ["Wheat", "Dairy"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -128,7 +128,7 @@
     "category": "Whole 20\" Pie",
     "description": "Braised Portobello Mushroom, Irish Mozzarella, Fior di Latte, Mushroom Cream, Grana Padano.",
     "allergens": ["Wheat", "Dairy"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -139,7 +139,7 @@
     "category": "Whole 20\" Pie",
     "description": "Andarl Farm Pork Sausage, Tomato Sauce, Guindillas, Irish Mozzarella, Fior di Latte, Red Onion, Grana Padano.",
     "allergens": ["Wheat", "Dairy"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -150,7 +150,7 @@
     "category": "Whole 20\" Pie",
     "description": "Crushed Tomato, Garlic, Pangrattato, Sicilian Oregano, Maldon Sea Salt, Extra Virgin Olive Oil.",
     "allergens": ["Wheat"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -161,7 +161,7 @@
     "category": "Whole 20\" Pie",
     "description": "Vegan Sausage, Vegan Cheese, Tomato Sauce, Romesco, Fresh Basil, Extra Virgin Olive Oil.",
     "allergens": ["Wheat", "Almonds"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -172,7 +172,7 @@
     "category": "Whole 20\" Pie",
     "description": "Pepperoni, Irish Mozzarella, Fior di Latte, Tomato Sauce, Grana Padano, Burrata, Extra Virgin Olive Oil, Fresh Basil, Hot Honey.",
     "allergens": ["Wheat", "Dairy"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   },
   {
@@ -183,7 +183,7 @@
     "category": "Square",
     "description": "Burrata, Tomato Sauce, Fresh Basil, Extra Virgin Olive Oil, Maldon Sea Salt.",
     "allergens": ["Wheat", "Dairy"],
-    "calories": null,
+    "calories": 300,
     "preparationTime": "10-15 minutes"
   }
 ]
