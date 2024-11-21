@@ -1,0 +1,59 @@
+{
+    "APP_NAME": "FOODIE",
+    "APP_ICON": "https://creativeclub.ie/bambino/bambino_logo.svg",
+    "APP_PRODUCTS_URL": "https://creativeclub.ie/bambino/products.json",
+    "WHATSAPP_PHONE": "353830297520",
+    "CURRENCY_SIGN": "$",
+    "TAX_PERCENTAGE": 10,
+    "COLORS": {
+      "primary": "bg-black text-white",
+      "secondary": "bg-gray-200 text-gray-800",
+      "accent": "bg-yellow-400 text-gray-900",
+      "background": "bg-gray-100",
+      "text": "text-gray-900",
+      "headerText": "text-white",
+      "headerBackground": "bg-gray-900"
+    },
+    "COLLECTION_OPTIONS": [
+      {
+        "id": 1,
+        "address": "37 Stephen Street Lower - Dublin, D02 T862"
+      },
+      {
+        "id": 2,
+        "address": "18 Merrion St Upper - Dublin 2, D02 X064"
+      }
+    ],
+    "LANGUAGE": "es",
+    "OPENING_HOURS": {
+      "monday": {
+        "start": "09:00",
+        "end": "22:00"
+      },
+      "tuesday": {
+        "start": "09:00",
+        "end": "22:00"
+      },
+      "wednesday": {
+        "start": "09:00",
+        "end": "23:00"
+      },
+      "thursday": {
+        "start": "00:00",
+        "end": "22:00"
+      },
+      "friday": {
+        "start": "09:00",
+        "end": "23:00"
+      },
+      "saturday": {
+        "start": "10:00",
+        "end": "23:00"
+      },
+      "sunday": {
+        "start": "10:00",
+        "end": "21:00"
+      }
+    }
+  }
+  
