@@ -12,7 +12,7 @@
   },
   {
     "id": "jamon-y-morron",
-    "name": "Jamon y morron",
+    "name": "Jamón y morrón",
     "price": 13000,
     "image": "https://www.pxw.com.ar/fotos/137_1602782289_55G.jpg",
     "category": "Pizza",
@@ -34,7 +34,7 @@
   },
   {
     "id": "clasica",
-    "name": "Clasica",
+    "name": "Clásica",
     "price": 6000,
     "image": "https://www.pxw.com.ar/fotos/137_1602786637_3G.jpg",
     "category": "Hamburguesas",
@@ -45,7 +45,7 @@
   },
   {
     "id": "papas-fritas-para-dos",
-    "name": "Papas fritas para dos",
+    "name": "Papas Fritas para 2",
     "price": 3500,
     "image": "https://www.pxw.com.ar/fotos/137_1637097988_78G.jpg",
     "category": "Minutas",
@@ -56,7 +56,7 @@
   },
   {
     "id": "papas-con-chedar",
-    "name": "Papas fritas con chedar para dos",
+    "name": "Papas Fritas con Cheddar para 2",
     "price": 4200,
     "image": "https://www.pxw.com.ar/fotos/137_1630453323_3G.jpg",
     "category": "Minutas",
@@ -67,7 +67,7 @@
   },
   {
     "id": "sandwich-milanesa",
-    "name": "Sandwich de milanesa de carne",
+    "name": "Sandwich de Milanesa de Carne",
     "price": 8000,
     "image": "https://www.pxw.com.ar/fotos/137_1602787349_66G.png",
     "category": "Minutas",
@@ -78,7 +78,7 @@
   },
   {
     "id": "jamon-y-queso",
-    "name": "Jamon y queso",
+    "name": "Jamón y Queso",
     "price": 1000,
     "image": "https://www.pxw.com.ar/fotos/137_logo.jpg",
     "category": "Empanadas",
