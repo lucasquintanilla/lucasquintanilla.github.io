@@ -990,7 +990,7 @@ body {
     }
     #meet-us-347 .cs-card-group {
         flex-wrap: nowrap;
-        justify-content: space-between;
+        /* justify-content: space-between; */
     }
     #meet-us-347 .cs-item {
         /* stretch the list items as far as they can go, and the gap property on the parent will space them apart */
