@@ -1,0 +1,55 @@
+{
+    "APP_NAME": "Pizza Planet",
+    "APP_ICON": "https://www.pxw.com.ar/fotos/137_logo.jpg",
+    "APP_PRODUCTS_URL": "https://creativeclub.ie/pizzaplanet/products.json",
+    "WHATSAPP_PHONE": "353830297520",
+    "CURRENCY_SIGN": "$",
+    "TAX_PERCENTAGE": 0,
+    "COLORS": {
+      "primary": "bg-black text-white",
+      "secondary": "bg-gray-200 text-gray-800",
+      "accent": "bg-yellow-400 text-gray-900",
+      "background": "bg-gray-100",
+      "text": "text-gray-900",
+      "headerText": "text-white",
+      "headerBackground": "bg-gray-900"
+    },
+    "COLLECTION_OPTIONS": [
+      {
+        "id": 1,
+        "address": "Asuncion 704 - Temperley, Buenos Aires"
+      }
+    ],
+    "LANGUAGE": "es",
+    "OPENING_HOURS": {
+      "monday": {
+        "start": "09:00",
+        "end": "22:00"
+      },
+      "tuesday": {
+        "start": "09:00",
+        "end": "22:00"
+      },
+      "wednesday": {
+        "start": "09:00",
+        "end": "23:00"
+      },
+      "thursday": {
+        "start": "00:00",
+        "end": "22:00"
+      },
+      "friday": {
+        "start": "09:00",
+        "end": "23:00"
+      },
+      "saturday": {
+        "start": "10:00",
+        "end": "23:00"
+      },
+      "sunday": {
+        "start": "10:00",
+        "end": "21:00"
+      }
+    }
+  }
+  
