@@ -4,6 +4,7 @@
     "APP_PRODUCTS_URL": "https://creativeclub.ie/pizzaplanet/products.json",
     "WHATSAPP_PHONE": "353830297520",
     "CURRENCY_SIGN": "$",
+    "PRICE_DECIMALS": 0,
     "TAX_PERCENTAGE": 0,
     "COLORS": {
       "primary": "bg-black text-white",

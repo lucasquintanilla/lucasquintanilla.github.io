@@ -4,6 +4,7 @@
     "APP_PRODUCTS_URL": "https://creativeclub.ie/bambino/products.json",
     "WHATSAPP_PHONE": "353830297520",
     "CURRENCY_SIGN": "$",
+    "PRICE_DECIMALS": 2,
     "TAX_PERCENTAGE": 10,
     "COLORS": {
       "primary": "bg-black text-white",
