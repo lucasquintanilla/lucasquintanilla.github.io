@@ -1,7 +1,7 @@
 {
-    "APP_NAME": "Pizza Planet",
-    "APP_ICON": "https://www.pxw.com.ar/fotos/137_logo.jpg",
-    "APP_PRODUCTS_URL": "https://creativeclub.ie/pizzaplanet/products.json",
+    "SHOP_NAME": "Pizza Planet",
+    "SHOP_ICON": "https://www.pxw.com.ar/fotos/137_logo.jpg",
+    "SHOP_PRODUCTS_URL": "https://creativeclub.ie/pizzaplanet/products.json",
     "WHATSAPP_PHONE": "353830297520",
     "CURRENCY_SIGN": "$",
     "PRICE_DECIMALS": 0,
