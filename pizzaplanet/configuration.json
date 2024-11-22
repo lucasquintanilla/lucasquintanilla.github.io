@@ -18,7 +18,8 @@
     "COLLECTION_OPTIONS": [
       {
         "id": 1,
-        "address": "Asuncion 704 - Temperley, Buenos Aires"
+        "address": "Asuncion 704 - Temperley, Buenos Aires",
+        "locationURL": "https://maps.app.goo.gl/RCtAx4RAUoifaQXa7"
       }
     ],
     "LANGUAGE": "es",

@@ -18,11 +18,13 @@
     "COLLECTION_OPTIONS": [
       {
         "id": 1,
-        "address": "37 Stephen Street Lower - Dublin, D02 T862"
+        "address": "37 Stephen Street Lower - Dublin, D02 T862",
+        "locationURL": "https://maps.app.goo.gl/qCPACXYW9pFXtmSi8"
       },
       {
         "id": 2,
-        "address": "18 Merrion St Upper - Dublin 2, D02 X064"
+        "address": "18 Merrion St Upper - Dublin 2, D02 X064",
+        "locationURL":"https://maps.app.goo.gl/qCPACXYW9pFXtmSi8"
       }
     ],
     "LANGUAGE": "en",
