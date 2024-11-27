@@ -32,7 +32,8 @@
     "description": "Pepperoni, Pickled Jalapeños, Irish Mozzarella, Fior di Latte, Tomato Sauce, Grana Padano, Hot Honey.",
     "allergens": ["Wheat", "Dairy"],
     "calories": 300,
-    "preparationTime": "10-15 min"
+    "preparationTime": "10-15 min",
+    "displayOption":"compact"
   },
   {
     "id": "mushroom-slice",
@@ -43,7 +44,8 @@
     "description": "Braised Portobello Mushroom, Irish Mozzarella, Fior di Latte, Mushroom Cream, Grana Padano.",
     "allergens": ["Wheat", "Dairy"],
     "calories": 300,
-    "preparationTime": "10-15 min"
+    "preparationTime": "10-15 min",
+    "displayOption":"compact"
   },
   {
     "id": "sausage-peppers-slice",
