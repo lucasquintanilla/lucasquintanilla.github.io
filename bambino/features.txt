@@ -9,22 +9,51 @@ With online orders automatically pushed to your channels saving time and reducin
 Receive your orders thought WhatsApp chat
 
 
-
 Basic Plan
+$0 per month
 
-Online Ordering App
-Receive orders via WhatsApp
-Categorized menu
-Analitycs
+WhatsApp order form
+Unlimited categories
+Unlimited products
+Unlimited images
+No commissions
+Manual payment methods
+Opening Hours
+Partners Ads
+Up to 350 orders/month
+Initial setup fee
+
+Standard Plan
+$10 per month
+
+Access to basic features
+No setup fee
+No partners Ads
+Live chat Support
+Up to 2000 orders/month
+Customizable Design
+QR code
+
+Premium Plan
+$50 per month
+
+Access to Standard features
+Free custom domain
+Unlimited orders/month
+Premium Online Support
+Order Analytics
+Busy Mode
+Snoozing
+Card payments
+Access to the latest upgrades
+Discounts
 
 Initial upload of photos, prices, and product descriptions
 Custom domain (e.g., YourBusinessName.com) starting from €5
 FREE SSL Certificate /1 year
-
-Starting at 350 orders/month
 Online Ordering
-Snoozing
-Busy Mode
+
+
 No setup fee
 Easy order modification (add/remove items, change quantity)
 Categorized menus (Vegan, Cealiac)
@@ -46,16 +75,13 @@ Estimated delivery/pick-up time
  
 ordering indivialy for groups (Split payment and tip options)
 Loyalty points for each order
-
-Premium Plan
-
 FREE Web Hosting & Domain /1 year
+
 Access to the latest upgrades
 Google Analytics
 Multi-language support (English, Spanish, and more)
 Support for online payments
 
-Premium
 Custom Website for all devices
 Online Support and Training
 FREE SSL Certificate /1 year
