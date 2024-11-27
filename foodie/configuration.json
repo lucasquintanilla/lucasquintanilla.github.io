@@ -1,7 +1,7 @@
 {
-    "SHOP_NAME": "BAMBINO",
-    "SHOP_ICON": "https://creativeclub.ie/bambino/bambino_logo.svg",
-    "SHOP_PRODUCTS_URL": "https://creativeclub.ie/bambino/products.json",
+    "SHOP_NAME": "Foodie",
+    "SHOP_ICON": "https://creativeclub.ie/foodie_icon.svg",
+    "SHOP_PRODUCTS_URL": "https://creativeclub.ie/foodie/products.json",
     "WHATSAPP_PHONE": "353830297520",
     "CURRENCY_SIGN": "€",
     "PRICE_DECIMALS": 2,
