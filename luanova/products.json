@@ -1,0 +1,82 @@
+[
+  {
+    "id": "collar-corazon",
+    "name": "Collar Corazón",
+    "price": 2500,
+    "image": "https://creativeclub.ie/luanova/collar-corazon.jpg?auto=format&fit=crop&w=500&q=60",
+    "category": "Collar",
+    "description": "Collar realizado artesanalmente.",
+    "allergens": ["Wheat", "Dairy"],
+    "calories": 300,
+    "preparationTime": "10-15 min"
+  },
+  {
+    "id": "pulseras-amistad",
+    "name": "Pulseras Amistad",
+    "price": 2000,
+    "image": "https://creativeclub.ie/luanova/pulseras-amistad.jpg?auto=format&fit=crop&w=500&q=60",
+    "category": "San Valentin",
+    "description": "Pulsera realizada artesanalmente.",
+    "allergens": ["Wheat", "Dairy"],
+    "calories": 300,
+    "preparationTime": "10-15 min",
+    "displayOption":"compact"
+  },
+  {
+    "id": "pulsera-corazones-multicolor",
+    "name": "Pulsera de Corazones Multicolor",
+    "price": 2000,
+    "image": "https://creativeclub.ie/luanova/pulsera-corazon-multicolor.jpg?auto=format&fit=crop&w=500&q=60",
+    "category": "San Valentin",
+    "description": "Pulsera realizada artesanalmente.",
+    "allergens": ["Wheat", "Dairy"],
+    "calories": 300,
+    "preparationTime": "10-15 min",
+    "displayOption":"compact"
+  },
+  {
+    "id": "pulsera-love",
+    "name": "Pulseras Love",
+    "price": 2500,
+    "image": "https://creativeclub.ie/luanova/pulsera-love.jpg?auto=format&fit=crop&w=500&q=60",
+    "category": "San Valentin",
+    "description": "Pulsera realizada artesanalmente.",
+    "allergens": ["Wheat", "Dairy"],
+    "calories": 300,
+    "preparationTime": "10-15 min",
+    "displayOption":"compact"
+  },
+  {
+    "id": "collar-live-the-moment",
+    "name": "Collar \"Live The Moment\"",
+    "price": 3000,
+    "image": "https://creativeclub.ie/luanova/collar-live-the-moment.jpg?auto=format&fit=crop&w=500&q=60",
+    "category": "Collar",
+    "description": "Pulsera realizada artesanalmente.",
+    "allergens": ["Wheat", "Dairy"],
+    "calories": 300,
+    "preparationTime": "10-15 min"
+  },
+  {
+    "id": "collar-cerezas",
+    "name": "Collar de Cerezas",
+    "price": 3200,
+    "image": "https://creativeclub.ie/luanova/collar-cerezas.jpg?auto=format&fit=crop&w=500&q=60",
+    "category": "Collar",
+    "description": "Collar realizado artesanalmente.",
+    "allergens": ["Wheat"],
+    "calories": 300,
+    "preparationTime": "10-15 min"
+  },
+  {
+    "id": "vegan-sausage-slice",
+    "name": "Pulseras de Amistad Personalizada",
+    "price": 3000,
+    "image": "https://creativeclub.ie/luanova/pulseras-amistad-personalizada.jpg?auto=format&fit=crop&w=500&q=60",
+    "category": "Personalizada",
+    "description": "Collar realizado artesanalmente.",
+    "allergens": ["Wheat", "Almonds"],
+    "calories": 300,
+    "preparationTime": "10-15 min"
+  }
+]

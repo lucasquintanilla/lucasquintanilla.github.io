@@ -1,0 +1,61 @@
+{
+  "SHOP_NAME": "Lua Nova",
+  "SHOP_ICON": "https://creativeclub.ie/foodie_icon.svg",
+  "SHOP_PRODUCTS_URL": "https://creativeclub.ie/foodie/products.json",
+  "WHATSAPP_PHONE": "5491134863818",
+  "CURRENCY_SIGN": "$",
+  "PRICE_DECIMALS": 0,
+  "TAX_PERCENTAGE": 0,
+  "COLORS": {
+    "primary": "bg-black text-white",
+    "secondary": "bg-gray-200 text-gray-800",
+    "accent": "bg-yellow-400 text-gray-900",
+    "background": "bg-gray-100",
+    "text": "text-gray-900",
+    "headerText": "text-white",
+    "headerBackground": "bg-gray-900"
+  },
+  "COLLECTION_OPTIONS": [
+    {
+      "id": 1,
+      "address": "37 Stephen Street Lower - Dublin, D02 T862",
+      "locationURL": "https://maps.app.goo.gl/qCPACXYW9pFXtmSi8"
+    },
+    {
+      "id": 2,
+      "address": "18 Merrion St Upper - Dublin 2, D02 X064",
+      "locationURL": "https://maps.app.goo.gl/qCPACXYW9pFXtmSi8"
+    }
+  ],
+  "LANGUAGE": "es",
+  "OPENING_HOURS": {
+    "monday": {
+      "start": "00:00",
+      "end": "23:00"
+    },
+    "tuesday": {
+      "start": "00:00",
+      "end": "23:00"
+    },
+    "wednesday": {
+      "start": "00:00",
+      "end": "23:00"
+    },
+    "thursday": {
+      "start": "00:00",
+      "end": "23:00"
+    },
+    "friday": {
+      "start": "00:00",
+      "end": "23:00"
+    },
+    "saturday": {
+      "start": "00:00",
+      "end": "23:00"
+    },
+    "sunday": {
+      "start": "00:00",
+      "end": "23:00"
+    }
+  }
+}
