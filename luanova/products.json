@@ -8,7 +8,8 @@
     "description": "Collar realizado artesanalmente.",
     "allergens": ["Wheat", "Dairy"],
     "calories": 300,
-    "preparationTime": "10-15 min"
+    "preparationTime": "10-15 min",
+    "displayOption":"compact"
   },
   {
     "id": "pulseras-amistad",
@@ -31,8 +32,7 @@
     "description": "Pulsera realizada artesanalmente.",
     "allergens": ["Wheat", "Dairy"],
     "calories": 300,
-    "preparationTime": "10-15 min",
-    "displayOption":"compact"
+    "preparationTime": "10-15 min"
   },
   {
     "id": "pulsera-love",
@@ -55,7 +55,8 @@
     "description": "Pulsera realizada artesanalmente.",
     "allergens": ["Wheat", "Dairy"],
     "calories": 300,
-    "preparationTime": "10-15 min"
+    "preparationTime": "10-15 min"    ,
+    "displayOption":"compact"
   },
   {
     "id": "collar-cerezas",

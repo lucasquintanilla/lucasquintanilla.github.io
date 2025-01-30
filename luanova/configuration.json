@@ -1,7 +1,7 @@
 {
   "SHOP_NAME": "Lua Nova",
   "SHOP_ICON": "https://creativeclub.ie/foodie_icon.svg",
-  "SHOP_PRODUCTS_URL": "https://creativeclub.ie/foodie/products.json",
+  "SHOP_PRODUCTS_URL": "https://creativeclub.ie/luanova/products.json",
   "WHATSAPP_PHONE": "5491134863818",
   "CURRENCY_SIGN": "$",
   "PRICE_DECIMALS": 0,
@@ -18,13 +18,13 @@
   "COLLECTION_OPTIONS": [
     {
       "id": 1,
-      "address": "37 Stephen Street Lower - Dublin, D02 T862",
-      "locationURL": "https://maps.app.goo.gl/qCPACXYW9pFXtmSi8"
+      "address": "Temperley, Buenos Aires",
+      "locationURL": "https://maps.app.goo.gl/6Ud9Zqq5nxHo7Vbc7"
     },
     {
       "id": 2,
-      "address": "18 Merrion St Upper - Dublin 2, D02 X064",
-      "locationURL": "https://maps.app.goo.gl/qCPACXYW9pFXtmSi8"
+      "address": "Chivilcoy, Buenos Aires",
+      "locationURL": "https://maps.app.goo.gl/ShHWUjS3MHvw1p2DA"
     }
   ],
   "LANGUAGE": "es",
