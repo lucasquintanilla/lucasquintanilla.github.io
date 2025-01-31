@@ -8,8 +8,7 @@
     "description": "Collar realizado artesanalmente.",
     "allergens": ["Wheat", "Dairy"],
     "calories": 300,
-    "preparationTime": "10-15 min",
-    "displayOption":"compact"
+    "preparationTime": "10-15 min"
   },
   {
     "id": "pulseras-amistad",
@@ -20,8 +19,7 @@
     "description": "Pulsera realizada artesanalmente.",
     "allergens": ["Wheat", "Dairy"],
     "calories": 300,
-    "preparationTime": "10-15 min",
-    "displayOption":"compact"
+    "preparationTime": "10-15 min"
   },
   {
     "id": "pulsera-corazones-multicolor",
@@ -32,8 +30,7 @@
     "description": "Pulsera realizada artesanalmente.",
     "allergens": ["Wheat", "Dairy"],
     "calories": 300,
-    "preparationTime": "10-15 min",
-    "displayOption":"compact"
+    "preparationTime": "10-15 min"
   },
   {
     "id": "pulsera-love",
@@ -44,8 +41,7 @@
     "description": "Pulsera realizada artesanalmente.",
     "allergens": ["Wheat", "Dairy"],
     "calories": 300,
-    "preparationTime": "10-15 min",
-    "displayOption":"compact"
+    "preparationTime": "10-15 min"
   },
   {
     "id": "collar-live-the-moment",
@@ -70,12 +66,34 @@
     "preparationTime": "10-15 min"
   },
   {
-    "id": "vegan-sausage-slice",
+    "id": "pulseras-amistad-personalizada",
     "name": "Pulseras de Amistad Personalizada",
     "price": 3000,
     "image": "https://creativeclub.ie/luanova/pulseras-amistad-personalizada.jpg?auto=format&fit=crop&w=500&q=60",
     "category": "Personalizada",
-    "description": "Collar realizado artesanalmente.",
+    "description": "Pulsera realizada artesanalmente.",
+    "allergens": ["Wheat", "Almonds"],
+    "calories": 300,
+    "preparationTime": "10-15 min"
+  },
+  {
+    "id": "pulsera-roja",
+    "name": "Pulsera Roja",
+    "price": 1000,
+    "image": "https://creativeclub.ie/luanova/pulsera-roja.jpg?auto=format&fit=crop&w=500&q=60",
+    "category": "Personalizada",
+    "description": "Pulsera realizada artesanalmente.",
+    "allergens": ["Wheat", "Almonds"],
+    "calories": 300,
+    "preparationTime": "10-15 min"
+  },
+  {
+    "id": "pulsera-roja-con-corazon",
+    "name": "Pulsera Roja con Corazón",
+    "price": 1200,
+    "image": "https://creativeclub.ie/luanova/pulsera-roja-con-corazon.jpg?auto=format&fit=crop&w=500&q=60",
+    "category": "Personalizada",
+    "description": "Pulsera realizada artesanalmente.",
     "allergens": ["Wheat", "Almonds"],
     "calories": 300,
     "preparationTime": "10-15 min"
