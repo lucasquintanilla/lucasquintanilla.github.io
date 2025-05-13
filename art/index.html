@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer Music Workshops</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .btn {
+            border-radius: 30px;
+            padding: 10px 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #bae1ff;
+            border-color: #bae1ff;
+            color: #333;
+        }
+
+        .btn-primary:hover {
+            background-color: #a0d0ff;
+            border-color: #a0d0ff;
+            color: #333;
+        }
+
+        .btn-secondary {
+            background-color: #ffd3b6;
+            border-color: #ffd3b6;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ffbf94;
+            border-color: #ffbf94;
+            color: #333;
+        }
+
+        /* SVG Noise Background */
+        .noise {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        /* Section 1 - Hero */
+        #hero {
+            /* background: linear-gradient(135deg, #ffd3b6, #fffac8, #bae1ff, #d0f4de); */
+            background: linear-gradient(135deg, #ffd3b6, #bae1ff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Section 2 - About */
+        #about {
+            background-color: #fffac8;
+            position: relative;
+        }
+
+        .about-title {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .about-text {
+            max-width: 800px;
+            text-align: center;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Section 3 - Workshops */
+        #workshops {
+            background-color: #d0f4de;
+            padding: 2rem 0;
+            position: relative;
+            min-height: 150vh;
+            /* Extended to fit both displays */
+        }
+
+        .workshops-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .display-option {
+            text-align: center;
+            margin: 2rem 0 1.5rem;
+            font-size: 1.2rem;
+            color: #333;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: rgba(255, 255, 255, 0.5);
+            margin: 3rem auto;
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Vertical Workshop List */
+        .workshop-list {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .workshop-item {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .workshop-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .workshop-header h3 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        .workshop-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .workshop-content.active {
+            max-height: 500px;
+        }
+
+        .workshop-details {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        /* Horizontal Workshop Scroll */
+        .workshop-scroll-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .workshop-scroll {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1.5rem;
+            padding: 1rem;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .workshop-card {
+            min-width: 280px;
+            scroll-snap-align: start;
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .workshop-img {
+            height: 180px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        /* Section 4 - Pricing */
+        #pricing {
+            background-color: #bae1ff;
+            position: relative;
+        }
+
+        .pricing-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        /* Section 5 - Enroll */
+        #enroll {
+            background-color: #ffd3b6;
+            position: relative;
+        }
+
+        .enroll-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Section 6 - Contact */
+        #contact {
+            background-color: #fffac8;
+            position: relative;
+        }
+
+        .contact-info {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #d0f4de;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            z-index: 2;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) translateX(-50%);
+            }
+
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        /* Toggle icon animation */
+        .toggle-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-icon.active {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Section 1: Hero -->
+    <section id="hero">
+        <div class="noise"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">SUMMER MUSIC WORKSHOPS</h1>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="#about" class="btn btn-primary">Learn More</a>
+                    <a href="#enroll" class="btn btn-secondary">Enroll Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down text-dark"></i>
+        </div>
+    </section>
+
+    <!-- Section 2: About -->
+    <section id="about">
+        <div class="noise"></div>
+        <div class="container">
+            <div class="text-center">
+                <h2 class="about-title">About Workshops</h2>
+                <p class="about-text">
+                    Our Summer Music Workshops offer an immersive experience for musicians of all levels.
+                    Whether you're a beginner looking to learn the basics or an experienced player wanting to refine
+                    your skills,
+                    our expert instructors will guide you through an enriching musical journey.
+                    Join us this summer for hands-on learning, collaborative performances, and unforgettable musical
+                    experiences.
+                </p>
+                <p class="about-text mt-4">
+                    All workshops take place in our state-of-the-art facilities with professional equipment and intimate
+                    class sizes
+                    to ensure personalized attention. Our programs run for 2 weeks with flexible scheduling options to
+                    accommodate your summer plans.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Workshops -->
+    <section id="workshops">
+        <div class="noise"></div>
+        <div class="container">
+            <h2 class="workshops-title">Our Workshops</h2>
+
+            <!-- Vertical Workshop List -->
+            <div id="workshop-list-view" class="workshop-list">
+                <h3 class="display-option">Detailed Workshop Information</h3>
+
+                <!-- Piano Workshop -->
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h3>Piano</h3>
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="workshop-content">
+                        <div class="workshop-details">
+                            <p>Explore the world of piano through fun, engaging one-on-one lessons tailored to each
+                                child’s skill level. Whether your child is a complete beginner or has taken lessons
+                                before, this workshop offers a supportive space to build confidence, improve technique,
+                                and express creativity at the keyboard.
+                                Each student will work individually with an instructor, learning songs, rhythm, and
+                                musical expression at their own pace. They can choose to work with new material we
+                                provide or bring a piece they want help with—whether it’s a favorite song, a school
+                                project, or an exam piece.
+                                At the end of the workshop, participants will showcase their progress with a
+                                professionally recorded audio and video performance of a piece they’ve learned.
+                                This workshop is also a great way for kids to explore their interest in piano and decide
+                                if they’d like to continue learning in the future.
+                                </br>
+                                </br> <b>Ages:</b> 6–12
+                                </br> <b>Level:</b> Beginner to intermediate
+                                </br> <b>What’s provided:</b> Keyboard, music materials, and personalized instruction,
+                                recorded audio visual of a song, workshop certificate
+
+                            </p>
+                            <p>What your child will gain from this workshop:</p>
+                            <ul>
+                                <li>Learn to play songs they’ll feel proud of</li>
+                                <li>Explore a new hobby and musical skill</li>
+                                <li>Take a healthy break from screens</li>
+                                <li>Use music as a way to relax and self-regulate</li>
+                                <li>Learn how to listen and focus</li>
+                                <li>Become more organized and independent</li>
+                                <li>Build confidence in themselves</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-light text-dark">All Levels</span>
+                                <span class="text-muted">2 weeks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guitar Workshop -->
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h3>Guitar</h3>
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="workshop-content">
+                        <img src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                            alt="Guitar Workshop" class="workshop-img">
+                        <div class="workshop-details">
+                            <p>From acoustic to electric, learn essential techniques, chord progressions, and
+                                performance skills with our expert guitar instructors.</p>
+                            <p>Our guitar workshop covers:</p>
+                            <ul>
+                                <li>Strumming patterns and picking techniques</li>
+                                <li>Chord progressions and music theory</li>
+                                <li>Improvisation and soloing</li>
+                                <li>Equipment setup and sound design</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-light text-dark">All Levels</span>
+                                <span class="text-muted">2 weeks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Music Production Workshop -->
+                <div class="workshop-item">
+                    <div class="workshop-header" onclick="toggleWorkshop(this)">
+                        <h3>Music Production</h3>
+                        <span class="toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="workshop-content">
+                        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                            alt="Music Production Workshop" class="workshop-img">
+                        <div class="workshop-details">
+                            <p>Learn digital audio workstations, recording techniques, mixing, and mastering to produce
+                                professional-quality music.</p>
+                            <p>Our music production workshop covers:</p>
+                            <ul>
+                                <li>Digital Audio Workstation (DAW) fundamentals</li>
+                                <li>Recording techniques for various instruments</li>
+                                <li>Mixing and mastering essentials</li>
+                                <li>Sound design and arrangement</li>
+                            </ul>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="badge bg-light text-dark">All Levels</span>
+                                <span class="text-muted">2 weeks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section Divider -->
+            <div class="section-divider"></div>
+
+            <!-- Horizontal Workshop Cards -->
+            <div id="workshop-card-view" class="workshop-scroll-container">
+                <h3 class="display-option">Browse Workshops</h3>
+                <div class="workshop-scroll">
+                    <!-- Piano Workshop -->
+                    <div class="workshop-card">
+                        <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                            alt="Piano Workshop" class="workshop-img">
+                        <div class="card-body p-3">
+                            <h3 class="h5">Piano Workshop</h3>
+                            <p>Master the keyboard with our comprehensive piano workshop. From classical to
+                                contemporary, develop your technique and expression.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-light text-dark">All Levels</span>
+                                <span class="text-muted">2 weeks</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Guitar Workshop -->
+                    <div class="workshop-card">
+                        <img src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                            alt="Guitar Workshop" class="workshop-img">
+                        <div class="card-body p-3">
+                            <h3 class="h5">Guitar Workshop</h3>
+                            <p>From acoustic to electric, learn essential techniques, chord progressions, and
+                                performance skills with our expert guitar instructors.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-light text-dark">All Levels</span>
+                                <span class="text-muted">2 weeks</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Music Production Workshop -->
+                    <div class="workshop-card">
+                        <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                            alt="Music Production Workshop" class="workshop-img">
+                        <div class="card-body p-3">
+                            <h3 class="h5">Music Production</h3>
+                            <p>Learn digital audio workstations, recording techniques, mixing, and mastering to produce
+                                professional-quality music.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-light text-dark">All Levels</span>
+                                <span class="text-muted">2 weeks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Pricing -->
+    <section id="pricing">
+        <div class="noise"></div>
+        <div class="container">
+            <h2 class="text-center mb-5">Workshop Pricing</h2>
+            <div class="row g-4 justify-content-center">
+                <!-- Regular Price -->
+                <div class="col-md-4">
+                    <div class="pricing-card h-100">
+                        <div class="text-center mb-4">
+                            <h3>Regular</h3>
+                            <div class="price">$299</div>
+                            <p class="text-muted">Per workshop</p>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 2-week program</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 3 sessions per week</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Basic materials included
+                            </li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Certificate of completion
+                            </li>
+                        </ul>
+                        <div class="text-center mt-4">
+                            <a href="#enroll" class="btn btn-outline-primary">Select</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intensive Price -->
+                <div class="col-md-4">
+                    <div class="pricing-card h-100">
+                        <div class="text-center mb-4">
+                            <h3>Intensive</h3>
+                            <div class="price">$499</div>
+                            <p class="text-muted">Per workshop</p>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 2-week program</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 5 sessions per week</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> All materials included</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> One-on-one coaching</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Certificate of completion
+                            </li>
+                        </ul>
+                        <div class="text-center mt-4">
+                            <a href="#enroll" class="btn btn-outline-primary">Select</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Combined Price -->
+                <div class="col-md-4">
+                    <div class="pricing-card h-100">
+                        <div class="text-center mb-4">
+                            <h3>Combined</h3>
+                            <div class="price">$799</div>
+                            <p class="text-muted">Any two workshops</p>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 2-week program</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> 5 sessions per week</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> All materials included</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> One-on-one coaching</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Final performance
+                                opportunity</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Certificate of completion
+                            </li>
+                        </ul>
+                        <div class="text-center mt-4">
+                            <a href="#enroll" class="btn btn-outline-primary">Select</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Enroll -->
+    <section id="enroll">
+        <div class="noise"></div>
+        <div class="container">
+            <div class="enroll-card mx-auto">
+                <h2 class="mb-4">Enroll Now</h2>
+                <p class="mb-4">Ready to join our Summer Music Workshops? Click the button below to fill out our
+                    enrollment form and secure your spot!</p>
+                <a href="https://forms.google.com" target="_blank" class="btn btn-primary btn-lg">Enroll Now</a>
+                <p class="mt-4 text-muted small">Limited spots available. Early bird discounts end June 1st.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Contact -->
+    <section id="contact">
+        <div class="noise"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="contact-info">
+                        <h2 class="text-center mb-4">Contact Information</h2>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h5 class="m-0">Address</h5>
+                                <p class="m-0">123 Music Avenue, Harmony City, HC 12345</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h5 class="m-0">Phone</h5>
+                                <p class="m-0">(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h5 class="m-0">Email</h5>
+                                <p class="m-0">info@summermusicworkshops.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h5 class="m-0">Office Hours</h5>
+                                <p class="m-0">Monday - Friday: 9am - 5pm</p>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="#" class="btn btn-outline-dark rounded-circle p-2">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-dark rounded-circle p-2">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-dark rounded-circle p-2">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="btn btn-outline-dark rounded-circle p-2">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Toggle workshop details
+        function toggleWorkshop(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.toggle-icon');
+
+            // Close all other workshops
+            document.querySelectorAll('.workshop-content').forEach(item => {
+                if (item !== content && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('.toggle-icon').classList.remove('active');
+                }
+            });
+
+            // Toggle current workshop
+            content.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
