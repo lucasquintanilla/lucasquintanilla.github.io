@@ -250,7 +250,7 @@
         /* Section 4 - Pricing */
         #pricing {
             /* background-color: #bae1ff; */
-            
+
             background-image: url(bg4.png);
             position: relative;
         }
@@ -278,7 +278,7 @@
         /* Section 5 - Enroll */
         #enroll {
             /* background-color: #ffd3b6; */
-            
+
             background-image: url(bg5.png);
             position: relative;
         }
@@ -297,7 +297,7 @@
         /* Section 6 - Contact */
         #contact {
             /* background-color: #fffac8; */
-            
+
             background-image: url(bg6.png);
             position: relative;
         }
@@ -364,6 +364,37 @@
 
         .toggle-icon.active {
             transform: rotate(180deg);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -604,6 +635,19 @@
                     </div>
                 </div>
 
+
+                <!-- Modal for Piano Workshop -->
+                <!-- <div id="modal-piano" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('piano')">&times;</span>
+                        <h2>Piano Workshop Details</h2>
+                        <p>Explore piano through fun, engaging one-on-one lessons. This workshop builds confidence,
+                            technique, and creativity. Final performances are recorded and shared.</p>
+                        <p><b>Ages:</b> 6–12<br><b>Level:</b> Beginner to Intermediate<br><b>Includes:</b> Keyboard,
+                            materials, personalized instruction</p>
+                    </div>
+                </div> -->
+
                 <!-- Songwriting Workshop -->
                 <div class="workshop-item">
                     <div class="workshop-header" onclick="toggleWorkshop(this)">
@@ -750,33 +794,49 @@
                 <div class="workshop-scroll">
                     <!-- Piano Workshop -->
                     <div class="workshop-card">
-                        <img src="piano.jpg"
-                            alt="Piano Workshop" class="workshop-img">
+                        <img src="piano.jpg" alt="Piano Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Piano Workshop 2025 (Jul - Ago)</h3>
                             <p>5 spots available</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 6-12</span> -->
-                                <span class="badge bg-light text-dark">Dublin</span>
+                                <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
-
+                               
+                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('piano')">More Info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
+                                
+                                <!-- <button class="btn btn-outline-secondary btn-sm mt-2" onclick="openModal('theory')">More info</button> -->
+                                 <!-- <button class="btn btn-outline-secondary btn-sm mt-2"
+                                    onclick="openModal('composition')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm mt-2"
+                                    onclick="openModal('songwriting')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm mt-2"
+                                    onclick="openModal('musicprod')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm mt-2"
+                                    onclick="openModal('ukulele')">More
+                                    Info</button>
+                                <button class="btn btn-outline-secondary btn-sm mt-2" onclick="openModal('guitar')">More
+                                    Info</button>
+                                    <button class="btn btn-outline-secondary btn-sm mt-2"
+                                    onclick="openModal('piano')">More
+                                    Info</button> -->
+
                             </div>
                         </div>
                     </div>
 
                     <!-- Guitar Workshop -->
                     <div class="workshop-card">
-                        <img src="guitar2.jpg"
-                            alt="Guitar Workshop" class="workshop-img">
+                        <img src="guitar2.jpg" alt="Guitar Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Guitar Workshop 2025 (Jul - Ago)</h3>
-                            <p>Just opened</p>
+                            <p>Just opened!</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 6-12</span> -->
                                 <span class="badge bg-light text-dark">Dublin</span>
                                 <!-- <span class="text-muted">2 weeks</span> -->
-                                
+
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -784,17 +844,16 @@
 
                     <!-- Ukulele Workshop -->
                     <div class="workshop-card">
-                        <img src="ukulele.jpg"
-                            alt="Ukulele Workshop" class="workshop-img">
+                        <img src="ukulele.jpg" alt="Ukulele Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Ukulele Workshop 2025 (Jul - Ago)</h3>
-                            <p>Just opened</p>
+                            <p>Just opened!</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 6-12</span> -->
-                                
+
                                 <span class="badge bg-light text-dark">Dublin</span>
                                 <!-- <span class="text-muted">2 weeks</span> -->
-                                
+
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -802,35 +861,46 @@
 
                     <!-- Music Production Workshop -->
                     <div class="workshop-card">
-                        <img src="musicprod.jpg"
-                            alt="Music Production Workshop" class="workshop-img">
+                        <img src="musicprod.jpg" alt="Music Production Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Music Production 2025 (Jul - Ago)</h3>
                             <p>5 spaces available</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 8-14</span> -->
-                                
+
                                 <span class="badge bg-light text-dark">Dublin</span>
                                 <!-- <span class="text-muted">2 weeks</span> -->
-                                
+
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
                     </div>
 
+
+                    <!-- Modal for Piano Workshop -->
+                    <!-- <div id="modal-piano" class="modal">
+                        <div class="modal-content">
+                            <span class="close" onclick="closeModal('piano')">&times;</span>
+                            <h2>Piano Workshop Details</h2>
+                            <p>Explore piano through fun, engaging one-on-one lessons. This workshop builds confidence,
+                                technique, and creativity. Final performances are recorded and shared.</p>
+                            <p><b>Ages:</b> 6–12<br><b>Level:</b> Beginner to Intermediate<br><b>Includes:</b> Keyboard,
+                                materials, personalized instruction</p>
+                        </div>
+                    </div> -->
+
                     <!-- Songwriting Workshop -->
                     <div class="workshop-card">
-                        <img src="songwriting.jpg"
-                            alt="Songwriting Workshop" class="workshop-img">
+                        <img src="songwriting.jpg" alt="Songwriting Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Songwriting 2025 (Jul - Ago)</h3>
                             <p>3 spaces available</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 8-14</span> -->
-                                
+
                                 <span class="badge bg-light text-dark">Dublin</span>
                                 <!-- <span class="text-muted">2 weeks</span> -->
-                                
+
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -838,17 +908,16 @@
 
                     <!-- Composition Workshop -->
                     <div class="workshop-card">
-                        <img src="composition.jpg"
-                            alt="Composition Workshop" class="workshop-img">
+                        <img src="composition.jpg" alt="Composition Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Composition 2025 (Jul - Ago)</h3>
                             <p>2 spaces available</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 8-14</span> -->
-                                
+
                                 <span class="badge bg-light text-dark">Dublin</span>
                                 <!-- <span class="text-muted">2 weeks</span> -->
-                                 
+
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -856,17 +925,16 @@
 
                     <!-- Music Theory Workshop -->
                     <div class="workshop-card">
-                        <img src="theory2.jpg"
-                            alt="Music Theory Workshop" class="workshop-img">
+                        <img src="theory2.jpg" alt="Music Theory Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Music Theory 2025 (Jul - Ago)</h3>
                             <p>2 spaces available</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 8-14</span> -->
-                                
+
                                 <span class="badge bg-light text-dark">Dublin</span>
                                 <!-- <span class="text-muted">2 weeks</span> -->
-                                 
+
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -963,7 +1031,8 @@
                 <h2 class="mb-4">Join us</h2>
                 <p class="mb-4">Ready to join our Summer Music Workshops? Click the button below to fill out our
                     enrollment form and secure your spot!</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd94EOqkmtwEE-woggdKThtkqV8frTUaFV4UfDPwmzm6p1rIw/viewform?usp=header" target="_blank" class="btn btn-primary btn-lg">Enroll Now</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd94EOqkmtwEE-woggdKThtkqV8frTUaFV4UfDPwmzm6p1rIw/viewform?usp=header"
+                    target="_blank" class="btn btn-primary btn-lg">Enroll Now</a>
                 <p class="mt-4 text-muted small">Limited spots available.</p>
             </div>
         </div>
@@ -1075,6 +1144,121 @@
             icon.classList.toggle('active');
         }
     </script>
+
+    <script>
+        function openModal(id) {
+            document.getElementById('modal-' + id).style.display = 'block';
+        }
+        function closeModal(id) {
+            document.getElementById('modal-' + id).style.display = 'none';
+        }
+        window.onclick = function (event) {
+            const modals = document.getElementsByClassName('modal');
+            Array.from(modals).forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+
+    <!-- Modal for Piano Workshop -->
+    <div id="modal-piano" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('piano')">&times;</span>
+            <h2>Piano Workshop Details</h2>
+            <p>Explore piano through fun, engaging one-on-one lessons. Builds confidence, technique, and creativity.
+                Final performances are recorded.</p>
+                <p>Explore the world of piano through fun, engaging one-on-one lessons tailored to each
+                    child's skill level. Whether your child is a complete beginner or has taken lessons
+                    before, this workshop offers a supportive space to build confidence, improve technique,
+                    and express creativity at the keyboard.
+                    Each student will work individually with an instructor, learning songs, rhythm, and
+                    musical expression at their own pace. They can choose to work with new material we
+                    provide or bring a piece they want help with—whether it's a favorite song, a school
+                    project, or an exam piece.
+                    At the end of the workshop, participants will showcase their progress with a
+                    professionally recorded audio and video performance of a piece they've learned.
+                    This workshop is also a great way for kids to explore their interest in piano and decide
+                    if they'd like to continue learning in the future.
+                    </br>
+                    </br> <b>Ages:</b> 6–12
+                    </br> <b>Level:</b> Beginner to intermediate
+                    </br> <b>What's provided:</b> Keyboard, music materials, and personalized instruction,
+                    recorded audio visual of a song, workshop certificate
+
+                </p>
+                <p><b>✅ What your child will gain from this workshop:</b></p>
+                <ul>
+                    <li>Learn to play songs they'll feel proud of</li>
+                    <li>Explore a new hobby and musical skill</li>
+                    <li>Take a healthy break from screens</li>
+                    <li>Use music as a way to relax and self-regulate</li>
+                    <li>Learn how to listen and focus</li>
+                    <li>Become more organized and independent</li>
+                    <li>Build confidence in themselves</li>
+                </ul>
+        </div>
+    </div>
+
+    <!-- Modal for Guitar Workshop -->
+    <div id="modal-guitar" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('guitar')">&times;</span>
+            <h2>Guitar Workshop Details</h2>
+            <p>Learn guitar with personalized instruction. Ideal for beginners and intermediates. Includes chord
+                practice and final performance recording.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Ukulele Workshop -->
+    <div id="modal-ukulele" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ukulele')">&times;</span>
+            <h2>Ukulele Workshop Details</h2>
+            <p>Beginner-friendly ukulele lessons in a fun setting. Covers basic chords and rhythms with a final recorded
+                performance.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Music Production Workshop -->
+    <div id="modal-musicprod" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('musicprod')">&times;</span>
+            <h2>Music Production Workshop Details</h2>
+            <p>Create music digitally using simple tools. Kids learn to mix tracks, layer sounds, and export their own
+                creations.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Songwriting Workshop -->
+    <div id="modal-songwriting" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('songwriting')">&times;</span>
+            <h2>Songwriting Workshop Details</h2>
+            <p>Develop lyrics and melodies into complete songs. Personalized coaching and demo recording included.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Composition Workshop -->
+    <div id="modal-composition" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('composition')">&times;</span>
+            <h2>Composition Workshop Details</h2>
+            <p>Write original music with guidance. Learn notation, structure, and receive a demo and digital sheet.</p>
+        </div>
+    </div>
+
+    <!-- Modal for Music Theory / Ear Training Workshop -->
+    <div id="modal-theory" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('theory')">&times;</span>
+            <h2>Music Theory / Ear Training Workshop Details</h2>
+            <p>Foundational skills in music theory and ear training. Includes interactive games and practice tools.</p>
+        </div>
+    </div>
+
 </body>
 
 </html>
