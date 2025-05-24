@@ -81,7 +81,7 @@
             /* background: linear-gradient(135deg, #ffd3b6, #fffac8, #bae1ff, #d0f4de); */
             /* background: linear-gradient(135deg, #ffd3b6, #bae1ff); */
             /* background: #C6FFDD; */
-            background-image: url(bg.png);
+            /* background-image: url(bg.png); */
             /* fallback for old browsers */
             /* background: -webkit-linear-gradient(to right, #f7797d, #FBD786); */
             /* Chrome 10-25, Safari 5.1-6 */
@@ -115,7 +115,7 @@
         /* Section 2 - About */
         #about {
             /* background-color: #fffac8; */
-            background-image: url(bg3.png);
+            /* background-image: url(bg3.png); */
             position: relative;
         }
 
@@ -138,7 +138,7 @@
         /* Section 3 - Workshops */
         #workshops {
             /* background-color: #d0f4de; */
-            background-image: url("bg3.png");
+            /* background-image: url("bg3.png"); */
             padding: 2rem 0;
             position: relative;
             min-height: 150vh;
@@ -251,7 +251,7 @@
         #pricing {
             /* background-color: #bae1ff; */
 
-            background-image: url(bg4.png);
+            /* background-image: url(bg4.png); */
             position: relative;
         }
 
@@ -279,7 +279,7 @@
         #enroll {
             /* background-color: #ffd3b6; */
 
-            background-image: url(bg5.png);
+            /* background-image: url(bg5.png); */
             position: relative;
         }
 
@@ -298,7 +298,7 @@
         #contact {
             /* background-color: #fffac8; */
 
-            background-image: url(bg6.png);
+            /* background-image: url(bg6.png); */
             position: relative;
         }
 
@@ -396,7 +396,55 @@
             font-weight: bold;
             cursor: pointer;
         }
-    </style>
+    
+/* --- Enhanced Modern Styles --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #1B263B;
+    background-color: #E0E1DD;
+}
+
+.btn {
+    /* border-radius: 30px;
+    padding: 10px 25px;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); */
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* .btn-primary {
+    background: linear-gradient(135deg, #FFB703, #FFD166);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #F4A261, #E76F51);
+} */
+
+.hero-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    color: #1B263B;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.workshop-card {
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.workshop-card:hover {
+    transform: translateY(-5px);
+}
+
+</style>
 </head>
 
 <body>
