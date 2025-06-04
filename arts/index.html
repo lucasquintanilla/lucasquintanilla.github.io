@@ -170,13 +170,14 @@
         }
 
         .about-title {
-            font-size: 1.5rem;
+            
+            font-family: "Archivo Black", sans-serif;
+            font-weight: 600;
+            /* font-size: 1.5rem; */
             text-transform: uppercase;
-            letter-spacing: 3px;
+            /* letter-spacing: 3px; */
             margin-bottom: 2rem;
             color: #333;
-            font-size: 2rem;
-            /* font-style: italic; */
         }
 
         .about-text {
@@ -185,7 +186,7 @@
             line-height: 1.8;
             position: relative;
             z-index: 2;
-            font-size: 1.5rem;
+            /* font-size: 1.5rem; */
         }
 
         .about-text mark {
@@ -530,7 +531,9 @@
 }
 
 .modal-content h2 {
-    font-family: 'Alfa Slab One', cursive;
+    /* font-family: 'Alfa Slab One', cursive; */
+    font-family: "Archivo Black", sans-serif;
+            font-weight: 600;
     font-size: 1.8rem;
     color: #34495e;
     margin-bottom: 1rem;
@@ -947,7 +950,7 @@
 
                     <!-- Composition Workshop -->
                     <div class="workshop-card">
-                        <img src="composition-nocopy.jpg" alt="Composition Workshop" class="workshop-img">
+                        <img src="composition-nocopy2.jpg" alt="Composition Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Composition</h3>
                             <p class="text-success">5 spaces available</p>
@@ -966,7 +969,7 @@
 
                     <!-- Music Theory Workshop -->
                     <div class="workshop-card">
-                        <img src="theory-nocopy.jpg" alt="Music Theory Workshop" class="workshop-img">
+                        <img src="theory-nocopy2.jpg" alt="Music Theory Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Ear Training & Music Theory</h3>
                             <p class="text-success">3 spaces available</p>
@@ -1123,7 +1126,7 @@
                             </div> -->
                             <div>
                                 <h5 class="m-0">Email</h5>
-                                <p class="m-0">info@creativeclub.ie</p>
+                                <p class="m-0"><a href="mailto:info@creativeclub.ie">info@creativeclub.ie</a></p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1362,6 +1365,39 @@
         </div>
     </div>
 
+    <!-- Modal for Home Recording Workshop -->
+    <div id="modal-homerec" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('homerec')">&times;</span>
+            <h2>Home recording Course</h2>
+            <p>Empower your child to turn their musical ideas into real recordings! This one-on-one workshop introduces kids to the world of home recording and music production in a hands-on, creative, and beginner-friendly way. Whether they’re a budding songwriter, beat-maker, or just curious about how music is made, this course will guide them through the basics of capturing and producing sound at home.
+
+Each student will work individually with an instructor to learn the fundamentals of home recording—like using a microphone, setting up recording software, layering tracks, and adding effects. Activities are interactive and tailored to each student’s interests and experience level.
+
+Students can record their own music or experiment with provided loops and samples. At the end of the workshop, they’ll receive a personalized project summary, audio files of their work, and easy-to-use tools to keep exploring at home.
+
+This is a fun and confidence-building way for kids to express themselves musically and explore the exciting world of music technology!
+                </br>
+                </br> <b>Ages:</b> 8–14
+                </br> <b>Level:</b> Beginner to intermediate
+                </br> <b>What's provided:</b> Music samples, personalized instruction, final audio
+                track, workshop certificate
+                </br> <b>What's needed:</b> Laptop or tablet (optional: headphones, midi controller)
+                </br> <b>Modality:</b> In person or online
+            </p>
+            <p><b>✅ What your child will gain from this workshop:</b></p>
+            <ul>
+                <li>Record a song they'll feel proud of</li>
+                <li>Explore a new hobby and digital skill</li>
+                <li>Take a healthy break from passive screen time</li>
+                <li>Use music as a creative and emotional outlet</li>
+                <li>Learn how to listen, edit, and refine their ideas</li>
+                <li>Practice problem-solving and independent thinking</li>
+                <li>Build confidence in their creativity</li>
+            </ul>
+        </div>
+    </div>
+
     <!-- Modal for Songwriting Workshop -->
     <div id="modal-songwriting" class="modal">
         <div class="modal-content">
@@ -1589,6 +1625,44 @@
         <div class="modal-content">
             <span class="close" onclick="closeModal('musicprod-adults')">&times;</span>
             <h2>Music Production for Adults</h2>
+            <p>Discover the art of making music using technology. This one-on-one music production workshop offers a
+                space to explore your creativity, learn new skills, and bring your musical ideas to life—no experience
+                necessary.
+                Whether you’re new to digital music or want to improve your production skills, you’ll work individually
+                with a patient instructor who will guide you through the basics of software, beat making, mixing, and
+                arranging. You can create your own original tracks or work on ideas you’ve already started. This can be
+                in any music style you like, from classical to pop, electronic to jazz, hip-hop and more.
+                At the end of the workshop, you’ll have a polished digital music file of your completed piece to enjoy
+                or share.
+                This workshop is a great way to reconnect with music, learn modern tools, and express yourself in a
+                relaxed and inspiring environment.
+
+                </br>
+                </br> <b>Ages:</b> 18+
+                </br> <b>Level:</b> Beginner to intermediate
+                </br> <b>What's provided:</b> Music samples, personalized instruction, final audio
+                track, screen-recorded video, certificate
+                </br> <b>What's needed:</b> Laptop or tablet (optional: headphones, midi controller)
+                </br> <b>Modality:</b> In person or online
+            </p>
+            <p><b>✅ What you’ll get from this course:</b></p>
+            <ul>
+                <li>Create a song or beat they'll feel proud of</li>
+                <li>Rediscover music as a hobby and creative outlet</li>
+                <li>Take a healthy break from work and screens</li>
+                <li>Use production as a way to relax and focus</li>
+                <li>Develop technical skills with music software</li>
+                <li>Build autonomy in your creative process</li>
+                <li>Gain confidence in your artistic expression</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal for Home Recording -->
+    <div id="modal-homerec-adults" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('homerec-adults')">&times;</span>
+            <h2>Home recording for Adults</h2>
             <p>Discover the art of making music using technology. This one-on-one music production workshop offers a
                 space to explore your creativity, learn new skills, and bring your musical ideas to life—no experience
                 necessary.
