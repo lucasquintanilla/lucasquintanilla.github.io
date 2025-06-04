@@ -131,10 +131,11 @@
         }
 
         .hero-gradient-text {
-            /* display: inline-flex; */
-            background: linear-gradient(90deg, rgb(107, 144, 255) 0%, rgba(199, 87, 184, 1) 50%, rgba(237, 221, 83, 1) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #657fff;
+            display: inline-flex;
+            /* background: linear-gradient(90deg, rgb(107, 144, 255) 0%, rgba(199, 87, 184, 1) 50%, rgba(237, 221, 83, 1) 100%); */
+            /* -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; */
             white-space: nowrap;
         }
 
@@ -174,6 +175,8 @@
             letter-spacing: 3px;
             margin-bottom: 2rem;
             color: #333;
+            font-size: 2rem;
+            /* font-style: italic; */
         }
 
         .about-text {
@@ -182,7 +185,20 @@
             line-height: 1.8;
             position: relative;
             z-index: 2;
+            font-size: 1.5rem;
         }
+
+        .about-text mark {
+        background-color: #fff9c4;
+        padding: 0 4px;
+        border-radius: 4px;
+        }
+
+        .about-text i {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+        }
+
 
         /* Section 3 - Workshops */
         #workshops {
@@ -537,6 +553,8 @@
     left: -1.2rem;
 } */
 
+
+
 @keyframes fadeInUp {
     from {
         transform: translateY(30px);
@@ -585,24 +603,21 @@
     <section id="about">
         <div class="noise"></div>
         <div class="container">
+        
             <div class="text-center">
                 <h2 class="about-title">About the courses</h2>
                 <p class="about-text">
-<b>Have you ever felt overwhelmed by routine?</b><br>
-<b>Wished for less screen time and more real connection?</b><br>
-<b>Felt your creativity slipping away in the rush of everyday life?</b>
-<br><br>In today’s fast-paced world, adults, teenagers, and children alike face constant pressure—from digital overload to performance anxiety and emotional burnout. It’s easy to lose touch with our inner voice and the joy of simply creating.
-<br><br>Our Music Summer Courses are designed to inspire creativity, deepen self-expression, and enrich everyday life through music. In a calm, supportive space, each one-to-one session is a chance to slow down, reconnect, and grow—musically and personally.
-<br><br> believe music is more than a skill—it’s a path to confidence, focus, and emotional wellbeing. Whether you're rediscovering a long-lost passion or stepping into something new, our tailored approach ensures that your experience feels meaningful, personal, and empowering.
-<br><br>Each journey is marked by a sense of accomplishment and creative discovery, with the option to capture your progress through recordings and receive a certificate to honour your commitment.
+<strong>Have you ever felt overwhelmed by routine?</strong><br>
+<strong>Wished for less screen time and more real connection?</strong><br>
+<strong>Felt your creativity slipping away in the rush of everyday life?</strong>
+<br><br>
+<span class="text-muted fst-italic">In today’s fast-paced world, adults, teenagers, and children alike face constant pressure—from digital overload to performance anxiety and emotional burnout. It’s easy to lose touch with our inner voice and the joy of simply creating.</span>
 
-                </p>
-                <p class="about-text mt-4">
-                    All workshops take place in our state-of-the-art facilities with professional equipment and intimate
-                    class sizes
-                    to ensure personalized attention. Our programs run for 2 weeks with flexible scheduling options to
-                    accommodate your summer plans.
-                </p>
+<br><br>Our Music Summer Courses are designed to inspire <strong>creativity</strong>, <strong>self-expression</strong>, and <strong>enrich everyday life</strong> through music. In a calm, supportive space, each one-to-one session is a chance to slow down, reconnect, and grow—musically and personally.
+<br><br> believe music is more than a skill—it’s a path to <strong>confidence</strong>, <strong>focus</strong>, and <strong>emotional wellbeing</strong>. Whether you're rediscovering a long-lost passion or stepping into something new, our tailored approach ensures that your experience feels <strong>meaningful</strong>, <strong>personal</strong>, and <strong>empowering</strong>.
+<br><br>Each journey is marked by a sense of accomplishment and creative discovery, with the option to capture your progress through recordings and receive a <strong>certificate</strong> to <strong>honour your commitment</strong>.
+
+                </p>              
             </div>
         </div>
     </section>
@@ -797,7 +812,7 @@
                 <div class="workshop-scroll">
                     <!-- Piano Workshop -->
                     <div class="workshop-card">
-                        <img src="piano-nocopy2.jpg" alt="Piano Workshop" class="workshop-img">
+                        <img src="piano-nocopy.jpg" alt="Piano Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Piano</h3>
                             <p class="text-success">5 spots available</p>
@@ -825,9 +840,9 @@
 
                     <!-- Guitar Workshop -->
                     <div class="workshop-card">
-                        <img src="guitar2.jpg" alt="Guitar Workshop" class="workshop-img">
+                        <img src="guitar-nocopy.jpg" alt="Guitar Workshop" class="workshop-img">
                         <div class="card-body p-3">
-                            <h3 class="h5">Guitar</h3>
+                            <h3 class="h5">Guitar (All types)   </h3>
                             <p class="text-success">Just opened!</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 6-12</span> -->
@@ -843,7 +858,7 @@
 
                     <!-- Ukulele Workshop -->
                     <div class="workshop-card">
-                        <img src="ukulele.jpg" alt="Ukulele Workshop" class="workshop-img">
+                        <img src="ukulele-nocopy.jpg" alt="Ukulele Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Ukulele</h3>
                             <p class="text-success">Just opened!</p>
@@ -862,7 +877,7 @@
 
                     <!-- Music Production Workshop -->
                     <div class="workshop-card">
-                        <img src="musicprod.jpg" alt="Music Production Workshop" class="workshop-img">
+                        <img src="musicprod-nocopy.jpg" alt="Music Production Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Music Production</h3>
                             <p class="text-danger">Only 2 spaces available</p>
@@ -881,7 +896,7 @@
 
                      <!-- Music Production Workshop -->
                     <div class="workshop-card">
-                        <img src="musicprod.jpg" alt="Home Recording" class="workshop-img">
+                        <img src="homerec-nocopy.jpg" alt="Home Recording" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Home Recording</h3>
                             <p class="text-danger">Only 2 spaces available</p>
@@ -913,7 +928,7 @@
 
                     <!-- Songwriting Workshop -->
                     <div class="workshop-card">
-                        <img src="songwriting.jpg" alt="Songwriting Workshop" class="workshop-img">
+                        <img src="songwriting-nocopy.jpg" alt="Songwriting Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Songwriting</h3>
                             <p class="text-success">3 spaces available</p>
@@ -932,7 +947,7 @@
 
                     <!-- Composition Workshop -->
                     <div class="workshop-card">
-                        <img src="composition.jpg" alt="Composition Workshop" class="workshop-img">
+                        <img src="composition-nocopy.jpg" alt="Composition Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Composition</h3>
                             <p class="text-success">5 spaces available</p>
@@ -951,7 +966,7 @@
 
                     <!-- Music Theory Workshop -->
                     <div class="workshop-card">
-                        <img src="theory.jpg" alt="Music Theory Workshop" class="workshop-img">
+                        <img src="theory-nocopy.jpg" alt="Music Theory Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Ear Training & Music Theory</h3>
                             <p class="text-success">3 spaces available</p>
@@ -1069,7 +1084,7 @@
                 <h2 class="mb-4">Join us</h2>
                 <p class="mb-4">Ready to join our Summer Music Courses? Click the button below to fill out our
                     enrollment form and secure your spot!</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd94EOqkmtwEE-woggdKThtkqV8frTUaFV4UfDPwmzm6p1rIw/viewform?usp=header"
+                <a href="https://forms.gle/a36tf4NHJjKKL8uj8"
                     target="_blank" class="btn btn-primary btn-lg">Enroll Now</a>
                 <p class="mt-4 text-muted small">Limited spots available.</p>
             </div>
