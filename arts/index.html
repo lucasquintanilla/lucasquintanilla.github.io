@@ -304,8 +304,8 @@
             position: relative;
             /* background: linear-gradient(135deg, #eeffb6, #fff9b5, #b8c2ff, #d0f4de); */
             
-            border-radius: 3rem;
-            margin: 1rem;
+            /* border-radius: 3rem;
+            margin: 1rem; */
         }
 
         .pricing-card {
@@ -435,9 +435,9 @@
         .modal-content {
             background-color: #fff;
             margin: auto;
-            padding: 20px;
+            padding: .8rem;
             border-radius: 8px;
-            width: 80%;
+            /* width: 80%; */
             /* max-width: 500px; */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -448,6 +448,7 @@
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
+            text-align: right;
         }
 
         /* --- Enhanced Modern Styles --- */
@@ -494,7 +495,60 @@
         }
 
        
-    </style>
+    
+.modal-content {
+    /* background-color: #ffffff; */
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    backdrop-filter: blur(10px); 
+    /* Frosted-glass effect */
+    border-radius: 16px;
+    padding: 30px;
+    /* max-width: 700px; */
+    width: 90%;
+    margin: auto;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.3s ease;
+}
+
+.modal-content h2 {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 1.8rem;
+    color: #34495e;
+    margin-bottom: 1rem;
+}
+
+.modal-content ul {
+    padding-left: 1.2rem;
+    margin-top: 1rem;
+}
+
+.modal-content ul li {
+    padding-left: 0.5rem;
+    /* margin-bottom: 0.5rem; */
+    position: relative;
+}
+
+/* .modal-content ul li::before {
+    content: "🎵";
+    position: absolute;
+    left: -1.2rem;
+} */
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+</style>
 </head>
 
 <body>
