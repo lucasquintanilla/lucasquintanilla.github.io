@@ -14,6 +14,17 @@
         rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+<!-- //acrchivo black  -->
+<!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+<!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+
     <!-- Custom CSS -->
     <style>
         /* Global Styles */
@@ -80,8 +91,10 @@
         #hero {
             /* background: linear-gradient(135deg, #ffd3b6, #fffac8, #bae1ff, #d0f4de); */
             /* background: linear-gradient(135deg, #ffd3b6, #bae1ff); */
+            /* background: linear-gradient(324deg,rgba(255, 166, 209, 1) 0%, rgba(255, 209, 130, 1) 50%, rgba(255, 247, 176, 1) 100%);background: linear-gradient(135deg, #f7797d, #FBD786); */
             /* background: #C6FFDD; */
-            /* background-image: url(bg.png); */
+            background-image: url(dublin-bg-2.jpg);
+             background-position:-20px; 
             /* fallback for old browsers */
             /* background: -webkit-linear-gradient(to right, #f7797d, #FBD786); */
             /* Chrome 10-25, Safari 5.1-6 */
@@ -90,6 +103,8 @@
 
             position: relative;
             overflow: hidden;
+            /* border-radius: 3rem;
+            margin: 1rem; */
         }
 
         .hero-content {
@@ -99,12 +114,37 @@
         }
 
         .hero-title {
-            /* font-family: 'Pacifico', */
-            font-size: 3.5rem;
+            /* font-family: "Alfa Slab One", serif; */
+            font-family: "Archivo Black", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            /* font-family: sans-serif; */
+            font-size: 10rem;
             margin-bottom: 2rem;
-            color: #333;
+            /* color: #333; */
             text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+            line-height: .8;
         }
+
+        .hero-title .hero-gradient-text span {
+            transform: translateX(50px);
+            /* display: inline-block; */
+            opacity: 0;     
+        }
+
+        .hero-gradient-text {
+            /* display: inline-flex; */
+            background: linear-gradient(90deg, rgb(107, 144, 255) 0%, rgba(199, 87, 184, 1) 50%, rgba(237, 221, 83, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            white-space: nowrap;
+        }
+
+        /* .hero-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            color: #1B263B;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        } */
 
         @media (max-width: 768px) {
             .hero-title {
@@ -114,9 +154,11 @@
 
         /* Section 2 - About */
         #about {
-            /* background-color: #fffac8; */
-            /* background-image: url(bg3.png); */
+            /* background-color: grey; */
+            background-image: url(bg3.png);
             position: relative;
+            border-radius: 3rem;
+            margin: 1rem;
         }
 
         .about-title {
@@ -396,27 +438,27 @@
             font-weight: bold;
             cursor: pointer;
         }
-    
-/* --- Enhanced Modern Styles --- */
-body {
-    font-family: 'Poppins', sans-serif;
-    color: #1B263B;
-    background-color: #E0E1DD;
-}
 
-.btn {
-    /* border-radius: 30px;
+        /* --- Enhanced Modern Styles --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1B263B;
+            background-color: #E0E1DD;
+        }
+
+        .btn {
+            /* border-radius: 30px;
     padding: 10px 25px;
     font-weight: 500;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1); */
-    transition: transform 0.3s ease, background 0.3s ease;
-}
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
 
-.btn:hover {
-    transform: scale(1.05);
-}
+        .btn:hover {
+            transform: scale(1.05);
+        }
 
-/* .btn-primary {
+        /* .btn-primary {
     background: linear-gradient(135deg, #FFB703, #FFD166);
     color: white;
     border: none;
@@ -426,25 +468,20 @@ body {
     background: linear-gradient(135deg, #F4A261, #E76F51);
 } */
 
-.hero-title {
-    font-size: clamp(2rem, 5vw, 4rem);
-    color: #1B263B;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
 
-.workshop-card {
-    backdrop-filter: blur(8px);
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
 
-.workshop-card:hover {
-    transform: translateY(-5px);
-}
+        .workshop-card {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-</style>
+        .workshop-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
 </head>
 
 <body>
@@ -454,7 +491,17 @@ body {
         <div class="container">
             <div class="hero-content">
                 <h3 class="">DUBLIN 2025</h3>
-                <h1 class="hero-title">SUMMER MUSIC WORKSHOPS</h1>
+                <h1 class="hero-title">
+                     <span class="hero-gradient-text">
+                        <span class="rotate">S</span>
+                        <span class="scale">U</span>
+                        <span class="m-scale">M</span>
+                        <span class="m-scale">M</span>
+                        <span class="e-scale">E</span>
+                        <span class="r-scale">R</span>
+                     </span>
+                     <span>MUSIC COURSES</span>
+                    </h1>
                 <div class="d-flex justify-content-center gap-3">
                     <a href="#about" class="btn btn-primary">Learn More</a>
                     <a href="#enroll" class="btn btn-secondary">Enroll Now</a>
@@ -471,14 +518,16 @@ body {
         <div class="noise"></div>
         <div class="container">
             <div class="text-center">
-                <h2 class="about-title">About Workshops</h2>
+                <h2 class="about-title">About the courses</h2>
                 <p class="about-text">
-                    Our Summer Music Workshops offer an immersive experience for musicians of all levels.
-                    Whether you're a beginner looking to learn the basics or an experienced player wanting to refine
-                    your skills,
-                    our expert instructors will guide you through an enriching musical journey.
-                    Join us this summer for hands-on learning, collaborative performances, and unforgettable musical
-                    experiences.
+<b>Have you ever felt overwhelmed by routine?</b><br>
+<b>Wished for less screen time and more real connection?</b><br>
+<b>Felt your creativity slipping away in the rush of everyday life?</b>
+<br><br>In today’s fast-paced world, adults, teenagers, and children alike face constant pressure—from digital overload to performance anxiety and emotional burnout. It’s easy to lose touch with our inner voice and the joy of simply creating.
+<br><br>Our Music Summer Courses are designed to inspire creativity, deepen self-expression, and enrich everyday life through music. In a calm, supportive space, each one-to-one session is a chance to slow down, reconnect, and grow—musically and personally.
+<br><br> believe music is more than a skill—it’s a path to confidence, focus, and emotional wellbeing. Whether you're rediscovering a long-lost passion or stepping into something new, our tailored approach ensures that your experience feels meaningful, personal, and empowering.
+<br><br>Each journey is marked by a sense of accomplishment and creative discovery, with the option to capture your progress through recordings and receive a certificate to honour your commitment.
+
                 </p>
                 <p class="about-text mt-4">
                     All workshops take place in our state-of-the-art facilities with professional equipment and intimate
@@ -513,14 +562,15 @@ body {
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                            
+
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 6-12</span> -->
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('piano')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('piano')">More
+                                    Info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
 
 
@@ -539,7 +589,8 @@ body {
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('guitar')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('guitar')">More
+                                    Info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -557,7 +608,8 @@ body {
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('ukulele')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('ukulele')">More
+                                    Info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -575,7 +627,8 @@ body {
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('musicprod')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('musicprod')">More
+                                    Info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -599,14 +652,15 @@ body {
                         <img src="songwriting-kids.jpg" alt="Songwriting Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Songwriting</h3>
-                            <p  class="text-success">3 spaces available</p>
+                            <p class="text-success">3 spaces available</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 8-14</span> -->
 
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('songwriting')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('songwriting')">More
+                                    Info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -617,14 +671,15 @@ body {
                         <img src="composition-kids.jpg" alt="Composition Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Composition</h3>
-                            <p  class="text-success">5 spaces available</p>
+                            <p class="text-success">5 spaces available</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 8-14</span> -->
 
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('composition')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('composition')">More
+                                    Info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -635,7 +690,7 @@ body {
                         <img src="theory-kids.jpg" alt="Music Theory Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Ear Training & Music Theory</h3>
-                            <p  class="text-success">3 spaces available</p>
+                            <p class="text-success">3 spaces available</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 8-14</span> -->
 
@@ -665,14 +720,15 @@ body {
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                            
+
                             </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 6-12</span> -->
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('piano-adults')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm"
+                                    onclick="openModal('piano-adults')">More Info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
 
 
@@ -691,7 +747,8 @@ body {
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('guitar-adults')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm"
+                                    onclick="openModal('guitar-adults')">More Info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -709,7 +766,8 @@ body {
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('ukulele-adults')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm"
+                                    onclick="openModal('ukulele-adults')">More Info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -727,7 +785,8 @@ body {
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('musicprod-adults')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm"
+                                    onclick="openModal('musicprod-adults')">More Info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -751,14 +810,15 @@ body {
                         <img src="songwriting.jpg" alt="Songwriting Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Songwriting</h3>
-                            <p  class="text-success">3 spaces available</p>
+                            <p class="text-success">3 spaces available</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 8-14</span> -->
 
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('songwriting-adults')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm"
+                                    onclick="openModal('songwriting-adults')">More Info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -769,14 +829,15 @@ body {
                         <img src="composition.jpg" alt="Composition Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Composition</h3>
-                            <p  class="text-success">5 spaces available</p>
+                            <p class="text-success">5 spaces available</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 8-14</span> -->
 
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
 
-                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('composition-adults')">More Info</button>
+                                <button class="btn btn-outline-secondary btn-sm"
+                                    onclick="openModal('composition-adults')">More Info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
                         </div>
@@ -787,13 +848,14 @@ body {
                         <img src="theory.jpg" alt="Music Theory Workshop" class="workshop-img">
                         <div class="card-body p-3">
                             <h3 class="h5">Ear Training & Music Theory</h3>
-                            <p  class="text-success">3 spaces available</p>
+                            <p class="text-success">3 spaces available</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- <span class="badge bg-light text-dark">Ages 8-14</span> -->
 
                                 <!-- <span class="badge bg-light text-dark">Dublin</span> -->
                                 <!-- <span class="text-muted">2 weeks</span> -->
-                                <button class="btn btn-outline-secondary btn-sm" onclick="openModal('theory-adults')">More
+                                <button class="btn btn-outline-secondary btn-sm"
+                                    onclick="openModal('theory-adults')">More
                                     info</button>
                                 <a href="#enroll" class="btn btn-secondary btn-sm">Enroll Now</a>
                             </div>
@@ -824,7 +886,8 @@ body {
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i> One-on-one coaching</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Personalized</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Final project</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Certificate of completion</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Certificate of completion
+                            </li>
                         </ul>
                         <div class="text-center mb-4">
                             <!-- <h3>Regular</h3> -->
@@ -874,7 +937,8 @@ body {
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i> One-on-one coaching</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Personalized</li>
                             <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Final project</li>
-                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Certificate of completion</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Certificate of completion
+                            </li>
                         </ul>
                         <div class="text-center mb-4">
                             <!-- <h3>Combined</h3> -->
@@ -1290,50 +1354,65 @@ body {
     </div>
 
 
-        <!-- Modal for Piano Workshop Adults-->
-        <div id="modal-piano-adults" class="modal">
-            <div class="modal-content">
-                <span class="close" onclick="closeModal('piano-adults')">&times;</span>
-                <h2>Piano Course for Adults</h2>
-                <p>Take time for yourself through music. This one-on-one piano workshop offers a calm, supportive space to reconnect with your creativity, build confidence, and find joy in learning—no matter your experience level.
-                    Whether you're starting fresh or returning to the piano after years away, this workshop is designed to meet you where you are. You’ll work individually with a caring instructor, focusing on gentle technique, musical expression, and pieces that feel meaningful to you. You can follow the material we provide or bring a song you’ve always wanted to play—or one you’re already working on.
-                    There’s no pressure to perform, but for those who want to celebrate their progress, we offer the option to record a <b>personal audio and video performance</b> at the end of the workshop.
-                    This is a great opportunity to explore (or re-discover) your interest in piano in a relaxed, inspiring environment.
-                    
-                    </br>
-                    </br> <b>Ages:</b> 18+
-                    </br> <b>Level:</b> Beginner to intermediate
-                    </br> <b>What's provided:</b> Piano/Keyboard, learning materials, and personalized instruction,
-                    recorded audio visual of a song, certificate.
-                </p>
-                <p><b>✅ What you’ll get from this course:</b></p>
-                <ul>
-                    <li>Learn to play songs they'll feel proud of</li>
-                    <li>Rediscover music as a hobby and creative outlet</li>
-                    <li>Take a meaningful break from work and screens</li>
-                    <li>Use music as a tool to relax and manage stress</li>
-                    <li>Improve focus and mental clarity</li>
-                    <li>Develop autonomy and structured practice habits</li>
-                    <li>Build confidence through personal progress</li>
-                </ul>
-            </div>
-        </div>
+    <!-- Modal for Piano Workshop Adults-->
+    <div id="modal-piano-adults" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('piano-adults')">&times;</span>
+            <h2>Piano Course for Adults</h2>
+            <p>Take time for yourself through music. This one-on-one piano workshop offers a calm, supportive space to
+                reconnect with your creativity, build confidence, and find joy in learning—no matter your experience
+                level.
+                Whether you're starting fresh or returning to the piano after years away, this workshop is designed to
+                meet you where you are. You’ll work individually with a caring instructor, focusing on gentle technique,
+                musical expression, and pieces that feel meaningful to you. You can follow the material we provide or
+                bring a song you’ve always wanted to play—or one you’re already working on.
+                There’s no pressure to perform, but for those who want to celebrate their progress, we offer the option
+                to record a <b>personal audio and video performance</b> at the end of the workshop.
+                This is a great opportunity to explore (or re-discover) your interest in piano in a relaxed, inspiring
+                environment.
 
-        
+                </br>
+                </br> <b>Ages:</b> 18+
+                </br> <b>Level:</b> Beginner to intermediate
+                </br> <b>What's provided:</b> Piano/Keyboard, learning materials, and personalized instruction,
+                recorded audio visual of a song, certificate.
+            </p>
+            <p><b>✅ What you’ll get from this course:</b></p>
+            <ul>
+                <li>Learn to play songs they'll feel proud of</li>
+                <li>Rediscover music as a hobby and creative outlet</li>
+                <li>Take a meaningful break from work and screens</li>
+                <li>Use music as a tool to relax and manage stress</li>
+                <li>Improve focus and mental clarity</li>
+                <li>Develop autonomy and structured practice habits</li>
+                <li>Build confidence through personal progress</li>
+            </ul>
+        </div>
+    </div>
+
+
     <!-- Modal for Guitar for Adults -->
     <div id="modal-guitar-adults" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('guitar-adults')">&times;</span>
             <h2>Guitar for Adults</h2>
-            <p>Take time for yourself through music. This one-on-one guitar workshop offers a calm, supportive space to reconnect with your creativity, build confidence, and enjoy the process of learning—no matter your experience level.
-                Whether you're picking up a guitar for the first time or returning after a long break, this workshop is designed to meet you where you are. You’ll work individually with a caring instructor, focusing on chords, rhythm, technique, and songs that feel meaningful to you. You can follow the material we provide or bring a piece you’ve always wanted to play—or one you’re already working on.
-                There’s no pressure to perform, but for those who want to celebrate their progress, we offer the option to record a personal audio and video performance at the end of the workshop.
-                This is a great opportunity to explore (or re-discover) your interest in guitar in a relaxed, inspiring environment.
-                
+            <p>Take time for yourself through music. This one-on-one guitar workshop offers a calm, supportive space to
+                reconnect with your creativity, build confidence, and enjoy the process of learning—no matter your
+                experience level.
+                Whether you're picking up a guitar for the first time or returning after a long break, this workshop is
+                designed to meet you where you are. You’ll work individually with a caring instructor, focusing on
+                chords, rhythm, technique, and songs that feel meaningful to you. You can follow the material we provide
+                or bring a piece you’ve always wanted to play—or one you’re already working on.
+                There’s no pressure to perform, but for those who want to celebrate their progress, we offer the option
+                to record a personal audio and video performance at the end of the workshop.
+                This is a great opportunity to explore (or re-discover) your interest in guitar in a relaxed, inspiring
+                environment.
+
                 </br>
                 </br> <b>Ages:</b> 18+
                 </br> <b>Level:</b> Beginner to intermediate
-                </br> <b>What's provided:</b> Guitar, learning materials, supportive instruction, optional recording, certificate.
+                </br> <b>What's provided:</b> Guitar, learning materials, supportive instruction, optional recording,
+                certificate.
 
             </p>
             <p><b>✅ What you’ll get from this course:</b></p>
@@ -1354,14 +1433,21 @@ body {
         <div class="modal-content">
             <span class="close" onclick="closeModal('ukulele-adults')">&times;</span>
             <h2>Ukulele for Adults</h2>
-            <p>Take time for yourself through music. This one-on-one ukulele workshop offers a calm, supportive space to reconnect with your creativity, build confidence, and enjoy the simplicity and joy of playing—no matter your experience level.
-                The ukulele is a light, approachable instrument that’s perfect for beginners and a great companion for singing, relaxing, or simply having fun with music. Whether you're starting from scratch or picking it up again, you'll work individually with a kind, encouraging instructor at your own pace. You can follow the material we provide or bring in a favorite song you’d like to learn.
-                There’s no pressure to perform, but for those who want to celebrate their progress, we offer the option to record a personal audio and video performance at the end of the workshop.
-                This is a wonderful opportunity to explore music in a relaxed and uplifting environment.                
+            <p>Take time for yourself through music. This one-on-one ukulele workshop offers a calm, supportive space to
+                reconnect with your creativity, build confidence, and enjoy the simplicity and joy of playing—no matter
+                your experience level.
+                The ukulele is a light, approachable instrument that’s perfect for beginners and a great companion for
+                singing, relaxing, or simply having fun with music. Whether you're starting from scratch or picking it
+                up again, you'll work individually with a kind, encouraging instructor at your own pace. You can follow
+                the material we provide or bring in a favorite song you’d like to learn.
+                There’s no pressure to perform, but for those who want to celebrate their progress, we offer the option
+                to record a personal audio and video performance at the end of the workshop.
+                This is a wonderful opportunity to explore music in a relaxed and uplifting environment.
                 </br>
                 </br> <b>Ages:</b> 18+
                 </br> <b>Level:</b> Beginner to early intermediate
-                </br> <b>What's provided:</b> Ukulele, learning materials, supportive instruction, optional recording, certificate
+                </br> <b>What's provided:</b> Ukulele, learning materials, supportive instruction, optional recording,
+                certificate
 
             </p>
             <p><b>✅ What you’ll get from this course:</b></p>
@@ -1382,11 +1468,18 @@ body {
         <div class="modal-content">
             <span class="close" onclick="closeModal('musicprod-adults')">&times;</span>
             <h2>Music Production for Adults</h2>
-            <p>Discover the art of making music using technology. This one-on-one music production workshop offers a space to explore your creativity, learn new skills, and bring your musical ideas to life—no experience necessary.
-                Whether you’re new to digital music or want to improve your production skills, you’ll work individually with a patient instructor who will guide you through the basics of software, beat making, mixing, and arranging. You can create your own original tracks or work on ideas you’ve already started. This can be in any music style you like, from classical to pop, electronic to jazz, hip-hop and more.
-                At the end of the workshop, you’ll have a polished digital music file of your completed piece to enjoy or share.
-                This workshop is a great way to reconnect with music, learn modern tools, and express yourself in a relaxed and inspiring environment.
-                
+            <p>Discover the art of making music using technology. This one-on-one music production workshop offers a
+                space to explore your creativity, learn new skills, and bring your musical ideas to life—no experience
+                necessary.
+                Whether you’re new to digital music or want to improve your production skills, you’ll work individually
+                with a patient instructor who will guide you through the basics of software, beat making, mixing, and
+                arranging. You can create your own original tracks or work on ideas you’ve already started. This can be
+                in any music style you like, from classical to pop, electronic to jazz, hip-hop and more.
+                At the end of the workshop, you’ll have a polished digital music file of your completed piece to enjoy
+                or share.
+                This workshop is a great way to reconnect with music, learn modern tools, and express yourself in a
+                relaxed and inspiring environment.
+
                 </br>
                 </br> <b>Ages:</b> 18+
                 </br> <b>Level:</b> Beginner to intermediate
@@ -1413,15 +1506,23 @@ body {
         <div class="modal-content">
             <span class="close" onclick="closeModal('songwriting-adults')">&times;</span>
             <h2>Songwriting for Adults</h2>
-            <p>Turn thoughts and feelings into music. This one-on-one songwriting workshop offers a safe, encouraging space to explore your creativity, express emotions, and bring your ideas to life—no matter your background or experience.
-                Whether you're writing your very first lyrics or returning to songwriting after a long break, you’ll work individually with a supportive instructor. Together, you’ll explore lyrics, melody, and song structure in a way that feels natural and meaningful to you. You can start from scratch with our guidance or bring in a song, poem, or idea you’ve already begun.
-                At the end of the workshop, you’ll have the option to record a demo version of your song—spoken or sung—as a personal keepsake or to share with others.
-                This is a space for creativity, reflection, and reconnecting with your voice—both musically and emotionally.
-                
+            <p>Turn thoughts and feelings into music. This one-on-one songwriting workshop offers a safe, encouraging
+                space to explore your creativity, express emotions, and bring your ideas to life—no matter your
+                background or experience.
+                Whether you're writing your very first lyrics or returning to songwriting after a long break, you’ll
+                work individually with a supportive instructor. Together, you’ll explore lyrics, melody, and song
+                structure in a way that feels natural and meaningful to you. You can start from scratch with our
+                guidance or bring in a song, poem, or idea you’ve already begun.
+                At the end of the workshop, you’ll have the option to record a demo version of your song—spoken or
+                sung—as a personal keepsake or to share with others.
+                This is a space for creativity, reflection, and reconnecting with your voice—both musically and
+                emotionally.
+
                 </br>
                 </br> <b>Ages:</b> 18+
                 </br> <b>Level:</b> Beginner to early intermediate
-                </br> <b>What's provided:</b> Writing materials, creative guidance, supportive instruction, optional demo recording, certificate
+                </br> <b>What's provided:</b> Writing materials, creative guidance, supportive instruction, optional
+                demo recording, certificate
             </p>
             <p><b>✅ What you’ll get from this course:</b></p>
             <ul>
@@ -1441,11 +1542,18 @@ body {
         <div class="modal-content">
             <span class="close" onclick="closeModal('composition-adults')">&times;</span>
             <h2>Composition for Adults</h2>
-            <p>Create your own music from the ground up. This one-on-one composition workshop offers a relaxed and supportive space to explore instrumental music, express ideas, and enjoy the process of making something original—no performance pressure, just creativity at your own pace.
-                Whether you're new to composing or already enjoy writing music, you’ll work individually with a thoughtful instructor to develop your own instrumental piece. You'll learn how to build melodies, shape harmonies, and structure music in a way that feels natural and personal. You can start fresh with our guidance or bring in a project or idea you’ve already started.
-                At the end of the workshop, you’ll receive a demo recording (live or digital) and a digital sheet music version of your piece to celebrate your work.
-                This is a chance to reconnect with music as a creative and calming practice, and explore composition in a meaningful way.
-                
+            <p>Create your own music from the ground up. This one-on-one composition workshop offers a relaxed and
+                supportive space to explore instrumental music, express ideas, and enjoy the process of making something
+                original—no performance pressure, just creativity at your own pace.
+                Whether you're new to composing or already enjoy writing music, you’ll work individually with a
+                thoughtful instructor to develop your own instrumental piece. You'll learn how to build melodies, shape
+                harmonies, and structure music in a way that feels natural and personal. You can start fresh with our
+                guidance or bring in a project or idea you’ve already started.
+                At the end of the workshop, you’ll receive a demo recording (live or digital) and a digital sheet music
+                version of your piece to celebrate your work.
+                This is a chance to reconnect with music as a creative and calming practice, and explore composition in
+                a meaningful way.
+
                 </br>
                 </br> <b>Ages:</b> 18+
                 </br> <b>Level:</b> Beginner to early intermediate
@@ -1471,14 +1579,20 @@ body {
         <div class="modal-content">
             <span class="close" onclick="closeModal('theory-adults')">&times;</span>
             <h2>Music Theory & Ear Training for Adults</h2>
-            <p>Reconnect with music in a calm, supportive space designed to nurture your listening and understanding. This one-on-one workshop offers patient guidance to help you deepen your musical awareness and build confidence at your own pace.
-                Together with a caring instructor, you’ll gently explore the foundations of music theory and develop your ear for pitch, rhythm, and harmony. Using a blend of traditional methods and interactive digital tools, you’ll learn to listen more mindfully and appreciate music on a deeper level.
-                This workshop provides a peaceful way to challenge your mind, relax through focused listening, and grow your musical skills.
-                
+            <p>Reconnect with music in a calm, supportive space designed to nurture your listening and understanding.
+                This one-on-one workshop offers patient guidance to help you deepen your musical awareness and build
+                confidence at your own pace.
+                Together with a caring instructor, you’ll gently explore the foundations of music theory and develop
+                your ear for pitch, rhythm, and harmony. Using a blend of traditional methods and interactive digital
+                tools, you’ll learn to listen more mindfully and appreciate music on a deeper level.
+                This workshop provides a peaceful way to challenge your mind, relax through focused listening, and grow
+                your musical skills.
+
                 </br>
                 </br> <b>Ages:</b> 18+
                 </br> <b>Level:</b> Beginner to early intermediate
-                </br> <b>What's provided:</b> Learning materials, ear training exercises, supportive instruction, interactive digital tools, workshop certificate.
+                </br> <b>What's provided:</b> Learning materials, ear training exercises, supportive instruction,
+                interactive digital tools, workshop certificate.
             </p>
             <p><b>✅ What you’ll get from this course:</b></p>
             <ul>
@@ -1493,15 +1607,87 @@ body {
         </div>
     </div>
 
- <!-- Global site tag (gtag.js) - Google Analytics -->
- <script async src="https://www.googletagmanager.com/gtag/js?id=G-9L8GT0339B"></script>
- <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag() { dataLayer.push(arguments); }
-     gtag('js', new Date());
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9L8GT0339B"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-     gtag('config', 'G-9L8GT0339B');
- </script>
+        gtag('config', 'G-9L8GT0339B');
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // const title = document.querySelector(".hero-title");
+            // const text = title.textContent;
+            // title.innerHTML = "";
+    
+            // // Wrap each letter in a span
+            // text.split('').forEach((char, i) => {
+            //     const span = document.createElement("span");
+            //     span.textContent = char;
+            //     // span.style.display = "inline-block";
+            //     // span.style.opacity = 0;
+            //     title.appendChild(span);
+            // });
+
+    let tl = gsap.timeline(); //create the timeline
+            tl.to(".hero-title .hero-gradient-text .rotate", {
+                opacity: 1,
+                stagger: 0.05, // triggered effect one by one
+                delay: 0.3,
+                rotation: 360,
+                duration: .5, //seconds
+                ease: "back.out(1.7)",
+                // y: -5,
+                x: 6,
+                // scale: 2
+            })
+            .to(".hero-title .hero-gradient-text .scale", {
+                opacity: 1,
+                // backgroundcolor: 'linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%)',
+                stagger: 0.05, // triggered effect one by one
+                // delay: 1,
+                // rotation: 360,
+                duration: .5, //seconds
+                ease: "back.out(1.7)",
+                // y: -5,
+                x: 6,
+                // scale: 2
+            }).to(".hero-title  .hero-gradient-text .m-scale", {
+                opacity: 1,
+                stagger: 0.05, // triggered effect one by one
+                // delay: 1.4,
+                // rotation: 360,
+                duration: .5, //seconds
+                ease: "back.out(1.7)",
+                // y: -5,
+                x: 6,
+                scale: 1
+            }).to(".hero-title .hero-gradient-text .e-scale", {
+                opacity: 1,
+                stagger: 0.05, // triggered effect one by one
+                // delay: 1.4,
+                rotation: 360,
+                duration: .5, //seconds
+                ease: "back.out(1.7)",
+                // y: -5,
+                x: 6,
+                scale: 1
+            }).to(".hero-title .hero-gradient-text .r-scale", {
+                opacity: 1,
+                stagger: 0.05, // triggered effect one by one
+                // delay: 1.4,
+                // rotation: 360,
+                duration: .5, //seconds
+                ease: "back.out(1.7)",
+                // y: -5,
+                x: 6,
+                scale: 1
+            });
+        });
+    </script>
+    
 </body>
 
 </html>
