@@ -157,9 +157,9 @@ function addOptions(options) {
 }
 
 async function getApiToken() {
-    const response = await fetch('https://bl-lambda.free.beeceptor.com/access'); // Replace with your JSON file URL
+    const response = await fetch('https://token.free.beeceptor.com/access'); // Replace with your JSON file URL
     const data = await response.json();
-    return data.api_key; // Adjust this to match the key in your JSON file
+    return data.api_key;
 }
 
 let userMetaData = '';
@@ -181,6 +181,8 @@ async function fetchApiToken() {
     if (apiToken === '') {
         apiToken = await getApiToken();
     }
+
+    console.log("API Token:", apiToken);
     return apiToken;
 }
 
@@ -700,12 +702,14 @@ async function loadPrompt() {
 
 window.onload = async function () {
 
-    if (dev){
+    // if (dev){
 
-    }else
-    {
-        await loadPrompt();
-    }
+    // }else
+    // {
+    //     await loadPrompt();
+    // }
+
+    messageList = [{ role: "system", content: "you are a music teacher, guide me and improve my skills. Provide friendly answers with 3 to 5 follow-up concise suggestions (max lenght 20 characters). keep it each response beetween 50 to 70 words. Use vocabulary for a 6 years old kid." }];
     
     getBotResponse("start");
 };
