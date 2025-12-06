@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Club</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    margin: 30px 0;
+  }
+
+  .hex-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .hex {
+    position: relative;
+    width: 150px;
+    height: 86.6px; /* height = width * sqrt(3)/2 */
+    margin: 43.3px 5px; /* half height vertically for offset */
+    background-size: cover;
+    background-position: center;
+    clip-path: polygon(
+      50% 0%,
+      93% 25%,
+      93% 75%,
+      50% 100%,
+      7% 75%,
+      7% 25%
+    );
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .hex:hover {
+    transform: scale(1.05);
+  }
+
+  .hex span {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    text-align: center;
+    padding: 5px 0;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .hex:hover span {
+    opacity: 1;
+  }
+
+  /* Anchors sections */
+  section {
+    height: 500px;
+    padding-top: 50px;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 1.2em;
+  }
+</style>
+</head>
+<body>
+
+<h1>Welcome to Creative Club</h1>
+
+<div class="hex-grid">
+  <a href="#about"><div class="hex" style="background-image: url('bg.jpg');"><span>About us</span></div></a>
+  <a href="#sustainability"><div class="hex" style="background-image: url('bg2.webp');"><span>Sustainability</span></div></a>
+  <a href="#photography"><div class="hex" style="background-image: url('bg5.webp');"><span>Photography</span></div></a>
+  <a href="#business"><div class="hex" style="background-image: url('bg6.webp');"><span>Business services</span></div></a>
+  <a href="#team"><div class="hex" style="background-image: url('bg6.webp');"><span>Our team</span></div></a>
+</div>
+
+<!-- Anchor sections -->
+<section id="about" style="background-color:#f9f9f9;">About us section content...</section>
+<section id="sustainability" style="background-color:#e9e9e9;">Sustainability section content...</section>
+<section id="photography" style="background-color:#f9f9f9;">Photography section content...</section>
+<section id="business" style="background-color:#e9e9e9;">Business services section content...</section>
+<section id="team" style="background-color:#f9f9f9;">Our team section content...</section>
+
+</body>
+</html>
