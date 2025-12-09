@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit to Google Sheets</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 50px auto;
+      max-width: 400px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    input, textarea, select, button {
+      padding: 10px;
+      font-size: 1em;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #response {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    /* Loading overlay */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      color: #007bff;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    .loading-overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .spinner {
+      border: 4px solid #ccc;
+      border-top: 4px solid #007bff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .loading-content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Submit Info to Google Sheet</h2>
+
+  <form id="myForm">
+    
+    <input type="number" name="age" placeholder="Your Age" required />
+    <input type="text" name="university" placeholder="Your University" required />
+    
+    <select name="genre" required>
+      <option value="">Select Genre</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+
+    <input type="number" step="0.01" name="average" placeholder="Your Average (%)" required />
+    
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="response"></p>
+
+  <!-- Loading overlay -->
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-content">
+      <div class="spinner"></div>
+      <div>Submitting...</div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("myForm");
+    const responseEl = document.getElementById("response");
+    const loadingOverlay = document.getElementById("loadingOverlay");
+
+     // Added: live update for the age range slider
+    const ageInput = form.querySelector('input[name="age"]');
+    const ageDisplay = document.getElementById('ageValue');
+    if (ageInput && ageDisplay) {
+      ageDisplay.innerText = ageInput.value;
+      ageInput.addEventListener('input', e => ageDisplay.innerText = e.target.value);
+    }
+
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+
+      loadingOverlay.classList.add("active");
+      responseEl.innerText = "";
+
+      fetch("https://script.google.com/macros/s/AKfycbzUL2d4LiQq8S0-yJ8I_kdGq2BBDEDLBrXcCn5Og4nXeA33OVEOR6Eo6QqpSpzfXSv_/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          age: form.age.value,
+          university: form.university.value,
+          genre: form.genre.value,
+          average: form.average.value
+        })
+      })
+      .then(() => {
+        responseEl.innerText = "✅ Submitted successfully!";
+        form.reset();
+      })
+      .catch(err => {
+        responseEl.innerText = "❌ Submission failed. Please try again.";
+        console.error(err);
+      })
+      .finally(() => {
+        setTimeout(() => loadingOverlay.classList.remove("active"), 400);
+      });
+    });
+  </script>
+
+</body>
+</html>

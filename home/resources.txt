@@ -1,0 +1,70 @@
+Formulario
+
+Promedio Carrera de medicina    Number (Range?)
+Edad                            Number               
+Universidad                     Text
+Genero                          Male/Female?
+
+Recomendacion
+
+Seguridad (3) 
+- Dominio
+- Captcha
+- Certificado web
+
+Data (3) 
+- Validacion de datos (ej, listado de universidades predeterminado, id de estudiante)
+- Ranges
+- Promedio decimales? 0.00?
+
+
+Diseno / User Experience (20)
+- Diseno formulario (10)
+- Lista Universidades con logo (3)
+- Graficos de datos (Share?) (7)
+
+Legal (2)
+- Informacion de privacidad
+- Seguridad de la Informacion
+
+Limitaciones 
+- Limites de ingresos de datos en el forumlario. Cantidad de ingresos expected?
+
+Analitycs (1)
+- Contador de visitas
+
+Extras 
+- Ads 
+- Publicaciones posts (4)
+
+- 
+
+medium (articulos) Texto de interes, personal, 
+
+ 
+
+Valores
+html Title
+favicon
+description
+author
+
+
+
+Ejemplo
+https://www.consiliumbots.com/
+
+sheet
+https://docs.google.com/spreadsheets/d/1q3shqxj3pkx5CAGRRVGmzWKTDfz_flbG3bM3g878M4Q/edit?gid=0#gid=0
+
+Webaspp script url
+https://script.google.com/macros/s/AKfycbxsBbFUvlfidvxn5Qdwqmx270sbLll4f9wrJjoEwtVJsv6VR4_1oX_IvniMrrupJ9yk/exec
+
+js data visualization
+https://pixicstudio.medium.com/javascript-libraries-for-data-visualization-7905f3f15b06
+
+Estructura de navegación
+prototipos interactivos.
+Optimización visual para experiencia de usuarios. (Interactividad)
+Seguridad (Certificacion para navegadores web + Dominio + )
+Credibilidad, Legal (Informacion de privacidad de datos).
