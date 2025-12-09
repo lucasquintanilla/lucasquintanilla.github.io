@@ -709,7 +709,7 @@ window.onload = async function () {
     //     await loadPrompt();
     // }
 
-    messageList = [{ role: "system", content: "you are a music teacher, guide me and improve my skills. Provide friendly answers with 3 to 5 follow-up concise suggestions (max lenght 20 characters). keep it each response beetween 50 to 70 words. Use vocabulary for a 6 years old kid." }];
+    messageList = [{ role: "system", content: "Act as a First AID Paramedic Emergency, explain basic steps and ask questions. You are going to interact with a person. You are going to provide steps, the person will follow your steps. the person will be able to reply to you by pressing 3 buttons with suggestions/questions you provide to him to aswer you back.." }];
     
     getBotResponse("start");
 };
