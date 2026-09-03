@@ -6,9 +6,25 @@
     "image": "https://wicklowcarpentry.ie/wp-content/uploads/2025/04/ad0de77c-682d-40d2-990b-7036b1eedbac_large.webp",
     "category": "Handyman",
     "description": "One hour labour; standard hand tools.",
-    "allergens": ["Wheat", "Dairy"],
+    "allergens": [
+      "Wheat",
+      "Dairy"
+    ],
     "calories": 300,
-    "preparationTime": "10-15 min",
-    "displayOption":"noImage"
+    "preparationTime": "10-15 min"
+  },
+  {
+    "id": "HND-002",
+    "name": "1-day handyman",
+    "price": 480,
+    "image": "https://wicklowcarpentry.ie/wp-content/uploads/2025/04/ad0de77c-682d-40d2-990b-7036b1eedbac_large.webp",
+    "category": "Handyman",
+    "description": "One hour labour; standard hand tools.",
+    "allergens": [
+      "Wheat",
+      "Dairy"
+    ],
+    "calories": 300,
+    "preparationTime": "10-15 min"
   }
 ]
