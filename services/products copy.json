@@ -1,0 +1,18 @@
+[
+  {
+    "id": "HND-001",
+    "name": "1-hour handyman",
+    "price": 100,
+    "image": "https://wicklowcarpentry.ie/wp-content/uploads/2025/04/ad0de77c-682d-40d2-990b-7036b1eedbac_large.webp",
+    "category": "Handyman",
+    "description": "One hour labour; standard hand tools."
+  },
+  {
+    "id": "HND-002",
+    "name": "1-day handyman",
+    "price": 480,
+    "image": "https://wicklowcarpentry.ie/wp-content/uploads/2025/04/ad0de77c-682d-40d2-990b-7036b1eedbac_large.webp",
+    "category": "Handyman",
+    "description": "One hour labour; standard hand tools."
+  }
+]

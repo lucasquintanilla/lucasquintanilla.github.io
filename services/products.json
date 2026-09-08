@@ -1,30 +1,218 @@
 [
   {
-    "id": "HND-001",
-    "name": "1-hour handyman",
-    "price": 100,
-    "image": "https://wicklowcarpentry.ie/wp-content/uploads/2025/04/ad0de77c-682d-40d2-990b-7036b1eedbac_large.webp",
-    "category": "Handyman",
-    "description": "One hour labour; standard hand tools.",
-    "allergens": [
-      "Wheat",
-      "Dairy"
-    ],
-    "calories": 300,
-    "preparationTime": "10-15 min"
+    "id": "ea387b0c-0289-4065-a4e1-93276e425fc4",
+    "name": "House cleaning + free windows",
+    "price": 64.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/CleaningWindows.jpeg",
+    "category": "Cleaning",
+    "description": "Book a home cleaning and get a free window cleaning. The perfect combination to have everything cleaned at once."
   },
   {
-    "id": "HND-002",
-    "name": "1-day handyman",
-    "price": 480,
-    "image": "https://wicklowcarpentry.ie/wp-content/uploads/2025/04/ad0de77c-682d-40d2-990b-7036b1eedbac_large.webp",
-    "category": "Handyman",
-    "description": "One hour labour; standard hand tools.",
-    "allergens": [
-      "Wheat",
-      "Dairy"
-    ],
-    "calories": 300,
-    "preparationTime": "10-15 min"
+    "id": "a36715ca-c2c3-4496-a404-ca9342ca7e0c",
+    "name": "Replace bathroom faucet (Energy efficiency)",
+    "price": 39.5,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/Replace_bath_faucet_Large.jpeg",
+    "category": "Energy efficiency",
+    "description": "Professional replacement of energy-efficient bathroom faucets, reducing water usage and costs."
+  },
+  {
+    "id": "79f3ecf0-8118-44e0-a600-238fd1cc7416",
+    "name": "Window cleaning",
+    "price": 24.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/window_cleaning_.jpeg",
+    "category": "Cleaning",
+    "description": "Dirty windows? Leave the window and frame cleaning to us."
+  },
+  {
+    "id": "3fb78afc-a097-48bd-8416-5cb9fab3272d",
+    "name": "Install shower cabin",
+    "price": 159.5,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/install_shower_cabin_800.jpeg",
+    "category": "Installation",
+    "description": "Expert installation of shower cabins, modernizing your bathroom with style and functionality."
+  },
+  {
+    "id": "34ffff3e-4485-45ea-871d-5ac1c055eff8",
+    "name": "Wash, dry and fold clothes at home",
+    "price": 10.5,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/wash_dry_fold_clothes_at_home.jpeg",
+    "category": "Laundry",
+    "description": "Clothes washed, dried and folded in the comfort of your home. Practical, convenient and hassle-free."
+  },
+  {
+    "id": "6fbd5d23-dd08-4e72-a1fd-4f280643c2c1",
+    "name": "Repair shower cabin (Water leak)",
+    "price": 212.5,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/repair_shower_cabin_800.jpeg",
+    "category": "Repair",
+    "description": "Reliable repair for shower cabins, fixing water leaks and restoring a watertight seal."
+  },
+  {
+    "id": "060b2de2-04d0-4380-9499-90cd80309929",
+    "name": "Replace shower (Energy efficiency)",
+    "price": 38.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/replace_shower_cabin_800.jpeg",
+    "category": "Energy efficiency",
+    "description": "Upgrade to an energy-efficient shower, saving water while maintaining comfort and style."
+  },
+  {
+    "id": "124ac708-679f-48fb-a7b1-b2bde035a8dd",
+    "name": "Replace shower column",
+    "price": 47.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/replace_shower_column_800.jpeg",
+    "category": "Maintenance",
+    "description": "Efficient replacement of shower columns, ensuring optimal water flow and a sleek finish."
+  },
+  {
+    "id": "8324eea8-225b-4263-82ef-0042f5559de4",
+    "name": "House cleaning",
+    "price": 29.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/house_cleaning.jpeg",
+    "category": "Cleaning",
+    "description": "Home needs cleaning? We take care of everything: clean floors, made beds and dusted furniture."
+  },
+  {
+    "id": "55acbf74-7eb2-4dc9-9297-9a7f62103e81",
+    "name": "Repair intercom",
+    "price": 58.5,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/repair_intercom_800.jpeg",
+    "category": "Repair",
+    "description": "Expert repair for intercom systems, ensuring clear communication and dependable operation."
+  },
+  {
+    "id": "44aaa459-bf5d-4654-8f59-08b83722382c",
+    "name": "Replace sink faucet (Energy efficiency)",
+    "price": 43.5,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/replace_sink_faucet_energy_efficiency.jpeg",
+    "category": "Energy efficiency",
+    "description": "Professional replacement of energy-efficient sink faucets, combining sustainability and elegance."
+  },
+  {
+    "id": "d12f97b5-bff7-4c29-a8d2-a7e2189b20b8",
+    "name": "Raise Door",
+    "price": 54.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/fix_door_heigth_800.jpeg",
+    "category": "Homefix",
+    "description": "Ensure your door opens and closes smoothly by adjusting its height as needed!"
+  },
+  {
+    "id": "86bc38be-af8d-44d0-babb-6c83d4bf9f7f",
+    "name": "Tile laying",
+    "price": 119.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/install_tiles_800.jpeg",
+    "category": "Homefix",
+    "description": "Refresh your home’s decor with modern tiles for kitchens, bathrooms, walls, and floors."
+  },
+  {
+    "id": "ab74450b-3151-4db5-9b56-f1d66a03c7e7",
+    "name": "Unclog sink",
+    "price": 83.5,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/unclog_sink.jpeg",
+    "category": "Repair",
+    "description": "Clogged sink? We diagnose and unblock it so everything works like before."
+  },
+  {
+    "id": "6cd5dbaf-a1b0-4b0d-9ae6-3c6555f9d414",
+    "name": "Deep house cleaning",
+    "price": 79.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/deep_house_clean_.jpeg",
+    "category": "Cleaning",
+    "description": "Need a deep clean? We do it for you: windows, appliances, doors and more."
+  },
+  {
+    "id": "399cb746-8c52-43b5-adb9-59fc32e0de57",
+    "name": "Replace mailbox lock",
+    "price": 29.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/replace_mailbox_lock.jpeg",
+    "category": "Repair",
+    "description": "Efficient replacement of mailbox locks, ensuring your correspondence stays secure and private."
+  },
+  {
+    "id": "46fc9dd5-61c1-4e5b-ab19-6be723f2dace",
+    "name": "Repair boiler",
+    "price": 63.5,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/repair_boiler.jpeg",
+    "category": "Repair",
+    "description": "Expert boiler repair, ensuring your heating system runs smoothly and efficiently for a warm, comfortable home."
+  },
+  {
+    "id": "c9cd04c7-43ad-481b-87e7-d8abf8b81a9d",
+    "name": "Interior drawers cleaning",
+    "price": 4.5,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/interior_drawers_cleaning.jpeg",
+    "category": "Cleaning",
+    "description": "Professional cleaning of interior drawers, ensuring a fresh and tidy storage space."
+  },
+  {
+    "id": "55cfc4c3-7edb-449e-b861-8bbcf0ad3416",
+    "name": "Mattress cleaning",
+    "price": 44.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/mattress_cleaning_.jpeg",
+    "category": "Cleaning",
+    "description": "Mattress cleaning and sanitisation using an extraction and suction machine."
+  },
+  {
+    "id": "781efc6a-a833-42a4-9733-5d6cd4bcd797",
+    "name": "Sofa cleaning",
+    "price": 39.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/sofa_cleaning_.jpeg",
+    "category": "Cleaning",
+    "description": "Sofa cleaning and sanitization with extraction and suction machine."
+  },
+  {
+    "id": "9a91edbd-659b-4fe4-8c7e-878b4ea1e3cb",
+    "name": "Rug cleaning",
+    "price": 56.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/rug_cleaning_.jpeg",
+    "category": "Cleaning",
+    "description": "Rug cleaning and sanitization with extraction and suction machine."
+  },
+  {
+    "id": "c8c2907b-7f96-4308-84c6-c73f4f828cd6",
+    "name": "Room cleaning",
+    "price": 10.5,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/clean_room.jpeg",
+    "category": "Cleaning",
+    "description": "Reliable room cleaning, keeping your personal space tidy and inviting."
+  },
+  {
+    "id": "52918b7b-ef0b-4473-b570-0b50f50529fb",
+    "name": "Wash, dry and iron clothes at home",
+    "price": 34.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/wash_dry_iron_clothes_at_home.jpeg",
+    "category": "Laundry",
+    "description": "Clothes cleaned, dried and ironed in the comfort of your own home. Practical, convenient and hassle-free."
+  },
+  {
+    "id": "5f08d944-0e9d-4d2e-b9cb-96cd0b9e374b",
+    "name": "Exterior painting",
+    "price": 211.5,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/exterior_painting.jpeg",
+    "category": "Homefix",
+    "description": "Give your home a fresh new look with exterior painting done by professionals."
+  },
+  {
+    "id": "59c9634b-ee17-4ce1-831e-f8b5abaccbd0",
+    "name": "Furniture painting",
+    "price": 158.9,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/furniture_painting.jpeg",
+    "category": "Decoration",
+    "description": "Expert furniture painting, revitalizing and personalizing your pieces with a professional touch."
+  },
+  {
+    "id": "e08df49b-4b23-4cd2-8819-a1d576082b52",
+    "name": "Kitchen cleaning",
+    "price": 15.5,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/clean_kitchen_.jpeg",
+    "category": "Cleaning",
+    "description": "We clean your kitchen with precision and efficiency."
+  },
+  {
+    "id": "da27f883-e9c5-42d7-9748-195068634708",
+    "name": "Interior painting",
+    "price": 71.5,
+    "image": "https://storage.googleapis.com/oscar-storage/task_photo/wall_paint_wall.jpeg",
+    "category": "Homefix",
+    "description": "¿Pintura desgastada? Pintamos para que tu casa quede renovada."
   }
 ]
